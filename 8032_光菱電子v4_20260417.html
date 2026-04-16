@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8032 光菱電子v4 估值報告</title>
+<style>:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #6c757d;
+  --border: #dee2e6;
+  --border-light: #e9ecef;
+  --accent: #0d47a1;
+  --accent-light: #e3f2fd;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --yellow: #f57f17;
+  --yellow-bg: #fff8e1;
+  --link: #1565c0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --bg-card: #1c2128;
+    --text: #e6edf3;
+    --text-secondary: #8b949e;
+    --border: #30363d;
+    --border-light: #21262d;
+    --accent: #58a6ff;
+    --accent-light: #0d1117;
+    --green: #3fb950;
+    --green-bg: #0d2818;
+    --red: #f85149;
+    --red-bg: #3d1214;
+    --yellow: #d29922;
+    --yellow-bg: #2d1f00;
+    --link: #58a6ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+nav a {
+  color: var(--link);
+  text-decoration: none;
+  padding: 4px 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Headings */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--text-secondary);
+}
+
+/* Meta info block */
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Paragraphs & inline */
+p { margin: 0.6rem 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* Lists */
+ul, ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+li { margin: 0.25rem 0; }
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0.75rem 0;
+  background: var(--bg-alt);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+}
+@media (prefers-color-scheme: dark) {
+  thead th { background: #1f3a5f; }
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+tbody tr:hover { background: var(--accent-light); }
+
+/* Inline code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+/* Alert boxes (parsed from special markers) */
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.alert-warn {
+  background: var(--yellow-bg);
+  border-left: 4px solid var(--yellow);
+  color: var(--text);
+}
+.alert-green {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.alert-red {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+
+/* Phase badges */
+.phase-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Verdict section */
+.verdict {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+.verdict h3 { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Index page ─── */
+.report-list { list-style: none; padding: 0; }
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.report-item:hover { background: var(--bg-alt); }
+.report-item .code {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  min-width: 50px;
+}
+.report-item .company {
+  font-weight: 500;
+  flex: 1;
+}
+.report-item .date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.stats {
+  display: flex;
+  gap: 16px;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.stats span {
+  background: var(--bg-alt);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px 10px 30px; font-size: 0.95rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  table { font-size: 0.8rem; }
+  td, th { padding: 5px 8px; }
+  .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
+  .report-item .date { width: 100%; }
+}
+</style>
+</head>
+<body>
+<nav><a href="index.html">&larr; 回報告列表</a></nav>
+<h1>8032 光菱電子v4 估值報告</h1>
+<div class="meta">報告日期：2026-04-17 &nbsp;|&nbsp; 代碼：8032 &nbsp;|&nbsp; 公司：光菱電子v4</div>
+<h1>8032 光菱電子 估值報告（v4）</h1>
+<blockquote>
+<p>產生日期：2026-04-17
+Anchor Lock 基準日：2026-03-31（價格 36.75 截至 2026-04-16）
+質化結構等級：C（48/100 分）
+一年後結構情境：維持（淨小幅正面但結構性逆風並存）
+收斂輪次：第 1 輪收斂</p>
+</blockquote>
+<hr />
+<h2>Phase A：Core Build</h2>
+<h3>A.1 Data Integrity &amp; Target Type Guard</h3>
+<p><strong>A.1.1 Anchor Lock 取得</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>數值</th>
+<th>來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current Price</td>
+<td>36.75（2026-04-16）</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>資料基準日</td>
+<td>2026-03-31</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>近四季 EPS（含 TTM）</td>
+<td>0.49 / -0.02 / 0.99 / 0.74（TTM 2.20）</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>近 6 月營收 YoY</td>
+<td>+26.2% ~ +62.3%（2026-04 達 +48.3%）</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>毛利率 / 營益率 / 淨利率</td>
+<td>12.9% / 4.0% / 3.7%</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>PE / PB / 殖利率</td>
+<td>16.8x / 0.86x / 3.27%</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>近四季 ROE</td>
+<td>1.1% / -0.1% / 2.3% / 1.7%</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>市值 / 股本</td>
+<td>19.0 億 / 5.2 億</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>2025 全年自結 EPS</td>
+<td>2.19（與 TTM 2.20 一致）</td>
+<td>[S1]</td>
+</tr>
+</tbody>
+</table></div>
+<p>✓ 核心數據未超過 6 個月；無資料過時警告。
+⚠️ 2025 Q2 EPS -0.02 為新台幣急升匯損所致（[S3]），TTM EPS 基期被壓低。</p>
+<p><strong>A.1.2 標的類型前置檢查</strong></p>
+<ul>
+<li>上櫃普通股（TPEx 8032），非 ETF / REITs / TDR / 特別股 / KY / 警示股</li>
+<li>1987 成立、2003 上櫃，註冊汐止</li>
+<li>→ 一般普通股，正常進入 A.2</li>
+</ul>
+<hr />
+<h3>A.2 Qualitative Structure Scoring（核心）</h3>
+<h4>A.2.1 五力結構評分（消費 [Q1]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">力</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">供應商議價力</td>
+<td style="text-align: center;">強（Renesas 整併期、原廠話語權升）</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">買方議價力</td>
+<td style="text-align: center;">中（中小工控客戶為主，特應用 IC Design-in 黏性）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">新進入者威脅</td>
+<td style="text-align: center;">弱（代理權壁壘、3-5 年認證）</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">替代品威脅</td>
+<td style="text-align: center;">中（TI 直銷模式未擴散；Digikey 影響有限）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">現有競爭強度</td>
+<td style="text-align: center;">強（文曄併 Future、龍頭規模碾壓）</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>13 / 25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.2 護城河強度評分（消費 [Q2]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">類型</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">可持續性</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">規模經濟</td>
+<td style="text-align: center;">無（市值僅龍頭 1/130）</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">網絡效應</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">轉換成本（Design-in 黏性）</td>
+<td style="text-align: center;">中(3)</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">無形資產（日系代理線）</td>
+<td style="text-align: center;">中偏強(4)</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">成本優勢</td>
+<td style="text-align: center;">弱(1)</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">監管壁壘</td>
+<td style="text-align: center;">弱(1)</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>9 / 30</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.3 產業鏈位置評分（消費 [Q3]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">判定</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">上游 pass-through</td>
+<td style="text-align: center;">偏弱（[Q3.1] 法說承認部分客戶要求降價）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">中游門檻（FAE）</td>
+<td style="text-align: center;">中（5-10 年累積，數十人 vs 龍頭數百人）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">客戶集中度（分散=高分）</td>
+<td style="text-align: center;">分散（產品線廣、應用 7 大類）</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">地緣曝險（低=高分）</td>
+<td style="text-align: center;">中（兩岸+中美關稅，已用三角貿易因應）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>13 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.4 生命週期與結構性變化加成（消費 [Q4]）</h4>
+<ul>
+<li>產業生命週期：<strong>成熟期偏結構分化</strong>（CR5 提升、整併期）→ <strong>0</strong></li>
+<li>結構性變化淨方向：<strong>淨小幅正面</strong>（車用 2H26 復甦 + 第三代半導體題材 vs 龍頭擠壓）→ <strong>+1</strong></li>
+<li><strong>加成合計：+1</strong></li>
+</ul>
+<h4>A.2.5 管理層品質評分（消費 [Q6]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">經營層 track record（[Q6.1]，泛東元黃育仁陣營，無重大失誤亦無亮點）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">資本配置紀律（[Q6.2]，27 年連發股利、無業務併購、達方策略持股集中）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會透明度（[Q6.3]，無自辦法說會、無 guidance、外資 0.79%）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">內部人動向（[Q6.4]，質押 0%、近 3 年無重大賣壓）</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"><strong>12 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.6 綜合質化結構等級</h4>
+<p><strong>綜合分數 = 13 + 9 + 13 + 12 + 1 = 48 / 100</strong></p>
+<p>⭐ <strong>質化結構等級：C（中）— 結構中性、護城河窄、管理中性偏保守</strong></p>
+<p>意涵：日系 Design-in 黏性 + ANJET SiC 自有品牌構成窄護城河，但規模劣勢與 ROE 結構性偏低（TTM ~2.3%）使其長期估值受限。</p>
+<hr />
+<h3>A.3 Peer Benchmarking</h3>
+<p><strong>同業名單</strong>（[S4.2]）：敦吉 2459、增你強 3028、威健 3033、益登 3048、日電貿 3090（5 家小型/中型 IC 通路）。
+<strong>特殊情境</strong>：同業 ≥3 家、業務重疊度高、無虧損股。豁免條件未觸發。</p>
+<p><strong>PE 區間（[S4.5]）：</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">統計</th>
+<th style="text-align: center;">PE(TTM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">P25</td>
+<td style="text-align: center;"><strong>8.48x</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">P50（中位數）</td>
+<td style="text-align: center;"><strong>12.27x</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">P75</td>
+<td style="text-align: center;"><strong>12.33x</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>註：日電貿（20.82x）為日系被動元件異質高 PE，已在 P75 內被涵蓋；排除後 P25/P50/P75 = 8.08 / 10.38 / 12.30，與含日電貿差距小，採用完整 5 家版本作主參考。</p>
+</blockquote>
+<p>光菱目前 PE(TTM) 16.8x <strong>高於同業 P75</strong>，PB 0.86x <strong>低於同業 1.0~2.5x 區間</strong>——「PE 貴、PB 便宜」矛盾組合，反映 TTM EPS 受 2025 Q2 匯損壓低 + 結構性 ROE 偏低的雙重訂價。</p>
+<hr />
+<h3>A.4 Model Selection</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">判定</th>
+<th style="text-align: left;">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">主類型</td>
+<td style="text-align: left;"><strong>Type A（穩定通路 / 中度成長）</strong> — 主模型 <strong>Forward PE</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">次特徵</td>
+<td style="text-align: left;">帶 <strong>B1 弱循環</strong>特徵（EPS 區間 1.18~3.54、含匯率敏感）→ Phase E 須以 mid-cycle 思維交叉驗證</td>
+</tr>
+<tr>
+<td style="text-align: left;">交叉驗證</td>
+<td style="text-align: left;"><strong>TSY（殖利率 3.27% + 27 年連配）</strong> 作 Sanity 下檔</td>
+</tr>
+<tr>
+<td style="text-align: left;">排除模型</td>
+<td style="text-align: left;">EV/EBITDA（通路業營益率薄、EBITDA 訊號弱）、SOTP（無重大轉型）、PS（非虧損）</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ 若 Forward EPS 偏離 mid-cycle 中位數 &gt;25%，Base 倍數須向 P25 收斂（C 級 + 循環特徵）。</p>
+<hr />
+<h3>A.5 三情境目標價（Forward 12M）</h3>
+<h4>Step A — 參數設定</h4>
+<p><strong>驅動因素 / 隱含假設 / 歷史佐證：</strong>
+- 月營收：近 6 月 YoY 平均 +40.8%，2026-04 達 +48.3% → 2026 全年營收驅動：①資料中心散熱+水泵新獨立類別 ②光通訊樣品轉訂單 ③車用 Mitsubishi 功率回溫（[S5.2]）
+- 毛利率：2025 H1 達 14.6%（含 5,888 萬存貨回轉），TTM 12.9% 反映回轉認列完畢；2026 經營性毛利合理區間 12~14%
+- 業外：2025 H2 已啟動遠期外匯避險（[S3]），匯損風險顯著降低；達方持股 27.30%（帳面 3.13 億）公允價值波動為隱性變數
+- 歷史佐證：2024 EPS 2.15、2025 EPS 2.19、2022 高峰 3.54</p>
+<p><strong>循環特徵處理：</strong> 雖屬 Type A 為主，但 EPS 過去 5 年區間 1.18~3.54，須以「2026 復甦年 EPS 估算」並對 Bull 倍數設限。</p>
+<p><strong>股本基礎：</strong> 5.2 億元 = 52,000 千股</p>
+<h4>Step B — 倍數選擇（C 級 + 結構小幅正面）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">質化等級</th>
+<th style="text-align: center;">Bull 倍數規則</th>
+<th style="text-align: center;">Base 倍數規則</th>
+<th style="text-align: center;">Bear 倍數規則</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;">P50~P75</td>
+<td style="text-align: center;">P25~P50（結構正面 → 偏 P50 上緣）</td>
+<td style="text-align: center;">P25 以下</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>本案採用：</strong> Bull 12.3x（P75）/ Base 12.0x（P50 上緣，因 Q4.2 結構淨正面）/ Bear 8.5x（P25 附近）</p>
+<h4>Step C — Re-rating / De-rating 檢測</h4>
+<ul>
+<li><strong>向上重估訊號：</strong> [Q4.2] 車用 2H26 復甦 + ANJET SiC 自有品牌 + 資料中心散熱新動能 → Base 倍數可貼近 P50 上緣（12.0x）</li>
+<li><strong>向下重估訊號：</strong> [Q1] 文曄/大聯大綜效擠壓 + Renesas 整併重組風險 → Bull 倍數<strong>不</strong>超出同業 P75（12.3x），不啟動 P75 以上溢價</li>
+</ul>
+<h4>Step D — 三情境目標價</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">Forward 12M EPS 推導</th>
+<th style="text-align: center;">EPS</th>
+<th style="text-align: center;">倍數</th>
+<th style="text-align: center;">目標價</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 <strong>Bull</strong></td>
+<td style="text-align: left;">營收 YoY +35%（保守於近 6 月平均）≈ 51 億；淨利率回升 4.5%（避險奏效+資料中心高毛利占比升）；淨利 2.30 億</td>
+<td style="text-align: center;"><strong>3.80</strong></td>
+<td style="text-align: center;">12.3x</td>
+<td style="text-align: center;"><strong>46.7</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 <strong>Base</strong></td>
+<td style="text-align: left;">營收 YoY +25%（去消費電子記憶體拖累+車用 H2 復甦）≈ 47 億；淨利率 4.0%（匯損中性化）；淨利 1.88 億</td>
+<td style="text-align: center;"><strong>3.00</strong></td>
+<td style="text-align: center;">12.0x</td>
+<td style="text-align: center;"><strong>36.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 <strong>Bear</strong></td>
+<td style="text-align: left;">營收 YoY +10%（車用復甦延遲+消費電子受抑）≈ 41 億；淨利率 3.5%（部分匯損殘留）；淨利 1.43 億</td>
+<td style="text-align: center;"><strong>2.10</strong></td>
+<td style="text-align: center;">8.5x</td>
+<td style="text-align: center;"><strong>17.9</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ Bull 隱含淨利率 4.5% 仍低於同業日電貿水準，未超出 [Q5] 的歷史合理上限。
+⚠️ Base 36.0 與現價 36.75 接近，反映市場已部分提前反映 Forward EPS 復甦預期。</p>
+<hr />
+<h2>Phase B：Expansion</h2>
+<h3>B.1 總經環境（[S5.1]）</h3>
+<ul>
+<li><strong>台灣央行利率 2.00%</strong>（連 7 凍）：資金成本穩定；2026 GDP +3.67% / CPI +1.63% → 內需通膨可控、利率環境中性</li>
+<li><strong>USD/TWD：</strong> 2025 Q2 急升前車之鑑，光菱已啟動遠匯避險；大聯大 2026 Q1 採 31.5 假設 → 對光菱中性偏正</li>
+<li><strong>WSTS 2026 全球半導體 +25.6%（$975.5B）：</strong> 整體強勁，但邏輯/記憶體領跑、類比/MPU/感測器溫和——光菱主力產品（特應用 IC + 分離式）落在溫和段</li>
+<li><strong>SEMI 設備 2026 +9%：</strong> 上游資本支出穩定，間接利於日系原廠（光菱代理線）</li>
+</ul>
+<h3>B.2 景氣循環定位（[S5.2]）</h3>
+<p><strong>通路業位於「復甦/擴張初期」：</strong>
+- DIO 從 132 天降至 86 天 → 庫存去化完成 = 典型復甦訊號
+- 月營收 YoY 連 6 月 +26~62% → 強復甦動能
+- 但車用半導體尚未完全復甦、消費電子受記憶體缺貨拖累 → 未進入擴張期中段
+- <strong>下個轉折點：2026 H2 進入擴張期中段；2027 潛在過熱/修正風險</strong></p>
+<h3>B.3 催化劑日曆（未來 12 個月）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">時間</th>
+<th style="text-align: left;">催化劑</th>
+<th style="text-align: center;">影響</th>
+<th style="text-align: center;">重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026/05 中旬</td>
+<td style="text-align: left;">2026 Q1 財報（驗證匯損避險成效 + 復甦動能）</td>
+<td style="text-align: center;">正/負</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/06</td>
+<td style="text-align: left;">股東會 + 公告 1.20 元現金股利 + 2024 年報揭露</td>
+<td style="text-align: center;">正</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 Q2-Q3</td>
+<td style="text-align: left;">車用半導體庫存去化完成（Renesas/Mitsubishi 復甦）</td>
+<td style="text-align: center;">正</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/08</td>
+<td style="text-align: left;">除息（預估 1.20 元）+ 2025 正式財報</td>
+<td style="text-align: center;">中性</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/09</td>
+<td style="text-align: left;">2026 H1 半年報（驗證避險全年成效）</td>
+<td style="text-align: center;">正/負</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/03-04</td>
+<td style="text-align: left;">2026 全年自結 EPS 公告</td>
+<td style="text-align: center;">正/負</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">持續</td>
+<td style="text-align: left;">Renesas 代理架構重組風險</td>
+<td style="text-align: center;">負</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">持續</td>
+<td style="text-align: left;">中美關稅政策變動</td>
+<td style="text-align: center;">負</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B.4 Governance &amp; Structural Risk</h3>
+<ol>
+<li><strong>股權治理（[S7.1]）：</strong></li>
+<li>董監合計持股 ~48.4%（菱光 19.29% + 東友 19.07% + 達方 11.30% + 呂全福 10.05%）</li>
+<li><strong>質押比 0% ✓</strong> 強訊號</li>
+<li>集團三角持股「光菱-菱光-東友-達方」為黃育仁陣營堡壘，2024 改選後爭議平息</li>
+<li>簽證會計師為 Deloitte（四大）✓</li>
+<li>公司治理評鑑第 11 屆位於 21~35% 級距（中段）</li>
+<li>
+<p><strong>外資 0.79% 極低 → 「孤兒股」折價結構性存在</strong></p>
+</li>
+<li>
+<p><strong>財務結構風險（[S7.2]）：</strong></p>
+</li>
+<li>詳細負債/流動比 N/A，但通路業金融負債通常不重</li>
+<li><strong>匯率曝險高</strong>（JPY+USD 雙幣應付）→ 2025 H2 已避險</li>
+<li><strong>達方持股 27.30%（帳面 3.13 億）為隱性淨值風險</strong> ⚠️</li>
+<li>
+<p>關係人交易金額小，2025/11 補正案件 &lt;1,000 仟元/月</p>
+</li>
+<li>
+<p><strong>KY 風險：</strong> 不適用（非 KY 股）</p>
+</li>
+</ol>
+<h3>B.5 一年後產業結構三情境（核心）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">五力變化</th>
+<th style="text-align: left;">護城河變化</th>
+<th style="text-align: left;">結構性變化</th>
+<th style="text-align: left;">對光菱影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 結構改善</td>
+<td style="text-align: left;">替代品威脅進一步降低、TI 模式未擴散</td>
+<td style="text-align: left;">日系代理線維持 + ANJET SiC 站穩</td>
+<td style="text-align: left;">車用 2H26 全面復甦 + 資料中心類別放大</td>
+<td style="text-align: left;">毛利擴大、市占微升</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 結構維持</td>
+<td style="text-align: left;">五力持平</td>
+<td style="text-align: left;">護城河不變</td>
+<td style="text-align: left;">結構淨小幅正面（車用復甦 vs 龍頭擠壓平衡）</td>
+<td style="text-align: left;">維持現狀、EPS 回到 3.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 結構惡化</td>
+<td style="text-align: left;">Renesas 重組削減代理產線 + 文曄/大聯大下沉中小客戶</td>
+<td style="text-align: left;">日系代理線部分流失</td>
+<td style="text-align: left;">消費電子持續受記憶體缺貨壓抑 + 達方持股減損</td>
+<td style="text-align: left;">市占侵蝕、ROE 持續低位</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>結構情境判定：維持（淨小幅正面）</strong>
+<strong>關鍵驅動：</strong> 車用 2H26 復甦 vs Renesas 整併不確定性互抵；資料中心散熱新類別為 +0.5pp 動能。</p>
+<h3>B.6 機率分配</h3>
+<p>依「C 級 × 結構維持」對應表：Base 40~45% / Bull 15~20% / Bear 35~40%
+但結構為<strong>淨小幅正面</strong>（介於維持與改善之間）→ Bear 適度下修、Base 上修。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">機率</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">46.7</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">11.68</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">36.0</td>
+<td style="text-align: center;">45%</td>
+<td style="text-align: center;">16.20</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">17.9</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">5.37</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>期望目標價</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><strong>33.25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>期望報酬率 = (33.25 - 36.75) / 36.75 = -9.5%</strong></li>
+</ul>
+<hr />
+<h2>Phase C：Verification</h2>
+<h3>C.1 數據來源檢查</h3>
+<p>✔ 所有數據引用 [S0]~[S7] 或標示假設（如 Forward EPS 推導）
+✔ Forward EPS 三情境的營收 YoY、淨利率、股本基礎全揭露</p>
+<h3>C.2 邏輯矛盾檢查</h3>
+<p>✔ 質化 C 級 → Bull 倍數 12.3x（P75 上限）、Base 12.0x（P50 上緣，因結構正面）、Bear 8.5x（P25 附近）→ 一致
+✔ 機率 Bull 25%/Base 45%/Bear 30% 對應 C 級 + 結構淨小幅正面 → 一致</p>
+<h3>C.3 Sanity 七項</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">檢核</th>
+<th style="text-align: left;">結論</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">時間錯亂</td>
+<td style="text-align: left;">EPS 為 Forward 12M（2026 全年推算），非歷史</td>
+<td style="text-align: left;">✓</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">淨利率天花板</td>
+<td style="text-align: left;">Bull 隱含淨利率 4.5% &lt; 同業 P75（日電貿 ~6%）</td>
+<td style="text-align: left;">✓</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">市值天花板</td>
+<td style="text-align: left;">Bull 目標 46.7 × 5,200 萬股 = 24.3 億，仍遠低於敦吉 71.59 億</td>
+<td style="text-align: left;">✓</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">歷史極值</td>
+<td style="text-align: left;">Bull 46.7 vs 5 年高點（2022 約 50 元）× 1.5 = 75 → 未觸</td>
+<td style="text-align: left;">✓</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">成長率合理性</td>
+<td style="text-align: left;">Bull EPS 3.80 vs 2025 EPS 2.19 = +73%，2022 曾達 3.54，2024 從 1.18 → 2.15 達 +82% 有歷史先例</td>
+<td style="text-align: left;">✓</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">主/次模型偏差</td>
+<td style="text-align: left;">TSY 交叉：殖利率 3.27%（合理），與 Forward PE 結論一致</td>
+<td style="text-align: left;">✓</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">質化-估值匹配</td>
+<td style="text-align: left;">C 級未配 P75 以上，Base 未超出 P50（結構正面豁免上緣 P50）</td>
+<td style="text-align: left;">✓</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ Sanity #10 補註：2026 EPS 從 2.19 → 3.00（Base，+37%）為基期匯損消除 + 復甦驅動，非自然成長率，須以 mid-cycle 視角看待。</p>
+<hr />
+<h2>Phase D：Kill Thesis（反向）</h2>
+<h3>D.1 致命風險 Top 3</h3>
+<ol>
+<li><strong>Renesas 重組削減光菱代理產線</strong>：Renesas 2024 收購 Transphorm/Altium、2025 擬售 Timing 事業，整併期可能要求 FAE 升級或重新分配代理；光菱非 Renesas 台灣首選代理（敦吉才是），潛在被縮減產線風險。</li>
+<li><strong>新台幣再次急升 + 避險缺口</strong>：2025 Q2 匯損 5,021 萬重演；雖 2025 H2 啟動遠匯避險，但避險覆蓋率與成本未公開揭露。</li>
+<li><strong>達方電子（27.30% 持股）股價重挫</strong>：帳面 3.13 億，若達方因鍵盤/伺服器市場回檔導致股價 -30%，對光菱淨值衝擊 ~9,400 萬，影響 EPS ~1.8 元（一次性，但市場視為 Quality 指標）。</li>
+</ol>
+<h3>D.2 Break Point</h3>
+<ul>
+<li>月營收 YoY 從 +30%~+48% 落至 <strong>&lt;+10%</strong>（連 2 月）→ 復甦熄火訊號</li>
+<li>毛利率 &lt; <strong>11.5%</strong>（vs TTM 12.9%）→ 原廠擠壓兌現</li>
+<li>單季匯損 &gt; <strong>NT$ 4,000 萬</strong>（vs 2025 Q2 的 5,021 萬）→ 避險失效</li>
+<li>達方電子單季股價 <strong>-25%</strong> → 觸發淨值聯動風險</li>
+<li>大聯大/文曄正式公告承接 Renesas 部分產線</li>
+</ul>
+<h3>D.3 最可能錯的假設</h3>
+<p><strong>「2026 全年淨利率回到 4.0%（Base）」最脆弱</strong>——因：
+- 避險成本未揭露，可能侵蝕 0.3~0.5pp
+- 龍頭下沉中小客戶若兌現，毛利壓 0.5~1.0pp
+- 達方持股公允價值入綜合損益（不入 EPS 但入淨值）
+若實際淨利率 3.5%，Base EPS 降至 2.6，Base 目標價降至 31.2，期望目標價降至 ~30.4，期望報酬 -17%。</p>
+<h3>D.4 信心反轉應對</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號觸發</th>
+<th style="text-align: left;">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026 Q1 EPS &lt; 0.55（年化 &lt; 2.2，無復甦）</td>
+<td style="text-align: left;">評等下調至「減碼」、目標價下修 15%</td>
+</tr>
+<tr>
+<td style="text-align: left;">月營收連 2 月 YoY &lt; +10%</td>
+<td style="text-align: left;">Base 機率 45% → 35%；Bear 機率 30% → 40%</td>
+</tr>
+<tr>
+<td style="text-align: left;">公告 Renesas 代理線縮減</td>
+<td style="text-align: left;">質化等級 C → D；目標價下修 25%</td>
+</tr>
+<tr>
+<td style="text-align: left;">達方股價重挫 -25%</td>
+<td style="text-align: left;">風險加註，目標價暫不調但 Confidence 下調</td>
+</tr>
+</tbody>
+</table></div>
+<h3>D.5 質化面 Break Point（核心）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號類型</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: center;">觸發閾值</th>
+<th style="text-align: left;">等級影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">代理線洗牌</td>
+<td style="text-align: left;">[Q2] Renesas 公告台灣代理重組</td>
+<td style="text-align: center;">任一公告</td>
+<td style="text-align: left;">等級 C → D</td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河破損</td>
+<td style="text-align: left;">[Q3.3] 連 2 季工控/車用客戶營收 -20%</td>
+<td style="text-align: center;">連 2 季</td>
+<td style="text-align: left;">等級 C → D</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">[Q6.1] 廖順榮 / 陳建龍 / 帥緒廷離任</td>
+<td style="text-align: center;">任一</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會跳票</td>
+<td style="text-align: left;">[Q6.3] 2026 Q1 法說提供 guidance 後跳票</td>
+<td style="text-align: center;">連 2 季跳票</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">達方持股策略變動</td>
+<td style="text-align: left;">[S7.5] 27.30% 持股出售或處分</td>
+<td style="text-align: center;">公告即時</td>
+<td style="text-align: left;">重新評估淨值 + 質化評分</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase E：Convergence Check（內部，第 1 輪）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">指標</th>
+<th style="text-align: center;">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Base 目標價變動 vs 初版</td>
+<td style="text-align: center;">&lt; ±5%</td>
+</tr>
+<tr>
+<td style="text-align: left;">機率分配變動</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">質化等級變動</td>
+<td style="text-align: center;">無</td>
+</tr>
+<tr>
+<td style="text-align: left;">新增致命風險</td>
+<td style="text-align: center;">無</td>
+</tr>
+<tr>
+<td style="text-align: left;">未解釋矛盾</td>
+<td style="text-align: center;">無</td>
+</tr>
+</tbody>
+</table></div>
+<p>✔ <strong>第 1 輪即收斂，進入 Phase F</strong></p>
+<hr />
+<h2>Phase F：Final Output（決策儀表板）</h2>
+<h3>F.1 分析摘要</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Data Source</td>
+<td style="text-align: left;">[S0~S8] + [Q1~Q6]（基於 Anchor Lock 基準日 2026-03-31）</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Category</td>
+<td style="text-align: left;"><strong>循環弱+成熟通路</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">產業類別</td>
+<td style="text-align: left;">TPEx 電子通路業（小型日系特應用 IC 利基代理）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">⭐ <strong>質化結構等級</strong></td>
+<td style="text-align: left;"><strong>C（48 / 100 分）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">⭐ <strong>一年後結構情境</strong></td>
+<td style="text-align: left;"><strong>維持（淨小幅正面）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Theme Exposure</td>
+<td style="text-align: left;"><strong>低</strong> — 主題：第三代半導體 SiC（ANJET 自有品牌）、AI 資料中心散熱（間接受惠）</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Model Used</td>
+<td style="text-align: left;"><strong>Forward PE</strong> 主，<strong>TSY 殖利率</strong> 副</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Peer PE Range (P25~P75)</td>
+<td style="text-align: left;"><strong>8.48x ~ 12.33x</strong>（5 家小型/中型 IC 通路）</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Cycle Position</td>
+<td style="text-align: left;"><strong>復甦 / 擴張初期</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">收斂輪次</td>
+<td style="text-align: left;">第 1 輪即收斂</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.2 質化亮點與隱憂（核心增量）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">具體內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">🟢 <strong>最強質化亮點</strong></td>
+<td style="text-align: left;"><strong>[Q2/Q5] 日系特應用 IC Design-in 黏性 + 自有品牌 ANJET SiC：</strong> 特應用 IC 佔營收 58%，工控/車用客戶 5-10 年關係，料號切換週期 1-2 年；ANJET SiC（650V/1200V）為同業少見自有品牌，差異化貢獻雖小但提供題材防禦。</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">🟢 次強質化亮點</td>
+<td style="text-align: left;"><strong>[Q5] 存貨 DIO 已從 132 天降至 86 天（2025 H1）：</strong> 庫存去化完成是復甦循環的典型訊號，與月營收 YoY 連 6 月 +26~62% 互相印證，2026 經營性毛利結構已進入正常區間。</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">🔴 <strong>最大質化隱憂</strong></td>
+<td style="text-align: left;"><strong>[Q1/Q4.2] Renesas 整併期代理架構重組風險：</strong> Renesas 2024 收購 Transphorm/Altium、2025 擬售 Timing 事業，光菱規模小（市值僅龍頭 1/130）且非 Renesas 台灣首選代理（敦吉才是），1 年內若發生產線重新分配，光菱結構性受損且難以對沖。</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">🔴 次大質化隱憂</td>
+<td style="text-align: left;"><strong>[S7.5] 達方電子 27.30% 持股（帳面 3.13 億）為隱性淨值風險：</strong> 達方股價變動直接影響光菱綜合損益與淨值，市場視為 Quality 拖累項目，部分解釋 PB 0.86x 折價。</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">🟡 <strong>1 年後最關鍵觀察點</strong></td>
+<td style="text-align: left;"><strong>[Q4.2] 車用半導體 2H26 復甦兌現度：</strong> Mitsubishi 功率（分離式 30%）+ Renesas MCU（7%）合計 37% 營收押在 2H26 車用復甦上；UBS 預估全年 mid-teens 成長若兌現 → Base 達標；若延後至 2027 → 觸發向 Bear 滑移。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.3 目標價三情境表</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">隱含倍數</th>
+<th style="text-align: center;">漲跌幅</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>46.7</strong></td>
+<td style="text-align: center;">12.3x（P75）</td>
+<td style="text-align: center;"><strong>+27.1%</strong></td>
+<td style="text-align: center;"><strong>25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>36.0</strong></td>
+<td style="text-align: center;">12.0x（P50 上緣）</td>
+<td style="text-align: center;"><strong>-2.0%</strong></td>
+<td style="text-align: center;"><strong>45%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>17.9</strong></td>
+<td style="text-align: center;">8.5x（P25 附近）</td>
+<td style="text-align: center;"><strong>-51.3%</strong></td>
+<td style="text-align: center;"><strong>30%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.4 風險報酬指標</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>期望目標價（機率加權）</strong></td>
+<td style="text-align: left;"><strong>33.25 元</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;"><strong>Expected Return</strong></td>
+<td style="text-align: left;"><strong>-9.5%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Upside (Base / Bull)</td>
+<td style="text-align: left;">-2.0% / +27.1%</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">Downside (Bear)</td>
+<td style="text-align: left;"><strong>-51.3%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;"><strong>RR Ratio</strong></td>
+<td style="text-align: left;">(Bull 上漲 27.1%) / (Bear 下跌 51.3%) ≈ <strong>0.53</strong>（<strong>&lt; 2.0，不達積極買進門檻</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;"><strong>Top Risk + Break Point</strong></td>
+<td style="text-align: left;">Renesas 代理線重組（任一公告即觸發 C → D 降階）</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">⭐ <strong>質化面監測訊號 Top 2</strong></td>
+<td style="text-align: left;">① [Q4.2] 2026 Q2-Q3 Renesas/Infineon/NXP 法說車用 guidance；② [S7.5] 達方電子單季股價變動（聯動光菱淨值）</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;"><strong>Total Return（含息）</strong></td>
+<td style="text-align: left;">期望 -9.5% + 預估殖利率 3.27% ≈ <strong>-6.2%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Analyst Verdict</h2>
+<ul>
+<li><strong>Recommendation：觀望</strong></li>
+<li><strong>Confidence：中</strong></li>
+<li>質化 C 級不得為「高」✓</li>
+<li>第 1 輪收斂、無新增致命風險 → 不為「低」</li>
+<li>主因：估值已部分反映 Forward EPS 復甦、Bear 情境跌幅大（-51%）但機率僅 30%、復甦動能與龍頭擠壓並存</li>
+<li><strong>One-line Thesis：</strong> 光菱 2026 Q2 起進入車用復甦 + 匯損消除的雙引擎週期，但小規模 + Renesas 重組懸念使其 Forward PE 12x 已是合理上限，現價 36.75 已反映 Base 情境下緣，<strong>短期上行空間有限、下行風險顯著</strong>。</li>
+<li><strong>Stop Loss Rule：</strong></li>
+<li>價位：跌破 <strong>30 元</strong>（Bear 17.9 與 Base 36 的 25% 分位）→ 減碼 50%</li>
+<li>跌破 <strong>22 元</strong>（接近 Bear 上緣）→ 全數出場</li>
+<li><strong>質化觸發：</strong> D.5 任一訊號（Renesas 重組 / 客戶連 2 季 -20% / 管理層異動 / 達方處分）即重評為「減碼」</li>
+<li><strong>條件式買進觸發：</strong></li>
+<li>跌至 <strong>28 元以下</strong>（Forward PE &lt; 9.3x，接近同業 P25）且 2026 Q1 EPS ≥ 0.65 → 可分批小額試單（單筆 ≤總部位 5%）</li>
+<li>公告 Renesas 加碼新產線代理 → 質化 C → B 升階，重評為「買進」</li>
+</ul>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-17 05:46</div>
+</body>
+</html>
