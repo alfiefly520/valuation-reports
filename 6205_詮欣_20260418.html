@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6205 詮欣 估值報告</title>
+<style>:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #6c757d;
+  --border: #dee2e6;
+  --border-light: #e9ecef;
+  --accent: #0d47a1;
+  --accent-light: #e3f2fd;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --yellow: #f57f17;
+  --yellow-bg: #fff8e1;
+  --link: #1565c0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --bg-card: #1c2128;
+    --text: #e6edf3;
+    --text-secondary: #8b949e;
+    --border: #30363d;
+    --border-light: #21262d;
+    --accent: #58a6ff;
+    --accent-light: #0d1117;
+    --green: #3fb950;
+    --green-bg: #0d2818;
+    --red: #f85149;
+    --red-bg: #3d1214;
+    --yellow: #d29922;
+    --yellow-bg: #2d1f00;
+    --link: #58a6ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+nav a {
+  color: var(--link);
+  text-decoration: none;
+  padding: 4px 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Headings */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--text-secondary);
+}
+
+/* Meta info block */
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Paragraphs & inline */
+p { margin: 0.6rem 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* Lists */
+ul, ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+li { margin: 0.25rem 0; }
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0.75rem 0;
+  background: var(--bg-alt);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+}
+@media (prefers-color-scheme: dark) {
+  thead th { background: #1f3a5f; }
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+tbody tr:hover { background: var(--accent-light); }
+
+/* Inline code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+/* Alert boxes (parsed from special markers) */
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.alert-warn {
+  background: var(--yellow-bg);
+  border-left: 4px solid var(--yellow);
+  color: var(--text);
+}
+.alert-green {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.alert-red {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+
+/* Phase badges */
+.phase-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Verdict section */
+.verdict {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+.verdict h3 { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Index page ─── */
+.report-list { list-style: none; padding: 0; }
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.report-item:hover { background: var(--bg-alt); }
+.report-item .code {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  min-width: 50px;
+}
+.report-item .company {
+  font-weight: 500;
+  flex: 1;
+}
+.report-item .date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.stats {
+  display: flex;
+  gap: 16px;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.stats span {
+  background: var(--bg-alt);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px 10px 30px; font-size: 0.95rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  table { font-size: 0.8rem; }
+  td, th { padding: 5px 8px; }
+  .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
+  .report-item .date { width: 100%; }
+}
+</style>
+</head>
+<body>
+<nav><a href="index.html">&larr; 回報告列表</a></nav>
+<h1>6205 詮欣 估值報告</h1>
+<div class="meta">報告日期：2026-04-18 &nbsp;|&nbsp; 代碼：6205 &nbsp;|&nbsp; 公司：詮欣</div>
+<h1>6205 詮欣 估值報告</h1>
+<blockquote>
+<p>產生日期：2026-04-18
+Anchor Lock 基準日：2026-03-31
+產業 Type：T5 製造業（複合）（權重：護城河 25% / 管理層 25% / 產業鏈 25% / 五力 20% / 生命週期 ±5%）
+質化結構等級（加權）：C（41.6 / 100 分）
+A.2.7 修正後等級：D（下調 1 階）
+一年後結構情境：改善 15% / 維持 30% / 惡化 55%
+需求端淨方向：淨弱化（供需缺口：一般 IPC/消費連接器平衡偏鬆；AI 高速 I/O 供不應求但詮欣受惠有限）
+收斂輪次：第 1 輪</p>
+</blockquote>
+<hr />
+<h2>Phase A：Core Build（建模）</h2>
+<h3>A.1 Data Integrity &amp; Target Type Guard</h3>
+<h4>A.1.1 資料時效驗證 &amp; Anchor Lock 取得</h4>
+<p><strong>Anchor Lock（唯一估值基準）：</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Current Price</td>
+<td style="text-align: left;"><strong>75.0 元</strong>（2026-04-17）</td>
+</tr>
+<tr>
+<td style="text-align: left;">資料基準日</td>
+<td style="text-align: left;">2026-03-31</td>
+</tr>
+<tr>
+<td style="text-align: left;">近四季 EPS</td>
+<td style="text-align: left;">0.70 / 0.18 / 0.63 / 0.49（<strong>TTM: 2.00</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: left;">近 6 月營收</td>
+<td style="text-align: left;">11月104M / 12月88M / 1月95M / 2月123M / 3月69M / 4月100M</td>
+</tr>
+<tr>
+<td style="text-align: left;">近 6 月營收 YoY</td>
+<td style="text-align: left;">-0.8% / -25.4% / -5.1% / -11.8% / -35.9% / -16.7%</td>
+</tr>
+<tr>
+<td style="text-align: left;">近 12 月平均營收 YoY</td>
+<td style="text-align: left;"><strong>-10.7%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">毛利率 / 營益率 / 淨利率</td>
+<td style="text-align: left;">39.5% / 8.6% / 13.6%</td>
+</tr>
+<tr>
+<td style="text-align: left;">PE(TTM) / PB / 殖利率</td>
+<td style="text-align: left;"><strong>37.3x / 2.33x / 2.00%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">近四季 ROE</td>
+<td style="text-align: left;">2.2% / 0.6% / 2.0% / 1.5%</td>
+</tr>
+<tr>
+<td style="text-align: left;">市值 / 股本</td>
+<td style="text-align: left;">61.7 億 / 8.2 億</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>資料時效警示：</strong>
+- ⚠️ <strong>2026-04 營收疑義</strong>：Anchor Lock 顯示 100 百萬，但台灣月營收慣例於次月 10 日前公布；4 月數於 4/17 當下應尚未公布。<strong>[S1] 已註記本報告以 Anchor Lock 為準</strong>。
+- ⚠️ <strong>2026-03-04 更換簽證會計師</strong>（原 PwC 資誠 → 未揭露新會計師），原因未公開。<strong>治理警訊</strong>。
+- ⚠️ <strong>2025 股利 1.63 元至 2026-04 仍未填息</strong>（除息日 2025-06-25，&gt;90 天），對殖利率型投資人為負向訊號。</p>
+<h4>A.1.2 標的類型前置檢查</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">檢核項</th>
+<th style="text-align: left;">判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ETF / REITs / TDR / 特別股 / KY</td>
+<td style="text-align: left;">否（6205 為中華民國本國公司，1986 年設立）</td>
+</tr>
+<tr>
+<td style="text-align: left;">警示 / 處置股</td>
+<td style="text-align: left;">2025-12-30 曾列「注意股」，非處置股（CPO 題材造成股價異常）</td>
+</tr>
+<tr>
+<td style="text-align: left;">一般上市櫃普通股</td>
+<td style="text-align: left;">✅ 是。TWSE 集中市場、電子零組件業（<strong>非上櫃</strong>，原任務書有誤）</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ 正常進入 A.2</p>
+<hr />
+<h3>A.2 Qualitative Structure Scoring</h3>
+<h4>A.2.1 五力結構評分（消費 [Q1]）</h4>
+<p>反轉評分：強 = 對公司不利 = 低分</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">五力</th>
+<th style="text-align: center;">強度（[Q1]）</th>
+<th style="text-align: center;">評分（1~5）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">供應商議價力</td>
+<td style="text-align: center;">中高（LME 銅 P95+ 歷史高檔，中小廠議價弱於 Amphenol/TE）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">買方議價力</td>
+<td style="text-align: center;"><strong>高</strong>（Hyperscaler Top 5 Capex $602~750B；連接器僅佔 AI server BoM 2~3%；ODM 前三市占 &gt;60%）</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">新進入者威脅</td>
+<td style="text-align: center;">低（224G/VDA 6.3/資本密集壁壘高）</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">替代品威脅</td>
+<td style="text-align: center;">中偏強（CPO 2028 scale-up、AEC 2024-2028 CAGR 28% 快速崛起）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">現有競爭強度</td>
+<td style="text-align: center;"><strong>高</strong>（Amphenol $10.5B 併購 CommScope 2026H1 完成；信邦/貿聯/嘉澤 AI 賽道競食）</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>11 / 25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.2 護城河強度評分（消費 [Q2]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">護城河</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">可持續性</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">規模經濟</td>
+<td style="text-align: center;">弱（1）</td>
+<td style="text-align: center;">1 年（0.4）</td>
+<td style="text-align: center;"><strong>0.4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">網絡效應</td>
+<td style="text-align: center;">無（0）</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">轉換成本</td>
+<td style="text-align: center;">中（3）</td>
+<td style="text-align: center;">3 年（0.7）— 車用 16 家 VDA 6.3 認證</td>
+<td style="text-align: center;"><strong>2.1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">無形資產</td>
+<td style="text-align: center;">中低（2）</td>
+<td style="text-align: center;">3 年（0.7）— 無 SerDes IP、Fast Follower</td>
+<td style="text-align: center;"><strong>1.4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">成本優勢</td>
+<td style="text-align: center;">中（3）</td>
+<td style="text-align: center;">3 年（0.7）— 台/中/泰雙廠、關稅分散</td>
+<td style="text-align: center;"><strong>2.1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">監管壁壘</td>
+<td style="text-align: center;">中（3）</td>
+<td style="text-align: center;">5 年+（1.0）— UL/CE/VDA/IATF</td>
+<td style="text-align: center;"><strong>3.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>9.0 / 30</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>護城河總評：Narrow Moat 偏弱</strong>。護城河集中「車用 design-in 轉換成本 + 認證門檻」；高毛利 39.5% 反映產品組合偏高階但<strong>營益率僅 8.6% 遠低於 Amphenol 25.8%</strong>，證明規模經濟不足使高毛利無法轉化高營益。</p>
+<h4>A.2.3 產業鏈位置評分（消費 [Q3]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">判定</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">上游 pass-through 能力</td>
+<td style="text-align: left;">中（Twinax 銅成本佔 40%+、2025 Q4 毛利率較 Q3 -2.5ppt 反映壓力未完全轉嫁）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">中游門檻高度</td>
+<td style="text-align: left;">中（車用認證高；高速 I/O 非領先）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">客戶集中度（分散=高分）</td>
+<td style="text-align: left;">應用分散（IPC 50% + 車 28% + 網通 15% + 消費 10%）；Top 5 客戶具體名單未揭露</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">地緣曝險（低=高分）</td>
+<td style="text-align: left;">台/中/泰三地；中美關稅下中度曝險；無墨西哥廠為劣勢</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>12 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.4 生命週期與結構性變化加成（消費 [Q4]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">產業生命週期</td>
+<td style="text-align: left;">整體連接器<strong>成熟期</strong>；AI 高速 I/O <strong>爆發成長</strong>；詮欣 IPC+車用主力偏<strong>成熟偏早期成長</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">[Q4.2] 結構性變化淨方向</td>
+<td style="text-align: left;"><strong>中性偏負</strong>（技術升級長期利多整體、短期加大大廠 vs 中小廠分化；Amphenol $15B 併購擠壓；詮欣網通僅 15% 直接受惠有限）</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>生命週期加成：詮欣主業偏成熟偏早期混合 → <strong>0</strong></li>
+<li>結構變化加成：中性偏負 → <strong>-1</strong></li>
+<li>合計加成：<strong>-1 / ±5</strong></li>
+</ul>
+<h4>A.2.5 管理層品質評分（消費 [Q6]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">項目</th>
+<th style="text-align: center;">評分（1~5）</th>
+<th style="text-align: left;">依據</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Track record（[Q6.1]）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">2023 法說承諾 2024 +20% 實際 +2.27%；2025 車用 &gt;30% 實際 28%；<strong>大幅未達標</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">資本配置紀律（[Q6.2]）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">一邊配息一邊稀釋（2023 稀釋 13.45%、2025 計劃再稀釋 24%）；ROCE 排名同業 90/208 中等偏下；汐止稼動率僅 40%</td>
+</tr>
+<tr>
+<td style="text-align: center;">法說會透明度（[Q6.3]）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: left;">每年 1~2 次，揭露比重/毛利率/認證家數；客戶不具名但方向清楚</td>
+</tr>
+<tr>
+<td style="text-align: center;">內部人動向（[Q6.4]）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">董監持股 <strong>13.26% 偏低</strong>、董總合一、Phi Capital 外部股東、2026-03 更換會計師</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>合計</strong></td>
+<td style="text-align: center;"><strong>9 / 20</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.6 綜合質化結構等級（產業權重自適應）</h4>
+<p><strong>Step 1 — 產業 Type 判定：</strong>
+- 詮欣主業：電子接頭 45% + 電子線 53% = 連接器 / Cable Assembly 合計 98%
+- 下游應用：IPC 50% + 車用 28% + 網通 15% + 消費 10%
+- 判定為 <strong>T5 製造業（複合）</strong> — 製造密集、多元下游、車用 Tier 2 供應
+- <strong>Why this Type</strong>：(1) 連接器製造屬半導體/電子零組件製造業鏈；(2) 下游 IPC/車用/網通多元分散，非強循環；(3) 規模效率為核心差異（營益率差距）而非循環位置</p>
+<p><strong>Step 2 — T5 權重分配：護城河 25% / 管理層 25% / 產業鏈 25% / 五力 20% / 生命週期 ±5%</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">原始分</th>
+<th style="text-align: center;">正規化（/100）</th>
+<th style="text-align: center;">權重</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">五力</td>
+<td style="text-align: center;">11/25</td>
+<td style="text-align: center;">44.0</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">8.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河</td>
+<td style="text-align: center;">9/30</td>
+<td style="text-align: center;">30.0</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">7.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">產業鏈</td>
+<td style="text-align: center;">12/20</td>
+<td style="text-align: center;">60.0</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">15.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層</td>
+<td style="text-align: center;">9/20</td>
+<td style="text-align: center;">45.0</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">11.25</td>
+</tr>
+<tr>
+<td style="text-align: left;">生命週期加成</td>
+<td style="text-align: center;">-1/5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">5%</td>
+<td style="text-align: center;"><strong>-1.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>41.55</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Step 3 — 等級判定：41.55 → C 級（40~59）</strong></p>
+<p>⭐ <strong>產業 Type：T5 製造業（複合）</strong>
+⭐ <strong>質化結構等級（加權原始）：C（41.6 / 100）</strong></p>
+<h4>A.2.7 需求端獨立驗證（消費 [Q7]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">需求端訊號類別</th>
+<th style="text-align: center;">方向</th>
+<th style="text-align: left;">具體內容（[Q7.1]）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">大客戶 Capex 指引</td>
+<td style="text-align: center;">↑（整體產業）→（詮欣實質受惠）</td>
+<td style="text-align: left;">Hyperscaler Top 5 2026 Capex $602~750B（+36~74%）；<strong>但詮欣網通僅 15% 且無列 AEC/SerDes 核心供應圈</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">下游產業景氣</td>
+<td style="text-align: center;"><strong>↓</strong>（詮欣層級）</td>
+<td style="text-align: left;">研華 2025 +18.5% 歷史新高，<strong>詮欣 IPC 客戶未跟漲暗示份額流失</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">政府 / 政策採購</td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">美國 CHIPS Act 利新產能、50% 銅關稅利產地分散</td>
+</tr>
+<tr>
+<td style="text-align: left;">進出口 / 海關統計</td>
+<td style="text-align: center;">⚠️ 資料缺口</td>
+<td style="text-align: left;">HS 8536/854442 聚合數未取得</td>
+</tr>
+<tr>
+<td style="text-align: left;">消費者端（B2C）</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">僅 10% QOOKER 品牌</td>
+</tr>
+<tr>
+<td style="text-align: left;">第三方景氣調查</td>
+<td style="text-align: center;">↑（產業）→（詮欣）</td>
+<td style="text-align: left;">Bishop 連接器 +14.7%、亞太 +32.6%；<strong>詮欣 TrendForce/Bishop/Dell'Oro 市佔描述未出現（推估 Top 20 外）</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>[Q7.2] 需求端淨方向：對詮欣特定而言 — 淨弱化</strong>
+<strong>供需缺口：AI 高速 I/O 供不應求（詮欣邊緣位）；一般 IPC/消費連接器平衡偏鬆（詮欣主戰場）</strong></p>
+<p>關鍵證據鏈：
+- 詮欣 2026Q1 累計 YoY <strong>-20.43%</strong>（1.97 億），延續 2025 全年 -10% 趨勢
+- 同期 AI 核心鏈：貿聯 Q1 +27.99% / 嘉澤 EPS 70.17 / 川湖毛利率 74.6%
+- 詮欣落差 -48ppt vs 貿聯 — <strong>「非 AI 伺服器核心供應鏈」明確成立</strong></p>
+<p><strong>[Q7.3] 資料缺口 &gt;3 項 → Confidence 下調：</strong>
+1. Top 5 客戶名單未揭露
+2. 16 家 VDA 6.3 車廠名單未揭露
+3. 美系 CPO 2 家客戶身分未揭露
+4. IPC 客戶是否含研華/凌華未揭露
+5. 董監質押比精確值未取得
+6. 單台 AI server 高速 I/O BoM USD 拆分未知</p>
+<p><strong>等級修正規則套用：</strong>
+- Q7.2 判定<strong>淨弱化</strong> → 等級<strong>下調 1 階</strong>（C → <strong>D</strong>）
+- Q7.3 資料缺口 &gt;3 項 → <strong>Confidence 下調</strong></p>
+<p>⭐ <strong>A.2.6 原始等級：C（41.6）→ A.2.7 修正後等級：D</strong>
+⭐ <strong>修正理由</strong>：2026Q1 -20% 實質弱化 + IPC 份額流失證據（研華 +18.5% vs 詮欣衰退）+ 未入 AI 高速 I/O 核心供應圈，量價齊失。</p>
+<hr />
+<h3>A.3 Peer Benchmarking</h3>
+<p><strong>同業名單（從 [S4.2]）：</strong> 3023 信邦、3665 貿聯-KY、3533 嘉澤、3607 谷崧（+ 6197 佳必琪、3605 宏致輔助對照；Amphenol/TE/Molex 不入倍數統計）</p>
+<p><strong>同業品質檢核：</strong> 符合業務重疊 &gt;50%、3~5 家、無警示股</p>
+<p><strong>特殊情境：</strong> 不觸發龍頭/轉型/虧損/新藥豁免，正常採 Forward PE。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">統計</th>
+<th style="text-align: center;">PE(TTM)</th>
+<th style="text-align: left;">來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">P25</td>
+<td style="text-align: center;"><strong>18x</strong>（信邦 17~19x 下沿）</td>
+<td style="text-align: left;">[S4.5]</td>
+</tr>
+<tr>
+<td style="text-align: left;">P50</td>
+<td style="text-align: center;"><strong>~31x</strong>（谷崧 28~29 與嘉澤 30~40 中段）</td>
+<td style="text-align: left;">[S4.5]</td>
+</tr>
+<tr>
+<td style="text-align: left;">P75</td>
+<td style="text-align: center;"><strong>39x</strong>（貿聯-KY）</td>
+<td style="text-align: left;">[S4.5]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>詮欣落點</strong></td>
+<td style="text-align: center;"><strong>37.3x</strong>（P50~P75 間、接近 P75）</td>
+<td style="text-align: left;">Anchor</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>觀察</strong>：詮欣 PE 明顯高於業務最相近的信邦（×2），主因：(1) 2025 EPS -25% 使 E 分母縮小；(2) CPO/車用/機器人題材溢價已 price-in。</p>
+<hr />
+<h3>A.4 Model Selection</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">判定</th>
+<th style="text-align: left;">主模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">A 穩定成長 / 純科技</td>
+<td style="text-align: left;">部分符合（產品偏高階、但 ROE 僅 4~5% 低於成長股）</td>
+<td style="text-align: left;"><strong>Forward PE（主）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">B1 循環 / 資產</td>
+<td style="text-align: left;">不符（非強景氣循環）</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">B2 金融</td>
+<td style="text-align: left;">不符</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">C 轉型 / 控股</td>
+<td style="text-align: left;">部分符合（2025 營收衰退 + CPO 題材轉型中）</td>
+<td style="text-align: left;"><strong>交叉驗證：PB × ROE</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">D 虧損</td>
+<td style="text-align: left;">不符</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>決議：主模型 = Forward PE；次模型 = PB × ROE。</strong> 若偏差 &gt;20% 以保守者為準（C.3 檢核點 11）。</p>
+<hr />
+<h3>A.5 三情境目標價（Forward 12M）</h3>
+<h4>Step A — Forward EPS 推估</h4>
+<p>2025 實際 EPS = 2.00。2026Q1 累計營收 YoY <strong>-20.43%</strong>；下半年 CPO + 車用題材若兌現可能回升，但匯率壓力持續。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward 12M EPS</th>
+<th style="text-align: left;">驅動因素</th>
+<th style="text-align: left;">隱含假設</th>
+<th style="text-align: left;">歷史佐證</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>2.50</strong></td>
+<td style="text-align: left;">CPO 2026H2 2 家美系客戶實質放量 + 車用佔比 28%→35% + 匯率企穩</td>
+<td style="text-align: left;">2026H2 營收 YoY +25%、毛利率回升至 41%+、營益率 11%</td>
+<td style="text-align: left;">2023 EPS 曾達 2.67</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>1.80</strong></td>
+<td style="text-align: left;">車用小幅成長抵消 IPC 下滑，CPO 為 H2 象徵性貢獻</td>
+<td style="text-align: left;">全年營收 YoY -8%、毛利率維持 39%、營益率 8%</td>
+<td style="text-align: left;">2025 全年 EPS 2.00 下滑 10%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>1.20</strong></td>
+<td style="text-align: left;">IPC 份額持續流失、CPO 延後至 2027、USD/TWD 升破 31、銅價維持高檔</td>
+<td style="text-align: left;">全年營收 YoY -18%、毛利率跌至 37%、營益率 6%</td>
+<td style="text-align: left;">2025Q2 EPS 0.18 單季低點</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ 均從 Anchor Lock TTM EPS 2.00 出發推導，非線性外推。</p>
+<h4>Step B — 倍數選擇（A.2.7 修正後等級 D）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">質化等級</th>
+<th style="text-align: center;">Bull 倍數</th>
+<th style="text-align: center;">Base 倍數</th>
+<th style="text-align: center;">Bear 倍數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>D</strong>（適用）</td>
+<td style="text-align: center;">P25~P50（18~31x）</td>
+<td style="text-align: center;">P25 以下（&lt;18x）</td>
+<td style="text-align: center;">歷史低點或清算價值</td>
+</tr>
+</tbody>
+</table></div>
+<h4>Step C — Re-rating / De-rating 檢測</h4>
+<ul>
+<li><strong>De-rating 強</strong>：[Q4.2] 結構變化中性偏負 + [Q2] 護城河侵蝕（營益率 vs 大廠落差擴大）+ [Q7.2] 需求端淨弱化 → Base 倍數壓低緣</li>
+<li>向上重估條件未達成：CPO 未實質放量、無規模突破</li>
+</ul>
+<h4>Step D — 三情境目標價</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward EPS</th>
+<th style="text-align: center;">倍數</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: left;">計算式</th>
+<th style="text-align: center;">相對現價</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">2.50</td>
+<td style="text-align: center;"><strong>28x</strong></td>
+<td style="text-align: center;"><strong>70.0</strong></td>
+<td style="text-align: left;">2.50 × 28（D 級上沿，反映 CPO 兌現溢價）</td>
+<td style="text-align: center;"><strong>-6.7%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">1.80</td>
+<td style="text-align: center;"><strong>18x</strong></td>
+<td style="text-align: center;"><strong>32.4</strong></td>
+<td style="text-align: left;">1.80 × 18（D 級 P25）</td>
+<td style="text-align: center;"><strong>-56.8%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">1.20</td>
+<td style="text-align: center;"><strong>12x</strong></td>
+<td style="text-align: center;"><strong>14.4</strong></td>
+<td style="text-align: left;">1.20 × 12（歷史低點、清算邏輯）</td>
+<td style="text-align: center;"><strong>-80.8%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>交叉驗證（PB × ROE）：</strong>
+- 當前 PB 2.33、ROE 4.5%、BVPS ≈ 32.2 元
+- 穩態 PB 目標（ROE 4.5% → 1.0~1.3x）× 32.2 = <strong>32.2 ~ 41.9 元</strong> → 與 Base 32.4 相符
+- 主/次模型偏差 &lt;20%（Base 32.4 vs PB 估 32~42）✓</p>
+<hr />
+<h2>Phase B：Expansion</h2>
+<h3>B.1 總經環境</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">變數</th>
+<th style="text-align: left;">最新值</th>
+<th style="text-align: left;">對詮欣影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">USD/TWD</td>
+<td style="text-align: left;">31.92（2026-04-17）</td>
+<td style="text-align: left;"><strong>不利</strong> — 每升 1 元 → 毛利率 -1.2ppt</td>
+</tr>
+<tr>
+<td style="text-align: left;">LME 銅（現貨/期貨）</td>
+<td style="text-align: left;">$12,660 / $13,285/t（歷史 P95+）</td>
+<td style="text-align: left;"><strong>不利</strong> — Twinax 線銅成本 40%+</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fed Funds Rate</td>
+<td style="text-align: left;">3.50~3.75%（年內預期 1 次降息）</td>
+<td style="text-align: left;">估值面略利多</td>
+</tr>
+<tr>
+<td style="text-align: left;">台灣重貼現率</td>
+<td style="text-align: left;">2.000%（連八凍）</td>
+<td style="text-align: left;">中性</td>
+</tr>
+<tr>
+<td style="text-align: left;">AI 伺服器出貨 YoY</td>
+<td style="text-align: left;">&gt;+28%（2026F）</td>
+<td style="text-align: left;"><strong>間接利多</strong>（詮欣網通 15%）</td>
+</tr>
+<tr>
+<td style="text-align: left;">Top 5 Hyperscaler Capex</td>
+<td style="text-align: left;">$602~750B（+36~74%）</td>
+<td style="text-align: left;"><strong>間接利多</strong>（詮欣受惠邊緣）</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B.2 景氣循環定位</h3>
+<p><strong>產業分類：</strong> 連接器產業處<strong>擴張 + 兩極分化</strong>
+- AI 高速 I/O：擴張/高原前（Dell'Oro 預估 2026 DC Capex &gt;$1T）
+- 一般工業/消費：復甦初段（信邦 15 連年成長中止）</p>
+<p><strong>詮欣所處軌道：</strong> 後者（IPC + 車用 ADAS 為主）。距高原頂尚有空間但<strong>詮欣相對競爭力正走弱</strong>（2026Q1 -20% vs 貿聯 +28%）。</p>
+<h3>B.3 催化劑日曆（未來 12 個月）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">時間</th>
+<th style="text-align: left;">催化劑</th>
+<th style="text-align: center;">潛在影響</th>
+<th style="text-align: center;">重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026-05 上旬</td>
+<td style="text-align: left;">2026Q1 財報</td>
+<td style="text-align: center;">驗證 -20% 是否持續</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-06-02~05</td>
+<td style="text-align: left;">COMPUTEX 2026</td>
+<td style="text-align: center;">224G/CPO 題材曝光</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-06</td>
+<td style="text-align: left;">股東常會 + 股利 1.5 元分派</td>
+<td style="text-align: center;">股利政策、子公司規劃</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-07~08</td>
+<td style="text-align: left;">2026H1 法說會</td>
+<td style="text-align: center;">CPO 出貨兌現度、車用佔比更新</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-10-12~15</td>
+<td style="text-align: left;">OCP Global Summit</td>
+<td style="text-align: center;">224G SerDes 量產規格確認</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 H2</td>
+<td style="text-align: left;">2 家美系 CPO 客戶預計放量</td>
+<td style="text-align: center;"><strong>成敗關鍵</strong>、Bull 情境門票</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 H2</td>
+<td style="text-align: left;">Nvidia Vera Rubin VR200 量產</td>
+<td style="text-align: center;">詮欣 CPO Cage 間接題材</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-11</td>
+<td style="text-align: left;">2026Q3 財報</td>
+<td style="text-align: center;">旺季兌現度</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027 Q1~Q2</td>
+<td style="text-align: left;">泰國廠完工（法說 2027 / 新聞 2026 底量產）</td>
+<td style="text-align: center;">產能配比調整</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">持續監控</td>
+<td style="text-align: left;">LME 銅、USD/TWD</td>
+<td style="text-align: center;">毛利率壓力觀測</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">持續監控</td>
+<td style="text-align: left;">Amphenol $10.5B 併購 CommScope 2026H1 完成</td>
+<td style="text-align: center;">大廠議價力再強化</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B.4 Governance &amp; Structural Risk</h3>
+<ol>
+<li><strong>股權結構：</strong> ⚠️ 董監持股僅 <strong>13.26%（偏低）</strong>、董總合一（吳連溪一人兼任）、Phi Capital 外部策略股東勢力大（2023 CB 6.95 億）、2023 稀釋 13.45% + 2025 計劃再稀釋 24%（作罷）。<strong>對小股東治理不友善</strong>。</li>
+<li><strong>財務結構：</strong> 連續 26 年配息（累計 47.05 元）；2024Q3 每股淨值 31.66 元。但負債比/流動比/FCF 精確值未取得（付費牆）。<strong>2026-03-04 更換簽證會計師（PwC → 未揭露）原因未公開 — 治理紅旗</strong>。</li>
+<li><strong>匯率曝險：</strong> 顯著 — USD 外銷為主、內部報價採保守匯率 27、每升 1 元 → 毛利率 -1.2ppt。2026-04 USD/TWD 31.92 已高於公司保守預期。</li>
+<li><strong>KY 風險：</strong> N/A（本國公司）。</li>
+</ol>
+<h3>B.5 一年後產業結構三情境</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">五力變化</th>
+<th style="text-align: left;">護城河變化</th>
+<th style="text-align: left;">結構變化</th>
+<th style="text-align: center;">需求端</th>
+<th style="text-align: left;">對詮欣影響</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 改善</td>
+<td style="text-align: left;">替代品威脅推遲 1~2 年、CPO 2028 才 scale-up</td>
+<td style="text-align: left;">車用 design-in 擴大至新能源/AI 邊緣</td>
+<td style="text-align: left;">2026H2 CPO + 車用同時放量</td>
+<td style="text-align: center;">淨強化</td>
+<td style="text-align: left;">份額穩住 + 毛利回升</td>
+<td style="text-align: center;"><strong>15%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 維持</td>
+<td style="text-align: left;">五力持平（買方/競爭強度維持高）</td>
+<td style="text-align: left;">現有 16 家 VDA 認證基礎不變</td>
+<td style="text-align: left;">CPO 緩慢、車用佔比 28→30%</td>
+<td style="text-align: center;">持平</td>
+<td style="text-align: left;">營收觸底持平</td>
+<td style="text-align: center;"><strong>30%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 惡化</td>
+<td style="text-align: left;">Amphenol 併購完成擠壓加劇、AEC/CPO 替代加速</td>
+<td style="text-align: left;">IPC 份額被 Amphenol/Molex/信邦吃下</td>
+<td style="text-align: left;">CPO 跳票、匯率升破 31、車用放量慢</td>
+<td style="text-align: center;">淨弱化</td>
+<td style="text-align: left;">營收續衰 + 毛利壓縮</td>
+<td style="text-align: center;"><strong>55%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">合計</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>機率分配依據（A.2.7 D 級 + 需求端淨弱化）：</strong>
+- 依 B.5 機率分配參考表 D 級 + 任一：&lt;15% / 25~35% / 55~70%
+- 本標的採：改善 15% / 維持 30% / 惡化 55%</p>
+<p><strong>結構情境主判定：🔴 惡化</strong>（淨負面）
+<strong>2~3 句說明：</strong> Amphenol $10.5B 併購於 2026H1 完成後寡占再強化；詮欣 2026Q1 -20% 已證明 IPC 份額流失持續；CPO 雖有 2 家客戶導入但規模未經驗證，預期貢獻 &lt;2026 全年營收 5%。</p>
+<h3>B.6 機率分配</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">機率</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">70.0</td>
+<td style="text-align: center;"><strong>10%</strong></td>
+<td style="text-align: center;">7.00</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">32.4</td>
+<td style="text-align: center;"><strong>30%</strong></td>
+<td style="text-align: center;">9.72</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">14.4</td>
+<td style="text-align: center;"><strong>60%</strong></td>
+<td style="text-align: center;">8.64</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>期望目標價</strong></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><strong>25.36</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>機率分配依據（B.6 參考表 D 級 + 結構惡化）：</strong>
+- Base 30~35% / Bull &lt;10% / Bear 55~60%
+- 本標的：Bull 10%（僅符合上限）、Base 30%、Bear 60%
+- ⚠️ 註：Base 30% 位於規則下沿（「Base ≥ 40%」有 D 級或結構惡化例外豁免）
+- 期望報酬率：<strong>(25.36 - 75) / 75 = -66.2%</strong></p>
+<hr />
+<h2>Phase C：Verification</h2>
+<h3>C.1 數據來源檢查</h3>
+<ol>
+<li>所有核心數據標示來源（Anchor Lock / [SN] / [QN]）✓</li>
+<li>隱含假設已於 A.5 Step A 三標注（驅動 / 假設 / 歷史佐證）✓</li>
+</ol>
+<h3>C.2 邏輯矛盾檢查</h3>
+<ol>
+<li>成長率 vs 利潤率 vs 模型一致 ✓（Forward PE 對應成長股，但 ROE 僅 4~5% 已於 A.4 標註為 C-轉型混合）</li>
+<li><strong>質化等級 D 對應倍數 P25 以下 ✓；機率分配 Bear 60% 與 D 級 + 結構惡化一致 ✓</strong></li>
+<li>無推論超出資料支持（CPO 放量為公司自述、非我方推論）</li>
+</ol>
+<h3>C.3 Sanity 八項</h3>
+<ol>
+<li><strong>時間錯亂：</strong> Forward 12M ✓</li>
+<li><strong>淨利率天花板：</strong> Bull 情境隱含淨利率 ≈ 13.9%（EPS 2.5 × 8.2M 股 = NPAT 20.5M → 營收假設 +25% 至 17 億，20.5/17 = 12%）vs 同業 P75（Amphenol 18.5%、貿聯 13.85%）→ 未超天花板 ✓</li>
+<li><strong>市值天花板：</strong> Bull 目標市值 70 × 0.82 億股 = 57.4 億 vs 龍頭 Amphenol 不在台股比較 / 詮欣同業 P75 ≈ 貿聯 3,558 億 → 未觸頂 ✓</li>
+<li><strong>歷史極值：</strong> Bull 70 vs 2025-12 高點 80+ → <strong>Bull 低於歷史高點</strong>（反映題材已 price-in 一次）</li>
+<li><strong>成長率合理性：</strong> Bull EPS 2.5 vs 2025 的 2.00 → YoY +25%，2023 曾達 2.67 → <strong>歷史達成過</strong> ✓</li>
+<li><strong>主/次模型偏差：</strong> Base 32.4（PE 法）vs PB 32~42 → 偏差 &lt;20% ✓</li>
+<li><strong>質化-估值匹配度：</strong> D 級未配 Bull P75 以上倍數 ✓；已於 Bear 配 12x 低於 P25 並說明歷史低點邏輯 ✓</li>
+<li>⭐ <strong>質化-需求匹配度：</strong> Q7.2 淨弱化 + Bear 機率 60% ≥ 40%，符合規範 ✓</li>
+</ol>
+<p><strong>結論：無需修正。</strong></p>
+<hr />
+<h2>Phase D：Kill Thesis</h2>
+<h3>D.1 致命風險 Top 3</h3>
+<ol>
+<li><strong>IPC 大客戶流失加速</strong>：研華 2025 +18.5% 歷史新高，詮欣同期 -10%+；若份額繼續被 Amphenol/Molex/信邦侵蝕，<strong>詮欣 IPC 50% 基本盤崩塌</strong>，單項風險可使 EPS 腰斬。</li>
+<li><strong>CPO 題材跳票</strong>：董座 2025-12 公開承諾 2026H2 放量，若延至 2027 → PE 37.3x 立即崩跌至 18~22x、下跌空間 40~50%。</li>
+<li><strong>新台幣升破 30</strong>：若 USD/TWD 升破 30（當前 31.9）→ 毛利率直接 -2.4ppt、單季 EPS 衝擊 ~0.15 元。</li>
+</ol>
+<h3>D.2 Break Point（具體數字斷裂點）</h3>
+<ul>
+<li>單季營收 YoY <strong>&lt; -20%</strong>（已發生 2026Q1）</li>
+<li>毛利率 <strong>&lt; 37%</strong></li>
+<li>車用營收佔比 <strong>&lt;25%</strong>（2025H1 為 28%，下滑為崩裂訊號）</li>
+<li>單季匯損 <strong>&gt; NT$10M</strong></li>
+<li>2026H1 法說會若 CPO 出貨無實績數字 → 題材失效</li>
+</ul>
+<h3>D.3 最可能錯的假設</h3>
+<p><strong>Bull 情境的「CPO 2026H2 實質放量 + 車用 28→35%」</strong> — 公司目前僅提示 2 家美系客戶（1 已出貨、1 2026Q2），<strong>未提供具體營收貢獻數字</strong>；2023 法說承諾 2024 +20% 實際 +2.27% 的前科，降低該承諾可信度。</p>
+<h3>D.4 信心反轉應對</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">觸發條件</th>
+<th style="text-align: left;">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026Q1 財報營收續衰 &lt;-15%</td>
+<td style="text-align: left;">減碼 30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-07~08 法說會 CPO 無具體出貨數</td>
+<td style="text-align: left;">減碼 50%</td>
+</tr>
+<tr>
+<td style="text-align: left;">股價跌破 60（-20%）</td>
+<td style="text-align: left;">停損減碼</td>
+</tr>
+<tr>
+<td style="text-align: left;">Amphenol 完成 CommScope 併購後 Capex 指引擴張</td>
+<td style="text-align: left;">下修詮欣 Base 倍數至 15x</td>
+</tr>
+</tbody>
+</table></div>
+<h3>D.5 質化面 Break Point</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號類型</th>
+<th style="text-align: left;">具體監測項</th>
+<th style="text-align: center;">觸發閾值</th>
+<th style="text-align: left;">對質化等級影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">客戶流失</td>
+<td style="text-align: left;">[Q3.3] 營收 YoY 連 2 季衰退 &gt;15%</td>
+<td style="text-align: center;">已發生</td>
+<td style="text-align: left;"><strong>已降 1 階（C→D）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河破損</td>
+<td style="text-align: left;">[Q2] 車用客戶被 Amphenol 吃下</td>
+<td style="text-align: center;">VDA 認證家數若下降</td>
+<td style="text-align: left;">降至 D 下沿</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">[Q6.1] 關鍵技術主管離職</td>
+<td style="text-align: center;">董座/總座/技術長</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">產業位置滑落</td>
+<td style="text-align: left;">[Q4.1] IPC 景氣超過 2 季回升但詮欣未跟</td>
+<td style="text-align: center;">已在發生</td>
+<td style="text-align: left;">已於 A.2.7 反映</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會承諾跳票</td>
+<td style="text-align: left;">[Q6.3] 2026H1 法說 CPO 無實績</td>
+<td style="text-align: center;">連續 2 次跳票</td>
+<td style="text-align: left;">Confidence 下調至低</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 需求端轉向</td>
+<td style="text-align: left;">[Q7.1] 研華月營收 YoY &lt;+10%</td>
+<td style="text-align: center;">連 2 月</td>
+<td style="text-align: left;">等級降 1 階 + Bear 機率 +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 供需缺口翻轉</td>
+<td style="text-align: left;">[Q7.2] Amphenol 併購後搶下詮欣現有 VDA 車廠</td>
+<td style="text-align: center;">任一 Tier 1 流失</td>
+<td style="text-align: left;">重評所有情境機率</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 1 年五力動態破功</td>
+<td style="text-align: left;">[Q1] AEC 替代 AOC 加速至 2026H2</td>
+<td style="text-align: center;">Credo/Marvell AEC 報告</td>
+<td style="text-align: left;">Base 機率下修</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase E：Convergence Check（內部）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">指標</th>
+<th style="text-align: center;">第 1 輪結果</th>
+<th style="text-align: center;">閾值</th>
+<th style="text-align: center;">狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">目標價（Base）</td>
+<td style="text-align: center;">32.4</td>
+<td style="text-align: center;">±15%</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">機率分配 Bear</td>
+<td style="text-align: center;">60%</td>
+<td style="text-align: center;">±20%</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">質化等級</td>
+<td style="text-align: center;">C → D（A.2.7 下調）</td>
+<td style="text-align: center;">無變動</td>
+<td style="text-align: center;">本輪已定</td>
+</tr>
+<tr>
+<td style="text-align: left;">新增致命風險</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td style="text-align: left;">未解釋矛盾</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>✔ 本輪收斂</strong>（質化等級、目標價、機率三向內部一致；C.3 八項 sanity 無觸發；D.1 致命風險已反映於機率分配 Bear 60%）。</p>
+<hr />
+<h2>Phase F：Final Output</h2>
+<h3>F.1 分析摘要</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Data Source</td>
+<td style="text-align: left;">[S0]/[S1] Anchor Lock 2026-03-31 / 最新 Price 2026-04-17</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Category</td>
+<td style="text-align: left;"><strong>轉型 + 衰退 + 題材</strong>（IPC 份額流失 + CPO 題材未兌現）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">產業類別</td>
+<td style="text-align: left;">電子零組件業（連接器 / Cable Assembly，98% 純度）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3b</td>
+<td style="text-align: left;">⭐ 產業 Type</td>
+<td style="text-align: left;"><strong>T5 製造業（複合）</strong> — 護城河 25% / 管理層 25% / 產業鏈 25% / 五力 20% / 生命週期 ±5%</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">⭐ 質化結構等級（加權）</td>
+<td style="text-align: left;"><strong>C（41.6 / 100）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4b</td>
+<td style="text-align: left;">⭐ A.2.7 Q7 修正後等級</td>
+<td style="text-align: left;"><strong>D</strong>（下調 1 階）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">⭐ 一年後結構情境</td>
+<td style="text-align: left;">改善 <strong>15%</strong> / 維持 <strong>30%</strong> / 惡化 <strong>55%</strong>（主判定：<strong>惡化</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5b</td>
+<td style="text-align: left;">⭐ 需求端淨方向（Q7.2）</td>
+<td style="text-align: left;"><strong>淨弱化</strong>（供需缺口：IPC/消費平衡偏鬆、AI 高速 I/O 供不應求但詮欣受惠有限）</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Theme Exposure</td>
+<td style="text-align: left;"><strong>高</strong> — 主題：CPO Cage、車用 ADAS、AI 機器人（惟市場已 price-in）</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Model Used</td>
+<td style="text-align: left;"><strong>Forward PE（主）</strong> + PB × ROE 交叉驗證（偏差 &lt;20%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Peer PE Range (P25~P75)</td>
+<td style="text-align: left;"><strong>18x ~ 39x</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Cycle Position</td>
+<td style="text-align: left;"><strong>擴張 + 分化</strong>；詮欣屬非 AI 後段軌道</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">收斂輪次</td>
+<td style="text-align: left;">第 <strong>1</strong> 輪收斂</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.2 質化亮點與隱憂</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">具體內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">🟢 最強質化亮點</td>
+<td style="text-align: left;"><strong>[Q2] 車用轉換成本強</strong>：已取得 <strong>75+ 家車廠 Vendor Code、通過 16 家 Tier 1 VDA 6.3 稽核</strong>；車用佔比 2023 15% → 2025H1 28%，黏性維持中高；認證 cycle 2~3 年構築 design-in 保護</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">🟢 次強質化亮點</td>
+<td style="text-align: left;"><strong>[Q4.2] 泰國廠 2025Q2 動工</strong> + 目標產能配比台 30% / 泰 30% / 中 40%，規避中美關稅 + USMCA 2026 檢視風險；泰國最低工資 ≈ 台灣 1/3 為成本優勢</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">🟢 需求端正面訊號</td>
+<td style="text-align: left;"><strong>[Q7.1] AI Capex 超高檔 + CPO Cage 切入 2 家美系客戶</strong>：Hyperscaler 2026 Capex $602~750B（+36~74%）；1 家 CPO 客戶 2025 已出貨、1 家 2026Q2 出貨；<strong>惟量價規模未揭露</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">🔴 最大質化隱憂</td>
+<td style="text-align: left;"><strong>[Q7.1] IPC 份額流失證據明確</strong>：研華 2025 +18.5% 歷史新高 vs 詮欣 -10%+；2026Q1 詮欣 -20.43% vs 貿聯 +27.99%，<strong>落差 -48ppt</strong>；暗示 Amphenol/Molex/信邦吃下份額</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">🔴 次大質化隱憂</td>
+<td style="text-align: left;"><strong>[Q6.2] 資本配置失衡</strong>：一手配息（26 年連續）一手稀釋（2023 CB 13.45% + 2025 計劃 24% 作罷）；<strong>ROE 僅 4~5%、營益率 8.6% vs Amphenol 25.8%</strong>；汐止稼動率僅 40% 暴露產能配置效率差</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">🔴 需求端風險訊號</td>
+<td style="text-align: left;"><strong>[Q7.1]/[Q7.2] 2026Q1 累計 YoY -20.43%</strong>，延續 2025 全年衰退；AEC 市場 2024-2028 CAGR 28%（詮欣未入 Credo/Amphenol/Sumitomo 核心 AEC 供應圈）</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">🟡 1 年後最關鍵觀察點</td>
+<td style="text-align: left;"><strong>[Q6.3] 2026H1 法說會 CPO 具體出貨數字</strong>：若提出明確營收貢獻與客戶放量時程 → Bull 情境可重評；若延續 2025-12 「已出貨/將出貨」抽象語氣 → 確認題材跳票</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">🟡 產業價值鏈分潤地位（Q3.5）</td>
+<td style="text-align: left;"><strong>「利基高毛利 + 低營益」悖論</strong>：毛利率 39.5% 勝 Amphenol 36.9%、TE 34.6%；但<strong>營益率 8.6%</strong> 僅 Amphenol 25.8% 的 1/3、貿聯 18.4% 的 1/2 — 規模經濟嚴重不足、定價權弱、產品稀釋力差</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.3 目標價三情境表</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">隱含倍數</th>
+<th style="text-align: center;">漲跌幅</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>70.0</strong></td>
+<td style="text-align: center;">28x</td>
+<td style="text-align: center;"><strong>-6.7%</strong></td>
+<td style="text-align: center;"><strong>10%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>32.4</strong></td>
+<td style="text-align: center;">18x</td>
+<td style="text-align: center;"><strong>-56.8%</strong></td>
+<td style="text-align: center;"><strong>30%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>14.4</strong></td>
+<td style="text-align: center;">12x</td>
+<td style="text-align: center;"><strong>-80.8%</strong></td>
+<td style="text-align: center;"><strong>60%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.4 風險報酬指標</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>Expected Return（機率加權）</strong></td>
+<td style="text-align: left;"><strong>-66.2%</strong>（期望目標價 25.36 vs 現價 75）</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Upside (Base)</td>
+<td style="text-align: left;"><strong>-56.8%</strong>（樂觀情境：-6.7%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Downside (Bear)</td>
+<td style="text-align: left;"><strong>-80.8%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><strong>RR Ratio</strong></td>
+<td style="text-align: left;"><strong>&lt; 0</strong>（現價已高於 Bull 目標價，上行空間為負，絕對負期望值）</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Top Risk + Break Point</td>
+<td style="text-align: left;">CPO 題材跳票 + IPC 份額續流失；Break Point 單季營收 YoY &lt;-20%（已觸發）/ 毛利率 &lt;37%</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">⭐ 質化面監測訊號 Top 2</td>
+<td style="text-align: left;">(1) 2026H1 法說會 CPO 具體出貨數字；(2) 研華月營收 YoY 方向</td>
+</tr>
+<tr>
+<td style="text-align: center;">16b</td>
+<td style="text-align: left;">⭐ 需求端監測訊號 Top 2</td>
+<td style="text-align: left;">(1) 貿聯 / 嘉澤月營收對比詮欣落差；(2) Amphenol CommScope 併購完成（2026 H1）後指引</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">Total Return（含息）</td>
+<td style="text-align: left;">期望報酬 -66.2% + 殖利率 2.00% = <strong>-64.2%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3>Analyst Verdict</h3>
+<ul>
+<li><strong>Recommendation：</strong> <strong>減碼 / 賣出</strong></li>
+<li><strong>Confidence：</strong> <strong>中</strong></li>
+<li>理由：質化 <strong>D 級 → 不得為高</strong>；Q7.3 資料缺口 &gt;3 項 → <strong>Confidence 下調</strong>；但 Phase E 第 1 輪即收斂、C.3 sanity 無觸發、2026Q1 已實證 -20.43% → <strong>不落為低</strong></li>
+<li><strong>One-line Thesis：</strong> 詮欣為 Narrow Moat 偏弱的中小型連接器利基廠，目前 PE 37.3x 已對 CPO 與車用題材給予過度溢價（遠高於業務最相近的信邦 18x），而 2026Q1 -20.43% 已證明需求端淨弱化、<strong>IPC 份額流失證據明確</strong>；一年後產業結構主判定為惡化（55% 機率），建議<strong>減碼</strong>至 2026H1 法說會 CPO 出貨實績揭曉或估值修正至 C 級對應區間（~30~35 元）再重評。</li>
+<li><strong>Stop Loss Rule：</strong> <strong>65 元（-13%）</strong>；D.5 任一訊號觸發（特別是：單季營收 YoY &lt;-20% 連 2 季 / CPO 法說跳票 / 研華月營收 YoY &lt;+10% 連 2 月）即重評</li>
+<li><strong>條件式買進觸發：</strong> 若 <strong>2026H2 CPO 明確提出營收貢獻數字（&gt;全年營收 10%）+ 車用佔比站穩 30%+ + Forward EPS 上修至 2.5+</strong> → 重估回 C 級（倍數 25~30x、目標區間 62~75 元）</li>
+</ul>
+<hr />
+<h2>Phase G：1 年後監測儀表板</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">頻率</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: left;">資料來源</th>
+<th style="text-align: left;">觸發條件</th>
+<th style="text-align: center;">對應 Break Point</th>
+<th style="text-align: left;">觸發後動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;"><strong>月營收 YoY</strong></td>
+<td style="text-align: left;">公開資訊觀測站（次月 10 日前）</td>
+<td style="text-align: left;">連續 2 月 &lt;-15%</td>
+<td style="text-align: center;">D.2 單季 YoY &lt;-20%</td>
+<td style="text-align: left;">減碼 30%</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;"><strong>研華（2395）月營收 YoY</strong></td>
+<td style="text-align: left;">公開資訊觀測站</td>
+<td style="text-align: left;">YoY &lt;+10% 連 2 月</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">等級降 1 階 + Bear 機率 +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;"><strong>貿聯-KY（3665）月營收 YoY</strong></td>
+<td style="text-align: left;">公開資訊觀測站</td>
+<td style="text-align: left;">貿聯 +20%+ 持續、詮欣 &lt;0%</td>
+<td style="text-align: center;">D.5 供需缺口翻轉</td>
+<td style="text-align: left;">確認 AI 供應鏈分化 → 維持減碼</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;"><strong>LME 銅現貨 + USD/TWD</strong></td>
+<td style="text-align: left;">MacroMicro / 台銀</td>
+<td style="text-align: left;">LME &gt;$13,500 或 USD/TWD &lt;30.0</td>
+<td style="text-align: center;">B.1 匯率/原料壓力</td>
+<td style="text-align: left;">Base 倍數下修至 15x</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>毛利率 / 營益率</strong></td>
+<td style="text-align: left;">季報（每季末 45 日內）</td>
+<td style="text-align: left;">毛利率 &lt;37% 或營益率 &lt;7%</td>
+<td style="text-align: center;">D.2 Break Point</td>
+<td style="text-align: left;">減碼 50%、停損評估</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>車用營收佔比</strong></td>
+<td style="text-align: left;">法說會揭露</td>
+<td style="text-align: left;">&lt;25%（從 2025H1 28% 下滑）</td>
+<td style="text-align: center;">D.2 Break Point</td>
+<td style="text-align: left;">等級降 1 階、Bear 機率 +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>CPO 出貨實績</strong></td>
+<td style="text-align: left;">2026-07/08、2026-11 法說會</td>
+<td style="text-align: left;">法說會無具體數字（連 2 次）</td>
+<td style="text-align: center;">D.5 法說承諾跳票</td>
+<td style="text-align: left;">Confidence 降至低、題材完全剔除</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>同業 PE 區間（貿聯/信邦/嘉澤）</strong></td>
+<td style="text-align: left;">Goodinfo / MoneyDJ</td>
+<td style="text-align: left;">信邦 PE 回落至 P25 以下</td>
+<td style="text-align: center;">C.3 質化-估值匹配</td>
+<td style="text-align: left;">Base 倍數下修</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;"><strong>董監持股 / 質押比</strong></td>
+<td style="text-align: left;">公開資訊觀測站月報</td>
+<td style="text-align: left;">董監持股 &lt;12% 或質押比 &gt;30%</td>
+<td style="text-align: center;">D.5 內部人動向</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;"><strong>管理層異動</strong></td>
+<td style="text-align: left;">重大訊息公告</td>
+<td style="text-align: left;">董座/總座（吳連溪）/技術主管異動</td>
+<td style="text-align: center;">D.5 管理層異動</td>
+<td style="text-align: left;">Confidence 下調、重評</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;"><strong>Amphenol CommScope 併購完成後指引</strong></td>
+<td style="text-align: left;">Amphenol 10-K / IR</td>
+<td style="text-align: left;">FY26 營收貢獻超 $4.1B + 車用或 IPC 擴張指引</td>
+<td style="text-align: center;">D.5 競爭強度</td>
+<td style="text-align: left;">Base 倍數下修 15x、Bear 機率 +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;"><strong>ROE 趨勢</strong></td>
+<td style="text-align: left;">年報</td>
+<td style="text-align: left;">ROE 連 2 年 &lt;4%</td>
+<td style="text-align: center;">A.2.5 管理層重評</td>
+<td style="text-align: left;">等級降至 D 下沿</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>異動通報門檻</strong>：任 2 項同時觸發 → <strong>立即重跑 /估值分析</strong>（不等下一季）。</p>
+<p><strong>關鍵決策節點</strong>：
+1. <strong>2026-05 Q1 財報</strong> — 驗證 -20.43% 是否為單月異常或趨勢
+2. <strong>2026-07~08 H1 法說</strong> — CPO 出貨實績揭曉（Bull 情境生死關）
+3. <strong>2026 H1 Amphenol 併購完成</strong> — 產業結構再確認</p>
+<hr />
+<h2>Hard Rules 合規檢核</h2>
+<ul>
+<li>[x] 未使用歷史 EPS 直接估值（Forward 12M 推算）</li>
+<li>[x] 目標價倍數符合 D 級對應區間（Bull P25~P50、Base &lt;P25、Bear 歷史低點）</li>
+<li>[x] 量化結論（Expected Return -66.2%、Bull 10%/Base 30%/Bear 60%）</li>
+<li>[x] 未覆蓋 Anchor Lock（TTM EPS 2.00、Current Price 75.0、PE 37.3x 全程照錄）</li>
+<li>[x] A.1.2 標的類型前置檢查（一般普通股）</li>
+<li>[x] A.2 質化結構評分（41.6/100）</li>
+<li>[x] A.2.6 產業權重自適應（T5 製造業複合、非等權）</li>
+<li>[x] A.2.7 Q7 需求端修正（C→D、淨弱化證據鏈完整）</li>
+<li>[x] Phase G 監測儀表板（12 項具體監測點）</li>
+<li>[x] 所有結論可追溯（[S0]~[S8] / [Q1]~[Q7] 引用）</li>
+<li>[x] Confidence 與 Phase D 風險 + Phase E 收斂 + 質化等級一致（D 級 + 資料缺口 → 不得為高 ✓）</li>
+<li>[x] 同業挑選遵循 A.3 規則（3~5 家、業務重疊 &gt;50%、排除警示股）</li>
+<li>[x] 主/次模型偏差 &lt;20%（Base 32.4 vs PB 估 32~42）</li>
+<li>[x] F.2 質化亮點與隱憂（8 項具體可追溯 [QN]）</li>
+<li>[x] F.1~F.4 + Phase G + Analyst Verdict 全欄位輸出</li>
+</ul>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-18 03:21</div>
+</body>
+</html>
