@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 .stats {
   display: flex;
   gap: 16px;
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0 1rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
@@ -279,6 +279,50 @@ a:hover { text-decoration: underline; }
   background: var(--bg-alt);
   padding: 6px 14px;
   border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
 }
 
 /* Responsive */
@@ -290,6 +334,9 @@ a:hover { text-decoration: underline; }
   td, th { padding: 5px 8px; }
   .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
   .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
 }
 </style>
 </head>
@@ -998,6 +1045,6 @@ Current Price：36.75（2026/04/16 收盤）
 </ul>
 <hr />
 <p><em>本報告嚴格遵守 Anchor Lock（2026-03-31 基準日）；未覆蓋任何 2026-04 後資訊；Forward EPS 推估以 TTM 2.19 為錨點，按 Bull/Base/Bear 三情境營收成長 + 淨利率假設推導；Phase C 完成 Sanity 六項檢核（含 Bull 淨利率下修至 3.8%）；Phase E 第 2 輪內部收斂。</em></p>
-<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-17 03:00</div>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-18 17:12</div>
 </body>
 </html>

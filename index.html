@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 .stats {
   display: flex;
   gap: 16px;
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0 1rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
@@ -279,6 +279,50 @@ a:hover { text-decoration: underline; }
   background: var(--bg-alt);
   padding: 6px 14px;
   border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
 }
 
 /* Responsive */
@@ -290,6 +334,9 @@ a:hover { text-decoration: underline; }
   td, th { padding: 5px 8px; }
   .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
   .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
 }
 </style>
 </head>
@@ -299,16 +346,48 @@ a:hover { text-decoration: underline; }
 <span>8 份報告</span>
 <span>5 家公司</span>
 </div>
+<div class="sort-bar">
+  <span class="label">排序：</span>
+  <button data-key="generated" data-order="desc" class="active">產生時間 ↓</button>
+  <button data-key="generated" data-order="asc">產生時間 ↑</button>
+  <button data-key="date" data-order="desc">報告日期 ↓</button>
+  <button data-key="code" data-order="asc">代碼</button>
+  <button data-key="name" data-order="asc">公司</button>
+</div>
 <ul class="report-list">
-<li class="report-item"><span class="code">2248</span><a class="company" href="2248_華勝-KY_20260418.html">華勝-KY 估值報告</a><span class="date">2026-04-18</span></li>
-<li class="report-item"><span class="code">4973</span><a class="company" href="4973_廣穎電通_20260418.html">廣穎電通 估值報告</a><span class="date">2026-04-18</span></li>
-<li class="report-item"><span class="code">6205</span><a class="company" href="6205_詮欣_20260418.html">詮欣 估值報告</a><span class="date">2026-04-18</span></li>
-<li class="report-item"><span class="code">8271</span><a class="company" href="8271_宇瞻科技_20260418.html">宇瞻科技 估值報告</a><span class="date">2026-04-18</span></li>
-<li class="report-item"><span class="code">8032</span><a class="company" href="8032_光菱電子v2_20260417.html">光菱電子v2 估值報告</a><span class="date">2026-04-17</span></li>
-<li class="report-item"><span class="code">8032</span><a class="company" href="8032_光菱電子v3_20260417.html">光菱電子v3 估值報告</a><span class="date">2026-04-17</span></li>
-<li class="report-item"><span class="code">8032</span><a class="company" href="8032_光菱電子v4_20260417.html">光菱電子v4 估值報告</a><span class="date">2026-04-17</span></li>
-<li class="report-item"><span class="code">8032</span><a class="company" href="8032_光菱電子_20260417.html">光菱電子 估值報告</a><span class="date">2026-04-17</span></li>
+<li class="report-item" data-code="8271" data-name="宇瞻科技" data-date="20260418" data-generated="20260418170500"><span class="code">8271</span><a class="company" href="8271_宇瞻科技_20260418.html">宇瞻科技 估值報告</a><span class="generated">2026-04-18 17:05</span></li>
+<li class="report-item" data-code="4973" data-name="廣穎電通" data-date="20260418" data-generated="20260418170218"><span class="code">4973</span><a class="company" href="4973_廣穎電通_20260418.html">廣穎電通 估值報告</a><span class="generated">2026-04-18 17:02</span></li>
+<li class="report-item" data-code="6205" data-name="詮欣" data-date="20260418" data-generated="20260418032115"><span class="code">6205</span><a class="company" href="6205_詮欣_20260418.html">詮欣 估值報告</a><span class="generated">2026-04-18 03:21</span></li>
+<li class="report-item" data-code="2248" data-name="華勝-KY" data-date="20260418" data-generated="20260418012047"><span class="code">2248</span><a class="company" href="2248_華勝-KY_20260418.html">華勝-KY 估值報告</a><span class="generated">2026-04-18 01:20</span></li>
+<li class="report-item" data-code="8032" data-name="光菱電子v4" data-date="20260417" data-generated="20260417054503"><span class="code">8032</span><a class="company" href="8032_光菱電子v4_20260417.html">光菱電子v4 估值報告</a><span class="generated">2026-04-17 05:45</span></li>
+<li class="report-item" data-code="8032" data-name="光菱電子v3" data-date="20260417" data-generated="20260417045239"><span class="code">8032</span><a class="company" href="8032_光菱電子v3_20260417.html">光菱電子v3 估值報告</a><span class="generated">2026-04-17 04:52</span></li>
+<li class="report-item" data-code="8032" data-name="光菱電子v2" data-date="20260417" data-generated="20260417025012"><span class="code">8032</span><a class="company" href="8032_光菱電子v2_20260417.html">光菱電子v2 估值報告</a><span class="generated">2026-04-17 02:50</span></li>
+<li class="report-item" data-code="8032" data-name="光菱電子" data-date="20260417" data-generated="20260417012004"><span class="code">8032</span><a class="company" href="8032_光菱電子_20260417.html">光菱電子 估值報告</a><span class="generated">2026-04-17 01:20</span></li>
 </ul>
-<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-18 17:07</div>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-18 17:12</div>
+<script>
+(function () {
+  var list = document.querySelector('.report-list');
+  if (!list) return;
+  var buttons = document.querySelectorAll('.sort-bar button');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.dataset.key;
+      var order = btn.dataset.order;
+      var items = Array.prototype.slice.call(list.children);
+      items.sort(function (a, b) {
+        var va = a.dataset[key] || '';
+        var vb = b.dataset[key] || '';
+        if (va < vb) return order === 'asc' ? -1 : 1;
+        if (va > vb) return order === 'asc' ? 1 : -1;
+        return 0;
+      });
+      items.forEach(function (item) { list.appendChild(item); });
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+})();
+</script>
 </body>
 </html>

@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 .stats {
   display: flex;
   gap: 16px;
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0 1rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
@@ -279,6 +279,50 @@ a:hover { text-decoration: underline; }
   background: var(--bg-alt);
   padding: 6px 14px;
   border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
 }
 
 /* Responsive */
@@ -290,6 +334,9 @@ a:hover { text-decoration: underline; }
   td, th { padding: 5px 8px; }
   .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
   .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
 }
 </style>
 </head>
@@ -1243,6 +1290,6 @@ Anchor Lock 基準日：2026-03-31
 <li><strong>Stop Loss Rule：</strong> NT$28.0（Bear 目標價 / 隱含 PB 0.63x），或連續 2 季 EPS 為負</li>
 <li><strong>條件式買進觸發：</strong> ① 股價回檔至 NT$33 以下（隱含 PE ~11.8x，接近歷史 P25）時可加碼；② 2026Q1 季報 EPS ≥ 0.70 且毛利率維持 &gt;12% 確認獲利動能</li>
 </ul>
-<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-17 03:00</div>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-18 17:12</div>
 </body>
 </html>
