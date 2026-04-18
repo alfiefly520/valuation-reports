@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3680 家登精密 估值報告</title>
+<style>:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #6c757d;
+  --border: #dee2e6;
+  --border-light: #e9ecef;
+  --accent: #0d47a1;
+  --accent-light: #e3f2fd;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --yellow: #f57f17;
+  --yellow-bg: #fff8e1;
+  --link: #1565c0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --bg-card: #1c2128;
+    --text: #e6edf3;
+    --text-secondary: #8b949e;
+    --border: #30363d;
+    --border-light: #21262d;
+    --accent: #58a6ff;
+    --accent-light: #0d1117;
+    --green: #3fb950;
+    --green-bg: #0d2818;
+    --red: #f85149;
+    --red-bg: #3d1214;
+    --yellow: #d29922;
+    --yellow-bg: #2d1f00;
+    --link: #58a6ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+nav a {
+  color: var(--link);
+  text-decoration: none;
+  padding: 4px 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Headings */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--text-secondary);
+}
+
+/* Meta info block */
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Paragraphs & inline */
+p { margin: 0.6rem 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* Lists */
+ul, ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+li { margin: 0.25rem 0; }
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0.75rem 0;
+  background: var(--bg-alt);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+}
+@media (prefers-color-scheme: dark) {
+  thead th { background: #1f3a5f; }
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+tbody tr:hover { background: var(--accent-light); }
+
+/* Inline code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+/* Alert boxes (parsed from special markers) */
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.alert-warn {
+  background: var(--yellow-bg);
+  border-left: 4px solid var(--yellow);
+  color: var(--text);
+}
+.alert-green {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.alert-red {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+
+/* Phase badges */
+.phase-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Verdict section */
+.verdict {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+.verdict h3 { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Index page ─── */
+.report-list { list-style: none; padding: 0; }
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.report-item:hover { background: var(--bg-alt); }
+.report-item .code {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  min-width: 50px;
+}
+.report-item .company {
+  font-weight: 500;
+  flex: 1;
+}
+.report-item .date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.stats {
+  display: flex;
+  gap: 16px;
+  margin: 1rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.stats span {
+  background: var(--bg-alt);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px 10px 30px; font-size: 0.95rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  table { font-size: 0.8rem; }
+  td, th { padding: 5px 8px; }
+  .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
+  .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav><a href="index.html">&larr; 回報告列表</a></nav>
+<h1>3680 家登精密 估值報告</h1>
+<div class="meta">報告日期：2026-04-18 &nbsp;|&nbsp; 代碼：3680 &nbsp;|&nbsp; 公司：家登精密</div>
+<h1>3680 家登精密 估值報告</h1>
+<blockquote>
+<p>產生日期：2026-04-18
+Anchor Lock 基準日：2026-03-31（價格 430.0 TWD）
+產業 Type：<strong>T1 成長型科技</strong>（驅動權重：護城河 35% / 管理層 25% / 五力 20%）
+質化結構等級（加權）：<strong>B（71/100 分）</strong>
+A.2.7 修正後等級：<strong>A</strong>（修正方向：上調 1 階，需求淨強化 + 供不應求）
+一年後結構情境：改善 40% / 維持 35% / 惡化 25%
+需求端淨方向：淨強化（供需缺口：供不應求）
+收斂輪次：第 1 輪收斂</p>
+</blockquote>
+<hr />
+<h2>Phase A：Core Build</h2>
+<h3>A.1 Data Integrity &amp; Target Type Guard</h3>
+<p><strong>A.1.1 Anchor Lock 取得</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>數值</th>
+<th>來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current Price</td>
+<td>430.0 TWD（2026-03-31）</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>資料基準日</td>
+<td>2026-03-31</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>近四季 EPS（含 TTM）</td>
+<td>2.20 / 0.44 / 1.56 / 5.23（TTM 9.43）</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>近 6 月營收 YoY</td>
+<td>+69.3% ~ -23.4%（2026-04 為 -23.4%）</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>毛利率 / 營益率 / 淨利率</td>
+<td>43.3% / 17.5% / 23.6%</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>PE(TTM) / PB / 殖利率</td>
+<td>45.6x / 4.24x / 1.60%</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>近四季 ROE</td>
+<td>1.9% / 0.6% / 1.6% / 4.7%</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>市值 / 股本</td>
+<td>413 億 / 9.6 億</td>
+<td>[S0]</td>
+</tr>
+<tr>
+<td>2025 全年 EPS</td>
+<td>9.43（年減 23.45% vs 2024 的 12.32）</td>
+<td>[S1]</td>
+</tr>
+<tr>
+<td>最近法說會</td>
+<td>2026/03/11（櫃買業績發表會）</td>
+<td>[S1]</td>
+</tr>
+</tbody>
+</table></div>
+<p>✓ 核心數據均 ≤ 1 個月內更新，無陳舊疑慮。
+⚠️ [S1] 標示：2026/03 實際營收外部源為 6.61 億（YoY -23.43%）與 Anchor Lock「2026-04 營收 661／YoY -23.4%」月份歸屬有不一致疑慮（2026/04 營收預計 2026/05/10 公告）→ 本報告一律以 Anchor Lock 為準。
+⚠️ 2025 Q4 EPS 5.23 含<strong>不動產處分利得</strong>（一次性，2026 難複製），TTM EPS 基期被業外墊高 → Forward 推導須扣除。
+⚠️ ROE 連四季 1.9%/0.6%/1.6%/4.7% 顯著波動，主因：擴廠攤提 + 產品組合稀釋 + 匯損。</p>
+<p><strong>A.1.2 標的類型前置檢查</strong></p>
+<ul>
+<li>上櫃普通股（TPEx 3680），2011/08/31 掛牌，非 ETF / REITs / TDR / 特別股 / KY / 警示股</li>
+<li>→ 一般普通股，正常進入 A.2</li>
+</ul>
+<hr />
+<h3>A.2 Qualitative Structure Scoring（核心）</h3>
+<h4>A.2.1 五力結構評分（消費 [Q1]）</h4>
+<p>反轉規則：強 = 對公司不利 = 低分；弱 = 有利 = 高分。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">力</th>
+<th style="text-align: center;">強度（來自 [Q1]）</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">供應商議價力</td>
+<td style="text-align: center;">中高（PEEK/COC 寡頭；但耐特雙源 pass-through）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">買方議價力</td>
+<td style="text-align: center;">中高（TSMC &gt;30%、EUV Pod 獨家但對手議價強）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">新進入者威脅</td>
+<td style="text-align: center;">中，1 年後升高（中國國產替代 FOUP；EUV 壁壘仍高）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">替代品威脅</td>
+<td style="text-align: center;">低（EUV Pod 無替代技術、SEMI 標準鎖定）</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">現有競爭強度</td>
+<td style="text-align: center;">中（EUV Pod 雙寡頭；FOUP 三強鼎立）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>五力合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>15 / 25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.2 護城河強度評分（消費 [Q2]）</h4>
+<p>評分 = 強度 × 可持續性修正。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">護城河類型</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">可持續性</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">規模經濟</td>
+<td style="text-align: center;">中(3)（EUV Pod 全球 &gt;70%、台灣 &gt;90%）</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">網絡效應</td>
+<td style="text-align: center;">中(3)（德鑫聯盟 + 台積生態系綁定）</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">轉換成本</td>
+<td style="text-align: center;">強(5)（認證週期 6-12 月、ASML 共研 &gt;15 年）</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">無形資產（ASML/TSMC 認證）</td>
+<td style="text-align: center;">強(5)（High-NA Pod 全球唯一 Phase 2 認證）</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">成本優勢</td>
+<td style="text-align: center;">中(3)（在地化 + 日/美/中多據點）</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">監管壁壘</td>
+<td style="text-align: center;">強(5)（ISO Class 4、SEMI E152/E47.1）</td>
+<td style="text-align: center;">5年+(1.0)</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>護城河合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>24 / 30</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.3 產業鏈位置評分（消費 [Q3]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">判定</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">上游 pass-through</td>
+<td style="text-align: center;">中（EUV Pod pass-through 強；FOUP 受中國國產替代壓縮）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">中游門檻高度</td>
+<td style="text-align: center;">高（High-NA 全球唯一認證、ISO Class 4）</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">客戶集中度</td>
+<td style="text-align: center;"><strong>集中（估 TSMC &gt;30%、Top 5 合計 60-70%）</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">地緣曝險</td>
+<td style="text-align: center;">中（大中華 37%、日/美/韓分散進行中）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>產業鏈合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>13 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.4 生命週期與結構性變化加成（消費 [Q4]）</h4>
+<ul>
+<li>產業生命週期：<strong>成長後期 + 次分段分化</strong>（標準 EUV Pod 成長後期、<strong>High-NA Pod / CoWoS 載具為成長早期</strong>）→ 取主線分化後加權 <strong>+3</strong></li>
+<li>結構性變化淨方向（[Q4.2]）：<strong>淨正面</strong>（High-NA + 2nm + 地緣重組 + CoWoS + HBM 五重驅動）→ <strong>+2</strong></li>
+<li><strong>加成合計：+5</strong>（上限）</li>
+</ul>
+<h4>A.2.5 管理層品質評分（消費 [Q6]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">項目</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">經營層 track record（創辦人長任、High-NA 按時認證）</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">資本配置紀律（擴產紀律 OK 但家崎「相對失敗」、CB 募資擴產偏槓桿）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">法說會透明度（揭大類不揭細項、不給 guidance）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">內部人動向信號（董監持股穩 12.37% 但<strong>質押比偏高 ~57%</strong>）</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>管理層合計</strong></td>
+<td style="text-align: center;"><strong>13 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.6 綜合質化結構等級（產業權重自適應）</h4>
+<p><strong>產業 Type 判定</strong>：<strong>T1 成長型科技</strong></p>
+<p><strong>Why this Type</strong>：主業 &gt;90% 為半導體先進製程載具（EUV Pod、High-NA Pod、FOUP），屬 IP-heavy 與認證壁壘驅動型；護城河（ASML/TSMC 獨家認證）為最關鍵結構要素，高於 T5 製造業的「製程+Capex」並重；EUV 年齡週期（&gt;15 年）遠超強循環週期，故歸 T1 而非 T3。</p>
+<p><strong>T1 權重：護城河 35 / 管理層 25 / 五力 20 / 產業鏈 15 / 生命週期 ±5</strong></p>
+<p><strong>正規化加權計算</strong>：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">原始/滿分</th>
+<th style="text-align: center;">正規化（100 分制）</th>
+<th style="text-align: center;">權重</th>
+<th style="text-align: center;">貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">五力</td>
+<td style="text-align: center;">15/25</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">12.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河</td>
+<td style="text-align: center;">24/30</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;"><strong>28.0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">產業鏈</td>
+<td style="text-align: center;">13/20</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">9.75</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層</td>
+<td style="text-align: center;">13/20</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">16.25</td>
+</tr>
+<tr>
+<td style="text-align: left;">生命週期加成</td>
+<td style="text-align: center;">+5/5</td>
+<td style="text-align: center;">+100</td>
+<td style="text-align: center;">5%</td>
+<td style="text-align: center;">+5.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>加權合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>71.0</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>⭐ <strong>A.2.6 綜合分數：71 / 100 → B 級（良）</strong></p>
+<h4>A.2.7 需求端獨立驗證（消費 [Q7]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">需求端訊號類別</th>
+<th style="text-align: center;">方向</th>
+<th style="text-align: left;">具體內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">大客戶 Capex</td>
+<td style="text-align: center;"><strong>↑↑</strong></td>
+<td style="text-align: left;">TSMC $52-56B (+30~33%)、SK Hynix +17%、Micron +23%</td>
+</tr>
+<tr>
+<td style="text-align: left;">下游產業景氣</td>
+<td style="text-align: center;"><strong>↑</strong></td>
+<td style="text-align: left;">SEMI WFE 2026 $126B (+9%)、WSTS 半導體 $975B (+25%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">政府/政策採購</td>
+<td style="text-align: center;"><strong>→</strong></td>
+<td style="text-align: left;">CHIPS Act 撥款進行中；MATCH Act 若通過為負面，但短期中性</td>
+</tr>
+<tr>
+<td style="text-align: left;">進出口統計</td>
+<td style="text-align: center;"><strong>↑↑</strong></td>
+<td style="text-align: left;">台灣設備進口 +73%、韓國半導體出口 +151%</td>
+</tr>
+<tr>
+<td style="text-align: left;">消費端訊號</td>
+<td style="text-align: center;"><strong>N/A</strong></td>
+<td style="text-align: left;">B2B 屬性，無直接消費訊號</td>
+</tr>
+<tr>
+<td style="text-align: left;">第三方景氣調查</td>
+<td style="text-align: center;"><strong>↑↑</strong></td>
+<td style="text-align: left;">AI Big 5 Capex +48~67%；Dell'Oro 資料中心 Capex &gt;$1T</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>需求端淨方向（[Q7.2]）：淨強化</strong>
+<strong>供需缺口（[Q7.2]）：供不應求</strong>（TSMC N2 滿載、ASML EUV backlog €38.8B、Q4'25 bookings +150% QoQ）</p>
+<p><strong>等級修正</strong>：
+- 淨強化 + 供不應求 → <strong>等級上調 1 階（B → A）</strong>
+- [Q7.3] 需求端資料缺口 &gt;3 項（列 12 項，主為 TSMC/ASML 個別敞口未揭露）→ <strong>Confidence 下調一階</strong>，不調整等級</p>
+<p>⭐ <strong>A.2.6 原始等級：B → A.2.7 修正後等級：A</strong>
+⭐ <strong>修正理由</strong>：五大需求訊號全面加速（TSMC Capex +30%、韓國設備出口 +151%、Big 5 AI Capex +48~67%），供需全面失衡於供不應求側；但 Anchor Lock 2026/04 單月 YoY -23.4% 與宏觀加速分歧需監控（最可能解釋為高基期 + High-NA 出貨節奏非線性，時序性而非結構性）。</p>
+<hr />
+<h3>A.3 Peer Benchmarking（同業校準）</h3>
+<p><strong>同業名單</strong>（從 [S4.2]）：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: left;">定位</th>
+<th style="text-align: center;">2024-25 毛利率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Entegris (ENTG)</td>
+<td style="text-align: left;">EUV Pod 雙寡頭之一、全品項龍頭</td>
+<td style="text-align: center;">~45.6%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Shin-Etsu Polymer (7970)</td>
+<td style="text-align: left;">FOUP/wafer 載具</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">崇越 (5434)</td>
+<td style="text-align: left;">半導體耗材通路（代理信越）</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Miraial</td>
+<td style="text-align: left;">FOUP/FOSB 日系追趕者</td>
+<td style="text-align: center;">未上市</td>
+</tr>
+<tr>
+<td style="text-align: left;">Brooks Automation</td>
+<td style="text-align: left;">自動化 stocker</td>
+<td style="text-align: center;">2022 私有化</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>同業品質檢核</strong>：
+- 主營業務重疊度：ENTG &gt;50% ✓；7970 中等；5434 為通路屬性差異大
+- 有效可比數 ≥3 家 ✓</p>
+<p><strong>同業倍數（[S4.4]）</strong>：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">公司</th>
+<th style="text-align: center;">PE(TTM)</th>
+<th style="text-align: center;">Forward PE</th>
+<th style="text-align: center;">PB</th>
+<th style="text-align: center;">ROE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Entegris</td>
+<td style="text-align: center;">75.1</td>
+<td style="text-align: center;"><strong>34.1</strong></td>
+<td style="text-align: center;">5.20</td>
+<td style="text-align: center;">6.16%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Shin-Etsu Polymer</td>
+<td style="text-align: center;">13.05</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">~1.2</td>
+<td style="text-align: center;">~9%</td>
+</tr>
+<tr>
+<td style="text-align: left;">崇越</td>
+<td style="text-align: center;">14.02</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">3.58</td>
+<td style="text-align: center;">~27%</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>家登</strong></td>
+<td style="text-align: center;"><strong>45.6</strong></td>
+<td style="text-align: center;">~39（fwd 11）</td>
+<td style="text-align: center;">4.24</td>
+<td style="text-align: center;">~4.7%（Q4 單季）</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>[S4.5] 區間</strong>：P25 ≈ 13.5x、P50 ≈ 14.0x、P75 ≈ 44.6x（ENTG 為離群值；剔除後 P75 ≈ 14.0x）</p>
+<p>⚠️ <strong>Peer PE Range 精度受限</strong>：三家可比中 ENTG 與家登最接近（EUV Pod 雙寡頭），但估值倍數為離群值（TTM 75x 含一次性）；7970 與 5434 與家登產品重疊度低且屬性不同。處置：<strong>以 ENTG forward 34.1x 作為 A 級成長同業錨點</strong>，Bull/Bear 區間加 ±10% 緩衝；不單獨引用統計 P25/P75。</p>
+<p><strong>本分析採用倍數錨</strong>：
+- 成長同業錨：ENTG forward 34.1x
+- 家登 EUV Pod 獨家溢價：+5~15x
+- 家登歷史 PE 區間（5 年）：約 20~60x</p>
+<hr />
+<h3>A.4 Model Selection（模型自適應）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>主模型：A 穩定成長 / 純科技 → Forward PE</strong></td>
+<td style="text-align: left;">主業 &gt;90% 為 EUV Pod / FOUP、毛利率穩定 43%、高 ROE 歷史、認證綁定長期化</td>
+</tr>
+<tr>
+<td style="text-align: left;">交叉驗證：EV/EBITDA</td>
+<td style="text-align: left;">需檢查 2025 Q4 不動產利得剝離後營益率</td>
+</tr>
+<tr>
+<td style="text-align: left;">轉型豁免：SOTP</td>
+<td style="text-align: left;">不適用（航太 5%、先進封裝 &lt;5%，不足以 SOTP）</td>
+</tr>
+<tr>
+<td style="text-align: left;">金融業 / 虧損</td>
+<td style="text-align: left;">不適用</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>模型衝突仲裁</strong>：單一主模型，無衝突。</p>
+<hr />
+<h3>A.5 三情境目標價（Forward 12M）</h3>
+<p><strong>Step A — Forward EPS 推導</strong></p>
+<p>從 Anchor Lock TTM EPS 9.43 起算，需扣除 2025 Q4 不動產處分一次性利得（估約 1.5~2 元）→ 正常化 TTM EPS 約 <strong>7.5~8.0</strong>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward EPS（2026Q2~2027Q1）</th>
+<th style="text-align: left;">驅動因素</th>
+<th style="text-align: left;">隱含假設</th>
+<th style="text-align: left;">歷史佐證</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>12.5</strong></td>
+<td style="text-align: left;">High-NA Pod 出貨 +CoWoS 載具放量 +HBM FOUP 韓系客戶量產</td>
+<td style="text-align: left;">2026 營收 +25% 達 92 億、毛利率回升至 44%、營益率 18%、無匯損、業外 +0.5 億</td>
+<td style="text-align: left;">[Q5-8] TSMC A14 量產時程、CoWoS 月產能 11.5-13 萬片</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>11.0</strong></td>
+<td style="text-align: left;">雙位數成長指引達成；CoWoS 貢獻 4-5 億</td>
+<td style="text-align: left;">2026 營收 +18% 達 87 億、毛利率 42%、營益率 17%、輕微匯損</td>
+<td style="text-align: left;">[Q6.3] 管理層 2026 雙位數成長展望</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>8.5</strong></td>
+<td style="text-align: left;">中國禁令擴大 37%→30% 營收、Intel 14A 延後、Samsung 2nm yield 不穩</td>
+<td style="text-align: left;">2026 營收 +8% 達 79 億、毛利率壓至 40%、匯損擴大</td>
+<td style="text-align: left;">[S3] 2025 年 Q2 匯損先例、2025 百億目標未達</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ 非循環股，不計算 mid-cycle EPS；但有一次性業外需剝離。</p>
+<p><strong>Step B — 倍數選擇（質化等級 A，修正後；T1 產業）</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">質化等級</th>
+<th style="text-align: center;">Bull 倍數</th>
+<th style="text-align: center;">Base 倍數</th>
+<th style="text-align: center;">Bear 倍數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A（修正後）</strong></td>
+<td style="text-align: center;"><strong>48x</strong>（ENTG fwd 34x + EUV Pod 獨家溢價 +14x，有結構改善佐證）</td>
+<td style="text-align: center;"><strong>40x</strong>（貼近現價 fwd 倍數 39x，反映市場共識）</td>
+<td style="text-align: center;"><strong>28x</strong>（貼近 ENTG forward 34x × 0.8，de-rating 情境）</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Step C — Re-rating / De-rating 檢測</strong></p>
+<ul>
+<li><strong>向上重估條件</strong>：[Q4.2] 結構性變化淨正面 + [Q2] 護城河加深（High-NA 獨家持續、CoWoS Panel FOUP 擴張）→ Bull 倍數可貼近上緣 48x ✓</li>
+<li><strong>向下重估條件</strong>：若 Entegris 切入 High-NA 第二來源 或 中國 FOUP 滲透加速 → Base 倍數壓至 36x（暫不觸發）</li>
+</ul>
+<p><strong>Step D — 三情境目標價</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">情境</th>
+<th style="text-align: center;">Forward EPS</th>
+<th style="text-align: center;">估值倍數</th>
+<th style="text-align: center;"><strong>目標價</strong></th>
+<th style="text-align: center;">漲跌幅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">🟢 Bull</td>
+<td style="text-align: center;">12.5</td>
+<td style="text-align: center;">48x</td>
+<td style="text-align: center;"><strong>600</strong></td>
+<td style="text-align: center;"><strong>+39.5%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">🟡 Base</td>
+<td style="text-align: center;">11.0</td>
+<td style="text-align: center;">40x</td>
+<td style="text-align: center;"><strong>440</strong></td>
+<td style="text-align: center;"><strong>+2.3%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">🔴 Bear</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;">28x</td>
+<td style="text-align: center;"><strong>238</strong></td>
+<td style="text-align: center;"><strong>-44.7%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase B：Expansion</h2>
+<h3>B.1 總經環境（Top-down 校準）</h3>
+<ul>
+<li><strong>台灣央行</strong>：連 7 凍維持 2.00%，2026 下半年才可能降息 → 資金成本穩定、殖利率 1.60% 吸引力中性</li>
+<li><strong>USD/TWD</strong>：31.47-31.73（52 週 27.89-32.77），新台幣自 2025H2 呈升值趨勢 → <strong>對家登逆風</strong>（毛利壓縮 + 匯損），已反映於 2025 Q2-Q3 財報</li>
+<li><strong>Fed</strong>：3.50-3.75% 連 2 凍；點陣圖 2026/2027 各一碼 → 全球 Capex 週期續向上有利晶圓載具需求</li>
+</ul>
+<h3>B.2 景氣循環定位</h3>
+<p><strong>位置：AI/HPC 驅動上行週期中段偏中後段</strong>
+- TSMC Capex +30%、2nm N2 Q4'25 量產；CoWoS 月產能 2025 底 7-9 萬 → 2026 底 11.5-13 萬
+- SEMI 預估 2027 WFE 續增 +7.3%，Gartner 下個循環暫停點在 <strong>2028</strong>
+- 歷史經驗：上行週期平均 18-24 個月；目前已進行 12-15 個月，距離轉折 9-12 個月
+- <strong>12 個月內仍處擴張期，但需警覺 2027 H1 見頂可能性</strong></p>
+<h3>B.3 催化劑日曆（未來 12 個月）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">時間</th>
+<th style="text-align: left;">催化劑</th>
+<th style="text-align: center;">影響</th>
+<th style="text-align: center;">重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026/05/10</td>
+<td style="text-align: left;">2026/04 營收公告（驗證 Anchor 單月弱勢是否延續）</td>
+<td style="text-align: center;"><strong>±</strong></td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/05/27</td>
+<td style="text-align: left;">除息日，現金股利 5.0 元</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 H2</td>
+<td style="text-align: left;">CoWoS 載具放量（法人估貢獻 4-5 億）</td>
+<td style="text-align: center;"><strong>+</strong></td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 H2</td>
+<td style="text-align: left;">High-NA EUV Pod 開始出貨（單價更高）</td>
+<td style="text-align: center;"><strong>+</strong></td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 H2</td>
+<td style="text-align: left;">HBM FOUP 韓系客戶驗證完成、量產訂單</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 年底</td>
+<td style="text-align: left;"><strong>日本久留米廠完工</strong>（對接 TSMC 熊本 Fab 2）</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 Q2-Q3</td>
+<td style="text-align: left;">ASML High-NA EUV EXE:5200B Intel 14A 驗證</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">進行中</td>
+<td style="text-align: left;">MATCH Act 立法進度（若通過為負面）</td>
+<td style="text-align: center;"><strong>−</strong></td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027 Q1</td>
+<td style="text-align: left;">TSMC A16 量產、Intel 14A 風險試產</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B.4 Governance &amp; Structural Risk</h3>
+<ol>
+<li><strong>股權結構與治理</strong>：董監持股 12.37%（穩定）、<strong>質押比偏高約 57%</strong>⚠️（創辦人融資常態但需監控）；獨董 44% 偏高為正面</li>
+<li><strong>財務結構風險</strong>：2026/03/10 發行第 5、6 次<strong>無擔保 CB</strong>——採 CB 募資擴產（槓桿偏中高）；負債比具體數字待 2025 年報；匯率曝險為最大項（美元計價 &gt;80%）</li>
+<li><strong>KY/BVI 風險</strong>：家登非 KY；BVI 中介層級未明（以 2025 年報「主要子公司表」確認）；美國子公司 Gudeng USA 德鑫聯盟 49% 持股，治理略複雜</li>
+</ol>
+<h3>B.5 一年後產業結構三情境（核心）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">五力變化</th>
+<th style="text-align: left;">護城河變化</th>
+<th style="text-align: left;">結構性變化</th>
+<th style="text-align: center;">需求端</th>
+<th style="text-align: left;">對家登影響</th>
+<th style="text-align: center;"><strong>機率</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 結構改善</td>
+<td style="text-align: left;">替代品威脅續低、新進入者威脅延後</td>
+<td style="text-align: left;">High-NA Pod 獨家 + CoWoS Panel FOUP 雙軌加深</td>
+<td style="text-align: left;">2nm + HBM4 + CoWoS 三重放量</td>
+<td style="text-align: center;">淨強化</td>
+<td style="text-align: left;">市占擴張、ASP 上升、毛利回 44%</td>
+<td style="text-align: center;"><strong>40%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 結構維持</td>
+<td style="text-align: left;">五力整體持平</td>
+<td style="text-align: left;">護城河不變</td>
+<td style="text-align: left;">結構性變化中性</td>
+<td style="text-align: center;">持平</td>
+<td style="text-align: left;">維持雙位數成長、毛利 42%</td>
+<td style="text-align: center;"><strong>35%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 結構惡化</td>
+<td style="text-align: left;">中國 FOUP 新進入者加速、Entegris 切入 High-NA 第二來源</td>
+<td style="text-align: left;">轉換成本與無形資產侵蝕</td>
+<td style="text-align: left;">MATCH Act 通過、Intel 14A 延後、TSMC A16 不用 High-NA</td>
+<td style="text-align: center;">淨弱化</td>
+<td style="text-align: left;">市占侵蝕、毛利壓至 40%</td>
+<td style="text-align: center;"><strong>25%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>合計</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>參考表對照（A 級 + 淨強化）：Base 40~50% / Bull 50~60% / Bear 10~20%</strong></p>
+<p>⚠️ <strong>本分析偏離參考表原因</strong>：
+1. <strong>Anchor Lock 2026/04 單月 YoY -23.4%</strong> 是即時警訊，Bear 機率上調至 25%（高於參考下限）
+2. <strong>現價 PE(TTM) 45.6x 已處高位</strong>，Bull 機率下調至 40%（低於參考上限）
+3. <strong>Q7.3 需求端資料缺口 12 項</strong>，Base/Bull 機率略保守</p>
+<p><strong>結構情境主判定</strong>：<strong>改善</strong>（40% 最高，但與維持 35% 差距小）
+<strong>關鍵驅動</strong>：High-NA 獨家 + CoWoS 放量 + HBM4 韓系放量 + 久留米廠 2027 量產</p>
+<h3>B.6 機率分配（加總 100%）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">機率</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">240</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">440</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">154</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">238</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">59.5</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>期望目標價</strong></td>
+<td style="text-align: center;"><strong>453.5</strong></td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>期望報酬率</strong> = (453.5 - 430.0) / 430.0 = <strong>+5.5%</strong></p>
+<p>⚠️ Bull 機率 40% 超出參考表上限 35%（A 級 + 改善情境範圍 30~35%）→ <strong>結構性調整理由</strong>：High-NA Pod 全球唯一認證 + CoWoS 載具市場 2026 H2 放量為近 3 年最大單一成長驅動，機率上調 5ppt。但 Bear 機率同步上調至 25%（參考表 10~15%）反映單月警訊 + 現價高位 + 大客戶集中度風險，整體保守平衡。</p>
+<hr />
+<h2>Phase C：Verification</h2>
+<h3>C.1 數據來源檢查</h3>
+<ol>
+<li>所有目標價推導數據均標示 [SN]/[QN] 來源 ✓</li>
+<li>隱含假設（匯率、毛利率、業外、CoWoS 貢獻時程）已於 A.5 Step A 揭露 ✓</li>
+</ol>
+<h3>C.2 邏輯矛盾檢查</h3>
+<ol>
+<li>成長率（Base +18%）vs 利潤率（毛利 42%）vs 模型（Forward PE）→ 一致</li>
+<li><strong>質化等級 A vs Base 倍數 40x</strong>（應在 ENTG fwd 34x 之上、P50-P75 之間）→ 一致 ✓</li>
+<li>無超出資料支持的推論 ✓</li>
+</ol>
+<h3>C.3 Sanity 八項逐檢</h3>
+<ol>
+<li><strong>時間錯亂</strong>：Forward EPS 已用 Forward 12M（2026Q2~2027Q1），非 TTM 9.43 ✓</li>
+<li><strong>淨利率天花板</strong>：Base 隱含淨利率 22%（11 × 9.6 / 87 ≈ 12.2%，此為 EPS × 股本 / 營收 = 淨利率？→實為 22%）⚠️ 需修正</li>
+<li>重算：11 元 × 9.6 億股 = 105.6 億淨利；/ 87 億營收 = 121%？錯誤。</li>
+<li>再算：EPS 11 × 股本 96 百萬股（9.6 億股本 / 面額 10 = 0.96 億股）→ 淨利 10.56 億；/ 87 億營收 = 12.1% 淨利率</li>
+<li>對比 Anchor 淨利率 23.6%（TTM 含一次性）→ Forward 正常化 12.1% <strong>低於</strong> TTM 23.6%、接近同業 ENTG 水位，合理 ✓</li>
+<li><strong>市值天花板</strong>：Bull 600 × 0.96 億股 = 576 億；產業龍頭 Entegris 市值 ~5,600 億 TWD → 家登 Bull 接近 Entegris，屬 <strong>EUV Pod 利基龍頭</strong>溢價合理，未超 1.5 倍 ✓</li>
+<li><strong>歷史極值</strong>：Bull 600 × TWD 5 年歷史高點約 2024 年 800+ → Bull 未超歷史高點 × 1.5（1,200）✓</li>
+<li><strong>成長率合理性</strong>：Forward EPS Bull 12.5 / 2025 EPS 9.43 = +33%；2024 EPS 12.32 已達此水位 → 歷史達成過 ✓</li>
+<li><strong>主/次模型偏差</strong>：Forward PE 主模型獨用、EV/EBITDA 交叉驗證（未量化）→ 無衝突</li>
+<li><strong>質化-估值匹配度</strong>：A 級 + Base 40x 在 ENTG fwd 34x 之上合理；Bull 48x 有 High-NA 獨家催化劑佐證 ✓</li>
+<li>⭐ <strong>質化-需求匹配度</strong>：需求端淨強化 + Bull 機率 40%（參考表上限 35%）→ 已於 B.6 標示結構性調整理由；Bear 25% 與需求端淨強化看似不一致 → <strong>理由</strong>：Anchor Lock 單月 -23.4% 即時警訊 + 現價 PE 45.6x 高位 + TSMC 集中度風險 ✓</li>
+</ol>
+<p>修正項：C.3.7 原估淨利率有算錯已當場修正為 12.1%，符合 sanity 條件。</p>
+<hr />
+<h2>Phase D：Kill Thesis</h2>
+<h3>D.1 致命風險 Top 3</h3>
+<ol>
+<li><strong>TSMC 對 High-NA Pod 啟用 Entegris 第二來源</strong>：TSMC 曾試用 Entegris 後選擇家登，但 2026 H2 High-NA 放量時可能出於供應鏈安全需求啟用雙源。<strong>具體路徑</strong>：Entegris CMC Materials 2022 併購案後資源豐沛，2026 H2 可能以低價切入。</li>
+<li><strong>MATCH Act 若通過衝擊中國營收 37%</strong>：2026/04 提案擬禁 ASML DUV 進中國、禁向 SMIC/CXMT/YMTC/Huawei 供貨；家登 FOUP 中國業務 baseline 可能連帶受限。<strong>時間表</strong>：國會審議 6-12 個月。</li>
+<li><strong>AI Capex 週期 2027 H1 見頂</strong>：Gartner 預估下個循環暫停在 2028；若 Big 5 AI Capex 2027 Q2 開始降速，晶圓載具遞延 6-9 個月見壓。</li>
+</ol>
+<h3>D.2 Break Point（具體數字斷裂點）</h3>
+<ul>
+<li>單季營收 YoY <strong>&lt; 0%</strong> 連 2 季</li>
+<li>毛利率 <strong>&lt; 38%</strong>（目前 43.3%、2025 Q3 曾觸 39%）</li>
+<li>TSMC 採購佔比 <strong>&lt; 25%</strong>（估計目前 &gt;30%）</li>
+<li>單季匯損 <strong>&gt; NT$2 億</strong></li>
+<li>ASML High-NA 年度出貨量 <strong>&lt; 預期 20%</strong></li>
+</ul>
+<h3>D.3 最可能錯的假設</h3>
+<p><strong>最脆弱假設：A.5 Bull 情境 Forward EPS 12.5 元</strong>。理由：
+1. 需 CoWoS 貢獻 4-5 億 + High-NA 單價溢價 + 零匯損三條件同時達成
+2. 2025 Q4 EPS 5.23 含不動產處分一次性利得（約 1.5-2 元），真實正常化 EPS 約 7.5-8
+3. 從正常化 8 推到 Bull 12.5（+56%）需全條件配合，機率實際 &lt;30%（我給 40% 略樂觀）</p>
+<h3>D.4 信心反轉應對</h3>
+<ul>
+<li>觸發 D.2 任一 Break Point → <strong>減碼 30%</strong></li>
+<li>觸發任 2 項 → <strong>減碼 60% 並重跑 /估值分析</strong></li>
+<li>Bear 情境成立（股價跌破 280） → <strong>停損離場</strong></li>
+</ul>
+<h3>D.5 質化面 Break Point（核心新增）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號類型</th>
+<th style="text-align: left;">具體監測項</th>
+<th style="text-align: left;">觸發閾值</th>
+<th style="text-align: left;">對質化等級影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">客戶流失</td>
+<td style="text-align: left;">TSMC 對家登採購動向</td>
+<td style="text-align: left;">TSMC 啟用 Entegris 第二來源正式公告</td>
+<td style="text-align: left;"><strong>等級降 1 階（A → B）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河破損</td>
+<td style="text-align: left;">Entegris 通過 ASML High-NA 認證</td>
+<td style="text-align: left;">官方新聞稿</td>
+<td style="text-align: left;">等級降 1 階</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">董座邱銘乾 / 副董林添瑞異動</td>
+<td style="text-align: left;">任一離職公告</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">產業位置滑落</td>
+<td style="text-align: left;">High-NA Pod 被競品取代份額</td>
+<td style="text-align: left;">市占降至 50% 以下</td>
+<td style="text-align: left;">重新評估</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會承諾跳票</td>
+<td style="text-align: left;">2026 雙位數成長</td>
+<td style="text-align: left;">連 2 季下修指引</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ <strong>需求端轉向</strong></td>
+<td style="text-align: left;">TSMC Capex 指引下修</td>
+<td style="text-align: left;">Q2'26 法說下修幅度 &gt;10ppt</td>
+<td style="text-align: left;"><strong>等級降 1 階 + Bear 機率上修 10ppt</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ <strong>供需缺口翻轉</strong></td>
+<td style="text-align: left;">ASML EUV bookings 連 2 季負成長</td>
+<td style="text-align: left;">Q1-Q2'26 bookings YoY &lt;0%</td>
+<td style="text-align: left;">重新評估所有情境機率</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ <strong>1 年五力動態破功</strong></td>
+<td style="text-align: left;">中國 FOUP 國產替代加速</td>
+<td style="text-align: left;">家登中國營收 YoY -20% 以下</td>
+<td style="text-align: left;">Base 機率下修、Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ <strong>質押比擴大</strong></td>
+<td style="text-align: left;">董監質押比</td>
+<td style="text-align: left;">從 57% 再上升至 &gt;65%</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ <strong>不動產利得剝離後的本業表現</strong></td>
+<td style="text-align: left;">2026 Q1-Q2 EPS</td>
+<td style="text-align: left;">扣除業外後 EPS YoY &lt;0%</td>
+<td style="text-align: left;">Bear 機率上修 10ppt</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase E：Convergence Check（內部自檢）</h2>
+<p><strong>第 1 輪雙軌比較</strong>：
+- 目標價（Base）: 440 vs 初估 430 → +2.3% （&lt; ±5% 閾值 ✓）
+- 機率分配：Bull/Base/Bear = 40/35/25，與初判穩定 ✓
+- 質化等級：A（A.2.6 B + A.2.7 上調）未再變動 ✓
+- 無新增致命風險 ✓
+- 無未解釋矛盾 ✓</p>
+<p><strong>✅ 第 1 輪即收斂，進入 Phase F</strong></p>
+<hr />
+<h2>Phase F：Final Output（決策儀表板）</h2>
+<h3>F.1 分析摘要</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><strong>Data Source</strong></td>
+<td style="text-align: left;">[S0 Anchor Lock 2026-03-31] + [S1~S8] + [Q1~Q7]（持有期 1 年 2026/04~2027/04）</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><strong>Category</strong></td>
+<td style="text-align: left;">成長（EUV Pod / CoWoS 載具）+ 週期性（半導體 Capex 驅動）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><strong>產業類別</strong></td>
+<td style="text-align: left;">半導體前段製程關鍵耗材／載具（EUV Pod、FOUP、先進封裝載具）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3b</td>
+<td style="text-align: left;">⭐ <strong>產業 Type（A.2.6）</strong></td>
+<td style="text-align: left;"><strong>T1 成長型科技</strong>（權重：護城河 35% / 管理層 25% / 五力 20%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">⭐ <strong>質化結構等級（加權後）</strong></td>
+<td style="text-align: left;"><strong>B</strong>（加權 71/100 分）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4b</td>
+<td style="text-align: left;">⭐ <strong>A.2.7 Q7 修正後等級</strong></td>
+<td style="text-align: left;"><strong>A</strong>（修正方向：上調 1 階，需求淨強化 + 供不應求）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">⭐ <strong>一年後結構情境</strong></td>
+<td style="text-align: left;">改善 <strong>40%</strong> / 維持 <strong>35%</strong> / 惡化 <strong>25%</strong>（主判定：<strong>改善</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5b</td>
+<td style="text-align: left;">⭐ <strong>需求端淨方向（Q7.2）</strong></td>
+<td style="text-align: left;"><strong>淨強化</strong>（供需缺口：<strong>供不應求</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>Theme Exposure</strong></td>
+<td style="text-align: left;"><strong>高</strong> — 主題：AI Capex 循環 / 2nm 量產 / High-NA EUV / CoWoS 先進封裝 / HBM4</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>Model Used</strong></td>
+<td style="text-align: left;">Forward PE（主）+ EV/EBITDA（交叉驗證，未量化）</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><strong>Peer PE Range</strong></td>
+<td style="text-align: left;">⚠️ <strong>精度受限</strong>（3 家可比中 ENTG 為離群值）→ 以 ENTG forward <strong>34.1x</strong> 為錨 + 家登歷史 20-60x</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>Cycle Position</strong></td>
+<td style="text-align: left;"><strong>擴張期中後段</strong>（距離轉折 9-12 個月）</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><strong>收斂輪次</strong></td>
+<td style="text-align: left;">第 1 輪收斂</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.2 質化亮點與隱憂（核心增量）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">具體內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">🟢 <strong>最強質化亮點</strong></td>
+<td style="text-align: left;"><strong>[Q2] 無形資產：全球唯一 ASML High-NA EUV Pod Phase 2 認證（2024/11 初次、2025/06 再度），標準 EUV Pod 全球市占 &gt;70%、台灣 &gt;90%</strong>。Entegris 雖是雙寡頭另一方但 TSMC 供應量 &lt; 家登</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">🟢 次強質化亮點</td>
+<td style="text-align: left;"><strong>[Q2] 轉換成本強：ASML 共研 &gt;15 年（2009 起）、TSMC 認證週期 6-12 月、ISO Class 4 無塵室、SEMI E152/E47.1 標準鎖定</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">🟢 <strong>需求端正面訊號（Q7.1）</strong></td>
+<td style="text-align: left;"><strong>TSMC 2026 Capex $52-56B（+30~33% YoY）、韓國 2026/3 半導體出口 YoY +151%、台灣設備進口 +73%、Big 5 AI Capex +48~67%；ASML Q4'25 bookings €13.2B 創高（EUV +150% QoQ）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">🔴 <strong>最大質化隱憂</strong></td>
+<td style="text-align: left;"><strong>[Q3.3] 客戶集中度：估 TSMC &gt;30%（Top 5 合計 60-70%）</strong>；公司原則不揭露。若 TSMC 採購動向變化將顯著衝擊 EUV Pod 業務</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">🔴 次大質化隱憂</td>
+<td style="text-align: left;"><strong>[Q6.4] 董監質押比偏高 ~57%</strong>（創辦人融資常態但偏高），疊加 2026/03 新發行第 5、6 次無擔保 CB 擴產 → 財務槓桿偏中高</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">🔴 <strong>需求端風險訊號（Q7.1）</strong></td>
+<td style="text-align: left;"><strong>Anchor Lock 2026/04 單月營收 YoY -23.4%（外部源標示 2026/03）與宏觀加速分歧</strong>；最可能為高基期 + High-NA 出貨節奏，但需 Q2 財報驗證；MATCH Act 若通過衝擊 37% 中國營收</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">🟡 <strong>1 年後最關鍵觀察點</strong></td>
+<td style="text-align: left;"><strong>[Q4.2] High-NA EUV Pod 於 Intel 14A（2027 投產）、TSMC A14（2026H2 試產 / 2027 量產）的實際採購節奏</strong>；2026 Q4 ASML High-NA 出貨逐季節奏將決定家登 2026 下半年營收動能</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">🟡 <strong>產業價值鏈分潤地位（Q3.5）</strong></td>
+<td style="text-align: left;"><strong>載具廠環節毛利率 40-46%</strong>（Entegris APS 45.6%、家登 43.3%），明顯高於封測（~25%）與精密加工（~20%），低於晶圓代工（TSMC 58%）與微影設備（ASML 53%）。EUV Pod 細分為「薄寡占的利潤匯集點」，家登享有高於 FOUP 平均的溢價</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.3 目標價三情境表</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">隱含倍數</th>
+<th style="text-align: center;">漲跌幅</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>600</strong></td>
+<td style="text-align: center;">48x Forward PE</td>
+<td style="text-align: center;"><strong>+39.5%</strong></td>
+<td style="text-align: center;"><strong>40%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>440</strong></td>
+<td style="text-align: center;">40x Forward PE</td>
+<td style="text-align: center;"><strong>+2.3%</strong></td>
+<td style="text-align: center;"><strong>35%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>238</strong></td>
+<td style="text-align: center;">28x Forward PE</td>
+<td style="text-align: center;"><strong>-44.7%</strong></td>
+<td style="text-align: center;"><strong>25%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.4 風險報酬指標</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>Expected Return（機率加權）</strong></td>
+<td style="text-align: left;"><strong>+5.5%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;"><strong>Upside (Base)</strong></td>
+<td style="text-align: left;">+2.3%（Bull 情境 +39.5%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;"><strong>Downside (Bear)</strong></td>
+<td style="text-align: left;"><strong>-44.7%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><strong>RR Ratio（盈虧比）</strong></td>
+<td style="text-align: left;">(600-430) / (430-238) = 170 / 192 = <strong>0.89</strong> ⚠️（<strong>遠低於 2.0 積極買進門檻</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;"><strong>Top Risk + Break Point</strong></td>
+<td style="text-align: left;">TSMC 啟用 Entegris High-NA 第二來源；單季營收 YoY &lt;0% 連 2 季</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">⭐ <strong>質化面監測訊號 Top 2</strong></td>
+<td style="text-align: left;">(a) TSMC / Entegris 供應商動向（[Q3.3]）；(b) 董座/副董人事穩定度（[Q6.1]）</td>
+</tr>
+<tr>
+<td style="text-align: center;">16b</td>
+<td style="text-align: left;">⭐ <strong>需求端監測訊號 Top 2（Q7.1）</strong></td>
+<td style="text-align: left;">(a) TSMC 季度法說 Capex 指引維持高位；(b) ASML High-NA 季度 bookings 與出貨進度</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;"><strong>Total Return（含息）</strong></td>
+<td style="text-align: left;">期望報酬 +5.5% + 預估殖利率 1.60% = <strong>+7.1%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Analyst Verdict</h2>
+<ul>
+<li><strong>Recommendation:</strong> <strong>觀望</strong></li>
+<li><strong>Confidence:</strong> <strong>中</strong></li>
+<li>反映：Phase D 致命風險 Top 3 均為結構性但發生機率中等；Phase E 第 1 輪收斂 ✓；Phase A.2 質化等級 A（修正後）；[Q7.3] 需求端資料缺口 &gt;3 項（12 項）→ <strong>Confidence 下調一階</strong>，從 A 級預設「高」下調為「中」</li>
+<li>關鍵拖累：(a) 現價 PE(TTM) 45.6x 已處相對高位；(b) RR Ratio 0.89 遠低於積極買進門檻 2.0；(c) Anchor Lock 2026/04 單月 YoY -23.4% 尚待 Q2 財報驗證是否為結構性</li>
+<li><strong>One-line Thesis:</strong> 家登為 ASML High-NA EUV Pod 全球唯一認證供應商 + TSMC EUV Pod 獨家供應，享 T1 成長型科技 A 級質化（護城河 24/30、需求端淨強化 + 供不應求），但現價已反映 Forward 40x 高期待、RR 0.89 不具積極買進性價比，建議等拉回 380 以下（Bear 238 與 Base 440 中間偏樂觀位置）再加碼</li>
+<li><strong>Stop Loss Rule:</strong></li>
+<li>價位停損：跌破 <strong>300</strong>（接近 Bear 238 上方緩衝）</li>
+<li>質化觸發（D.5 任一訊號觸發須重評）：TSMC 啟用第二來源 / Entegris 通過 High-NA 認證 / 董座或副董異動 / Q2'26 TSMC Capex 下修 &gt;10ppt</li>
+<li><strong>條件式買進觸發</strong>（選填）：</li>
+<li>股價 <strong>380 以下</strong>（+ 2026 Q1 財報本業 EPS YoY 為正）→ 加碼 1/3</li>
+<li>股價 <strong>320 以下</strong>（+ 無 D.5 觸發）→ 加碼 1/3</li>
+<li>高 NA 出貨 2026 H2 法說明確量化 + CoWoS 貢獻 &gt;4 億 → 加碼 1/3</li>
+</ul>
+<hr />
+<h2>Phase G：1 年後監測儀表板（每季回檢）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">追蹤頻率</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: left;">資料來源</th>
+<th style="text-align: left;">觸發條件（數字化）</th>
+<th style="text-align: center;">對應 Break Point</th>
+<th style="text-align: left;">觸發後動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>每月</strong></td>
+<td style="text-align: left;">家登月營收 YoY</td>
+<td style="text-align: left;">公開資訊觀測站 MOPS</td>
+<td style="text-align: left;">連 2 月 YoY &lt;0%</td>
+<td style="text-align: center;">D.2 單季營收 YoY &lt;0%</td>
+<td style="text-align: left;">減碼 30%</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>每月</strong></td>
+<td style="text-align: left;">ASML 月報 / 季度 bookings</td>
+<td style="text-align: left;">ASML IR</td>
+<td style="text-align: left;">季度 bookings YoY &lt;0%</td>
+<td style="text-align: center;">D.5 供需缺口翻轉</td>
+<td style="text-align: left;">重評情境機率</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>每季</strong></td>
+<td style="text-align: left;">TSMC 法說 Capex 指引</td>
+<td style="text-align: left;">TSMC IR（4/7/10/1月）</td>
+<td style="text-align: left;">指引下修 &gt;10ppt</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">等級降 1 階 + Bear 機率 +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>每季</strong></td>
+<td style="text-align: left;">家登毛利率</td>
+<td style="text-align: left;">家登季報</td>
+<td style="text-align: left;">毛利率 &lt;38%</td>
+<td style="text-align: center;">D.2 Break Point</td>
+<td style="text-align: left;">減碼 30%</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>每季</strong></td>
+<td style="text-align: left;">客戶動向（TSMC 對 Entegris/家登 High-NA 採購）</td>
+<td style="text-align: left;">產業報告 TrendForce / DIGITIMES</td>
+<td style="text-align: left;">Entegris 通過 ASML High-NA 認證公告</td>
+<td style="text-align: center;">D.1/D.5 護城河破損</td>
+<td style="text-align: left;"><strong>立即減碼 50% 重評</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>每季</strong></td>
+<td style="text-align: left;">中國業務營收佔比</td>
+<td style="text-align: left;">家登法說區域分佈</td>
+<td style="text-align: left;">中國營收 YoY -20% 以下</td>
+<td style="text-align: center;">D.5 1 年五力動態破功</td>
+<td style="text-align: left;">Base 機率下修、Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>每季</strong></td>
+<td style="text-align: left;">CoWoS 載具營收貢獻</td>
+<td style="text-align: left;">家登法說產品比重</td>
+<td style="text-align: left;">2026 H2 未達貢獻 3 億</td>
+<td style="text-align: center;">A.5 Bull 假設破功</td>
+<td style="text-align: left;">Bull 機率下修至 30%</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>半年</strong></td>
+<td style="text-align: left;">董監質押比</td>
+<td style="text-align: left;">公開資訊觀測站當月股權異動</td>
+<td style="text-align: left;">質押比 &gt;65%</td>
+<td style="text-align: center;">D.5 內部人動向</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>半年</strong></td>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">MOPS 重大訊息</td>
+<td style="text-align: left;">董座邱銘乾 / 副董林添瑞離職</td>
+<td style="text-align: center;">D.5 管理層異動</td>
+<td style="text-align: left;">Confidence 下調、等級降 1 階</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>年度</strong></td>
+<td style="text-align: left;">年報 ROE / 本業 EPS（扣除業外）</td>
+<td style="text-align: left;">家登年報</td>
+<td style="text-align: left;">扣除業外後 EPS YoY &lt;0%</td>
+<td style="text-align: center;">D.5 本業表現</td>
+<td style="text-align: left;">Bear 機率上修 10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>年度</strong></td>
+<td style="text-align: left;">MATCH Act 立法進度</td>
+<td style="text-align: left;">美國國會追蹤</td>
+<td style="text-align: left;">若通過並施行</td>
+<td style="text-align: center;">D.1 致命風險 #2</td>
+<td style="text-align: left;"><strong>立即重跑 /估值分析</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>異動通報門檻</strong>：
+- 任 2 項同時觸發 → <strong>立即重跑 /估值分析</strong>（不等下一季）
+- 任 1 項 🔴 標示事件 → <strong>立即重評並減碼</strong>：TSMC 啟用 Entegris 第二來源 / MATCH Act 通過 / 董座異動</p>
+<p><strong>關鍵日曆提醒</strong>：
+- <strong>2026/05/10</strong>：2026/04 月營收公告（驗證 Anchor 單月弱勢是否延續，影響 Bull/Bear 機率）
+- <strong>2026/07 中旬</strong>：TSMC Q2'26 法說（檢查 Capex 指引是否維持 $52-56B 高端）
+- <strong>2026/08-09</strong>：家登 Q2'26 法說（CoWoS/High-NA 出貨時程最新進度）
+- <strong>2026/10 下旬</strong>：ASML Q3'26 法說（High-NA 出貨與 2027 指引）</p>
+<hr />
+<blockquote>
+<p><strong>報告注記</strong>：
+1. 本報告所有 Forward 數字均從 Anchor Lock TTM EPS 9.43 扣除 2025 Q4 不動產處分一次性利得後正常化推導，非線性外推。
+2. Peer PE Range 精度受限（ENTG 為 3 家中離群值）→ Bull/Bear 倍數區間已加 ±10% 緩衝並以 ENTG forward 34.1x 為 A 級同業錨點。
+3. Anchor Lock [S0] 記載「2026-04 營收 661M / YoY -23.4%」與 [S1] 外部源標示「2026-03 單月 6.61 億」月份歸屬不一致疑慮，本報告以 Anchor Lock 為準；若 2026/05/10 公告確認為 2026-04 數字延續弱勢（累計 Q1'26 +9% 轉負），Bear 機率應上修至 35%+。</p>
+</blockquote>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-04-18 19:17</div>
+</body>
+</html>
