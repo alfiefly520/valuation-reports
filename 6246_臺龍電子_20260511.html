@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6246 臺龍電子 估值報告</title>
+<style>:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #6c757d;
+  --border: #dee2e6;
+  --border-light: #e9ecef;
+  --accent: #0d47a1;
+  --accent-light: #e3f2fd;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --yellow: #f57f17;
+  --yellow-bg: #fff8e1;
+  --link: #1565c0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --bg-card: #1c2128;
+    --text: #e6edf3;
+    --text-secondary: #8b949e;
+    --border: #30363d;
+    --border-light: #21262d;
+    --accent: #58a6ff;
+    --accent-light: #0d1117;
+    --green: #3fb950;
+    --green-bg: #0d2818;
+    --red: #f85149;
+    --red-bg: #3d1214;
+    --yellow: #d29922;
+    --yellow-bg: #2d1f00;
+    --link: #58a6ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+nav a {
+  color: var(--link);
+  text-decoration: none;
+  padding: 4px 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Headings */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--text-secondary);
+}
+
+/* Meta info block */
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Paragraphs & inline */
+p { margin: 0.6rem 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* Lists */
+ul, ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+li { margin: 0.25rem 0; }
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0.75rem 0;
+  background: var(--bg-alt);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+}
+@media (prefers-color-scheme: dark) {
+  thead th { background: #1f3a5f; }
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+tbody tr:hover { background: var(--accent-light); }
+
+/* Inline code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+/* Alert boxes (parsed from special markers) */
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.alert-warn {
+  background: var(--yellow-bg);
+  border-left: 4px solid var(--yellow);
+  color: var(--text);
+}
+.alert-green {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.alert-red {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+
+/* Phase badges */
+.phase-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Verdict section */
+.verdict {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+.verdict h3 { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Index page ─── */
+.report-list { list-style: none; padding: 0; }
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.report-item:hover { background: var(--bg-alt); }
+.report-item .code {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  min-width: 50px;
+}
+.report-item .company {
+  font-weight: 500;
+  flex: 1;
+}
+.report-item .date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.stats {
+  display: flex;
+  gap: 16px;
+  margin: 1rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.stats span {
+  background: var(--bg-alt);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px 10px 30px; font-size: 0.95rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  table { font-size: 0.8rem; }
+  td, th { padding: 5px 8px; }
+  .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
+  .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav><a href="index.html">&larr; 回報告列表</a></nav>
+<h1>6246 臺龍電子 估值報告</h1>
+<div class="meta">報告日期：2026-05-11 &nbsp;|&nbsp; 代碼：6246 &nbsp;|&nbsp; 公司：臺龍電子</div>
+<h1>6246 臺龍電子（TTFIC）估值報告</h1>
+<blockquote>
+<p>產生日期：2026-05-11
+Anchor Lock 基準日：2026-06-01（Current Price 16.95，2026-05-08）
+持有期框架：1 年
+產業 Type：T3 強循環（權重：生命週期 30% / 產業鏈 25% / 管理層 20%）
+質化結構等級（加權）：<strong>D（劣，加權 14.7/100 分）</strong>
+A.2.7 修正後等級：<strong>D</strong>（已達下限，需求端淨弱化證實）
+一年後結構情境：改善 15% / 維持 30% / <strong>惡化 55%</strong>
+需求端淨方向：<strong>淨弱化</strong>（供需缺口：供過於求）
+收斂輪次：第 2 輪達成</p>
+</blockquote>
+<hr />
+<h2>Phase A — Core Build</h2>
+<h3>A.1 Data Integrity &amp; Target Type Guard</h3>
+<p><strong>A.1.1 資料時效驗證</strong>
+- Anchor Lock 完整：Current Price 16.95、TTM EPS 1.14、PE 14.9x、PB 1.50x、近四季 ROE -3.8/4.4/-0.8/11.4
+- 最近季報：2025Q4（EPS 1.18，<strong>全年 EPS 100% 來自 Q4 單季</strong>，前三季實質虧損）
+- 最近法說：2025-12-24（前次 2022-12-23，<strong>中間 2023~2024 兩年無自辦法說會</strong>）
+- 警示：[S3] 強烈標示 <strong>Q4 EPS 1.18 一次性與否未經財報明細驗證</strong>（業外/退稅/遞延所得稅/處分皆有可能） → 全程以「可持續性存疑」為前提</p>
+<p><strong>A.1.2 標的類型前置檢查</strong>
+- 上櫃普通股（光電業）→ 進入 A.2 正常流程
+- 流動性紅旗：股本 3.8 億、市值 6.4 億、外資 1.85%、投信 &lt;6%、2025 年中曾遭暫停融資融券再恢復 → <strong>小型流動性折價將直接反映於倍數</strong></p>
+<hr />
+<h3>A.2 Qualitative Structure Scoring</h3>
+<h4>A.2.1 五力評分（消費 [Q1]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">力</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">供應商議價力（LED 晶片/光學膜寡占、2026 全面漲價）</td>
+<td style="text-align: center;">中-高</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">買方議價力（面板廠/車廠 Tier-1、OLED 滲透率擠壓 LCD 訂單）</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">新進入者（中國 TCL/兆馳/惠科 Mini LED 垂直整合）</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">替代品（OLED MNT 5%→7.4%、Mini LED TV 滲透 10%、車用 OLED YoY +11.8%）</td>
+<td style="text-align: center;">中-高</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">現有競爭強度（瑞儀 487 億 vs 臺龍 16 億、規模差 30 倍）</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>10/25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.2 護城河評分（消費 [Q2]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">類別</th>
+<th style="text-align: left;">強度 × 持續性</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">規模經濟（人均產值 347 萬，遠不足規模廠）</td>
+<td style="text-align: left;">弱 × 中</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">網絡效應（B2B 零組件）</td>
+<td style="text-align: left;">無</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">轉換成本（<strong>車規認證導入週期長 6~12 月、4 大中國車廠 Tier-2</strong>）</td>
+<td style="text-align: left;">強 × 5y+</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">無形資產（IATF 16949 / ISO 9001/14001 / QC 080000）</td>
+<td style="text-align: left;">中 × 5y</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">成本優勢（中國雙廠+台幣升值雙壓）</td>
+<td style="text-align: left;">弱 × 中</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">監管壁壘（一般工業認證）</td>
+<td style="text-align: left;">弱 × 5y</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>11/30</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.3 產業鏈位置（消費 [Q3]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">判定</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">上游 pass-through（晶片/光學膜寡占吃定下游）</td>
+<td style="text-align: center;">低</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">中游門檻（車規 LCM 全貼合中等門檻）</td>
+<td style="text-align: center;">中</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">客戶集中度（已知 4 大中國車廠 Tier-2，<strong>Top 5 N/A</strong>）</td>
+<td style="text-align: center;">中</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">地緣曝險（中國雙廠 + 美中關稅 + 台幣升值三重壓）</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>8/20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.4 生命週期 + 結構性變化（消費 [Q4]）</h4>
+<ul>
+<li>產業週期：<strong>成熟末期 + 結構轉型期</strong>（LCD TV -0.6%、PC -11.3%、AMOLED -7%、筆電 -7.9%）→ 成熟偏衰退 → <strong>0</strong></li>
+<li>結構變化：淨負面（OLED 滲透加速 + 中國垂直整合 + 上游全面漲價 + 台幣升值，僅 Mini LED/車用為亮點）→ <strong>-2</strong></li>
+<li><strong>合計加成：-2 / ±5</strong></li>
+</ul>
+<h4>A.2.5 管理層評分（消費 [Q6]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Track record（連 3 年虧損 2023~2024、AI/ASA 兩 Pillars 貢獻 &lt;0.1%）</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">資本配置紀律（2024 ROCE -19.5%、車用轉型成功但 ROIC 整體弱）</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會透明度（<strong>2 年無法說會、家族控股 47%、無券商覆蓋</strong>）</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">內部人動向（<strong>董座異動原因未揭露</strong>、外資 1.85% 極低、質押比 N/A）</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"><strong>7/20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.6 綜合質化結構等級（產業權重自適應）</h4>
+<p><strong>產業 Type 判定：T3 強循環</strong>
+- Why：主業光源條 + 背光模組（59.7% + 40.2% = 99.9%）= 面板光電直接命中 T3；車用 LCM 雖屬 EV 供應鏈但占比有限；下游全面 LCD 鏈受循環衝擊
+- 權重：生命週期 ±30 / 產業鏈 25 / 管理層 20 / 五力 15 / 護城河 10</p>
+<p><strong>加權計算</strong>：
+- 五力 10/25 × 100 × 15% = 6.0
+- 護城河 11/30 × 100 × 10% = 3.7
+- 產業鏈 8/20 × 100 × 25% = 10.0
+- 管理層 7/20 × 100 × 20% = 7.0
+- 生命週期 -2/5 × 30 = -12.0</p>
+<p><strong>加權總分：14.7 / 100</strong> → clip 至 [0,100] = <strong>14.7</strong></p>
+<p>⭐ <strong>A.2.6 原始等級：D（劣，加權 14.7/100 分）</strong></p>
+<h4>A.2.7 Q7 需求端修正</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">需求端訊號類別</th>
+<th style="text-align: center;">方向</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">大客戶 Capex / 採購指引</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: left;">LGD 退出 LCD、京東方押 OLED、群創/友達 2026 出貨保守</td>
+</tr>
+<tr>
+<td style="text-align: left;">下游產業景氣指標</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: left;">TV -0.6% / PC -11.3% / 筆電 -7.9% / AMOLED -7%</td>
+</tr>
+<tr>
+<td style="text-align: left;">政府 / 政策採購</td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">中國「兩新」補貼 1 級能效（TCL Mini LED 主受益，臺龍無連結）</td>
+</tr>
+<tr>
+<td style="text-align: left;">進出口 / 海關統計</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">HS Code 9013/8531/8541 月度金額未取得</td>
+</tr>
+<tr>
+<td style="text-align: left;">消費者端訊號</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">B2B 業務</td>
+</tr>
+<tr>
+<td style="text-align: left;">第三方景氣調查</td>
+<td style="text-align: center;">→↓</td>
+<td style="text-align: left;">台灣 PMI 60.3% 但驅動為 AI（非 LCD）；中國 PMI 50.3% 微擴</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>[Q7.2] 需求端淨方向：淨弱化</strong>（主業 LCD 鏈三方驗證全面下行；僅車用為個別亮點）
+<strong>供需缺口：供過於求</strong>（1Q26 中國 LCD TV 稼動率 -3.5pp 至 87.7%）</p>
+<p>修正規則：D 級 + 淨弱化 → 等級下調但已達下限 → <strong>維持 D</strong>；<strong>Confidence 下調</strong></p>
+<p>⭐ <strong>A.2.7 修正後等級：D</strong>（已達下限）
+⭐ <strong>修正理由</strong>：第三方需求端三方驗證主業全面衰退，與 Anchor Lock 近 6 月營收 YoY -1% ~ -34.9% 完全一致；Confidence 受需求端確認下調</p>
+<hr />
+<h3>A.3 Peer Benchmarking</h3>
+<p><strong>[S4.5] 同業樣本經 Stage 1 自評為「精度受限」：</strong>
+- PE 唯一有效樣本：<strong>6176 瑞儀 11.15x</strong>（中光電 79.26x 為 EPS 異常壓低失真，不採；達運/先益/隆達 N/A 或虧損）
+- PB 樣本：瑞儀 1.57x、中光電 0.98x、達運 1.03x、臺龍 <strong>1.50x</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">統計</th>
+<th style="text-align: center;">PE</th>
+<th style="text-align: center;">PB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">P25</td>
+<td style="text-align: center;">~10x（推估）</td>
+<td style="text-align: center;"><strong>0.98x</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">P50</td>
+<td style="text-align: center;">~11.15x</td>
+<td style="text-align: center;"><strong>1.03x</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">P75</td>
+<td style="text-align: center;">~13x（推估）</td>
+<td style="text-align: center;"><strong>1.50x</strong>（瑞儀=臺龍當前）</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ [F.1] 標示「Peer PE Range 精度受限」、Bull/Bear 倍數區間加 ±10% 緩衝（依 A.3 規則）。
+⚠️ 主估值錨改採 <strong>PB</strong>（依 [S4.5] Stage 1 明示建議）。</p>
+<hr />
+<h3>A.4 Model Selection</h3>
+<p><strong>判定：Type B1 景氣循環 + 部分轉型</strong>
+- 主業光源條 + 背光模組為 LCD 循環鏈
+- B1 schema 規定主模型：<strong>EV/EBITDA / Total Shareholder Yield</strong>（<strong>禁止單用 PB</strong>）
+- 但臺龍 EBITDA 細項 N/A（資料缺口）+ 殖利率 0% 連 4 年無配 → TSY 不可用
+- <strong>務實採取</strong>：<strong>主模型 PB（依 [S4.5] 建議）+ 次模型 Forward PE（保守化）+ mid-cycle EPS sanity check</strong>
+- ⚠️ B1 豁免：<strong>TTM EPS 1.14 不可線性外推</strong>（前三季虧損 + Q4 單季貢獻 100%）</p>
+<p><strong>mid-cycle EPS 推估</strong>（近 5 年）：
+- 2021: N/A、2022: N/A、2023: -0.38、2024: -1.32、2025: +1.14
+- <strong>mid-cycle EPS ≈ 0.0~0.3 元</strong>（保守取 0.2 元）</p>
+<hr />
+<h3>A.5 三情境目標價（Forward 12M）</h3>
+<p><strong>Step A — Forward 假設</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward TTM EPS</th>
+<th style="text-align: left;">驅動 / 假設 / 歷史佐證</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Bull</td>
+<td style="text-align: center;">1.0 元</td>
+<td style="text-align: left;">車用 LCM 持續 +30%、Mini LED 切入、Q4 一次性「部分可持續」、台幣回穩</td>
+</tr>
+<tr>
+<td style="text-align: left;">Base</td>
+<td style="text-align: center;">0.4 元</td>
+<td style="text-align: left;">主業萎縮 -10%、車用 +20% 對沖、Q4 一次性消退、台幣升值壓縮 5%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bear</td>
+<td style="text-align: center;">-0.3 元</td>
+<td style="text-align: left;">主業崩跌 -25%、車用客戶集中度風險顯化、台幣再升、Q4 確認為一次性</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Step B — 倍數選擇（D 級）</strong></p>
+<p>依 schema：D 級 → Bull P25~P50、Base P25 以下、Bear 歷史低點/清算
+- PB Bull: 1.05x（接近 P50 1.03x，加利基車用題材小溢價）
+- PB Base: 0.85x（P25 以下）
+- PB Bear: 0.50x（清算/歷史低點）</p>
+<p><strong>BPS 計算</strong>：Price 16.95 / PB 1.50 = <strong>BPS ≈ 11.30 元</strong></p>
+<p><strong>Step C — Re-rating / De-rating</strong>
+- [Q4.2] 結構變化淨負面 + [Q2] 護城河窄 → <strong>De-rating 主導</strong>
+- 不適用向上重估</p>
+<p><strong>Step D — 三情境目標價（PB 主、Forward PE 次）</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">PB 模型</th>
+<th style="text-align: center;">Forward PE 模型</th>
+<th style="text-align: center;"><strong>採用目標價（取保守者）</strong></th>
+<th style="text-align: center;">漲跌幅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">11.30 × 1.05 = <strong>11.87</strong></td>
+<td style="text-align: center;">1.0 × 12x = 12.00</td>
+<td style="text-align: center;"><strong>11.9</strong></td>
+<td style="text-align: center;">-30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">11.30 × 0.85 = <strong>9.61</strong></td>
+<td style="text-align: center;">0.4 × 11x = 4.40</td>
+<td style="text-align: center;"><strong>7.0</strong>（PB/PE 折衷，PE 過度悲觀以 mid-cycle EPS 0.2 × 12x = 2.4 取保守保護）</td>
+<td style="text-align: center;">-59%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">11.30 × 0.50 = <strong>5.65</strong></td>
+<td style="text-align: center;">-0.3 → PB 0.4x = 4.52</td>
+<td style="text-align: center;"><strong>4.5</strong></td>
+<td style="text-align: center;">-73%</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ <strong>主/次模型偏差 &gt;20%</strong>：PE 模型在 Bear 與 Base 顯著悲觀於 PB；依 C.3 sanity 11，<strong>以保守者為準</strong>（採 PE 視角微調 Base 至 7.0、Bear 至 4.5）。轉型期豁免不適用（臺龍非轉型主成因）。</p>
+<hr />
+<h2>Phase B — Expansion</h2>
+<h3>B.1 總經（Top-down）</h3>
+<ul>
+<li>央行（2026/04/30）：重貼現率 2.00% 連 7 凍、定存單 1.21% 連 9 降 → <strong>「匯率升、利率低」</strong>基調 → 出口導向廠商<strong>不利</strong></li>
+<li>Fed（2026/04/29）：FF 3.50-3.75% 連 3 凍、市場預期 2026 內可能不再降息</li>
+<li>USD/TWD：2025/05 雙日暴升 10%、2026 持續強勢 → <strong>臺龍中國雙廠美元計價收入回台幣壓縮</strong></li>
+<li>上游全面漲價（記憶體/玻纖/UV LED +5%/光學膜寡占）→ <strong>議價力弱、成本端負面</strong></li>
+</ul>
+<h3>B.2 景氣循環定位</h3>
+<p><strong>LCD 鏈：成熟末期偏衰退</strong>（韓系退出留下中小尺寸缺口，但中國垂直整合吃下絕大部分）
+<strong>車用 LCM 子市場：成長期</strong>（2020-2025 CAGR 53%，但占比 25%）
+<strong>Mini LED 子市場：普及元年</strong>（臺龍未明確跟進，為<strong>負面訊號</strong>）
+→ 整體位置：<strong>衰退邊緣</strong>，距離下一個復甦點 12~24 月以上不可見</p>
+<h3>B.3 催化劑日曆（Top 6）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">時間</th>
+<th style="text-align: left;">事件</th>
+<th style="text-align: center;">影響</th>
+<th style="text-align: center;">重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026/06</td>
+<td style="text-align: left;">股東常會（<strong>2025 EPS +1.14 是否恢復配息為治理訊號</strong>）</td>
+<td style="text-align: center;">+ / -</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/08</td>
+<td style="text-align: left;">Q2 季報（<strong>Q4 一次性是否消退首次驗證</strong>）</td>
+<td style="text-align: center;">+ / -</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/06</td>
+<td style="text-align: left;">TrendForce 1H'26 LCD TV 供需報告</td>
+<td style="text-align: center;">- 偏多</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/11</td>
+<td style="text-align: left;">Q3 季報</td>
+<td style="text-align: center;">+ / -</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/12</td>
+<td style="text-align: left;">公司法說會（依 2025 慣例）</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/01</td>
+<td style="text-align: left;">CES 2027（中國品牌 Mini LED 補貼新機種）</td>
+<td style="text-align: center;">- 偏多</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B.4 Governance &amp; Structural Risk</h3>
+<ol>
+<li><strong>股權與治理</strong>：景旺國際法人代表 3 人合計持股 47.4%（<strong>家族控股</strong>）；董監合計 23.36%；外資 1.85%；<strong>董監質押比 N/A</strong>（<strong>重大缺口</strong>）</li>
+<li><strong>2025/08/21 董座異動</strong>：陳志龍因故不能行使職權，<strong>原因未公開</strong>（治理紅旗）；改為許采彤董事長 + 舒逸豪總經理分立</li>
+<li><strong>法說會頻率</strong>：2 年無自辦法說會（<strong>透明度紅旗</strong>）</li>
+<li><strong>財務結構</strong>：淨現金為正、<strong>自由現金流連 4 季為負</strong>、無顯著有息負債 → 「現金存量足、現金產生能力弱」</li>
+<li><strong>2025 年中遭暫停融資融券再恢復</strong>：具體事由未取得，<strong>籌碼異常訊號</strong></li>
+<li><strong>新事業 AI/ASA 投入金額未揭露</strong>：若投入有限對主業影響小；若大則「分散資源」治理疑慮</li>
+</ol>
+<h3>B.5 一年後產業結構三情境</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">五力</th>
+<th style="text-align: left;">護城河</th>
+<th style="text-align: left;">結構變化</th>
+<th style="text-align: center;">需求端</th>
+<th style="text-align: left;">對臺龍影響</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 改善</td>
+<td style="text-align: left;">韓系退場後留下中小尺寸缺口 + 車用 LCM 拉動</td>
+<td style="text-align: left;">車規認證 + 客戶基礎深化</td>
+<td style="text-align: left;">車用 / Mini LED 滲透加速</td>
+<td style="text-align: center;">部分強化</td>
+<td style="text-align: left;">車用 LCM CAGR 維持 +30%</td>
+<td style="text-align: center;"><strong>15%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 維持</td>
+<td style="text-align: left;">五力惡化緩慢</td>
+<td style="text-align: left;">護城河窄但實</td>
+<td style="text-align: left;">LCD 主業繼續萎縮、車用部分對沖</td>
+<td style="text-align: center;">持平偏弱</td>
+<td style="text-align: left;">整體營收續微跌 -10%</td>
+<td style="text-align: center;"><strong>30%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 惡化</td>
+<td style="text-align: left;">OLED/Mini LED 加速、中國垂直整合深化</td>
+<td style="text-align: left;">大客戶轉單 / 車用認證被取代</td>
+<td style="text-align: left;">主業崩跌、台幣再升</td>
+<td style="text-align: center;">淨弱化</td>
+<td style="text-align: left;">連續虧損回歸</td>
+<td style="text-align: center;"><strong>55%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>主判定：結構惡化（55%）</strong>
+<strong>驅動</strong>：[Q7.2] 第三方驗證需求端淨弱化 + [Q4.2] 結構變化淨負面 + Mini LED 跟進缺位
+<strong>機率分配理由</strong>（依 [A.2.7] D 級 + 需求端淨弱化）：D 級任一情境參考表 → 改善 &lt;15%、維持 25~35%、惡化 55~70%</p>
+<h3>B.6 機率分配與期望值</h3>
+<p><strong>機率分配參考表</strong>：D 級 + 結構惡化 → Base 30~35% / Bull &lt;10% / Bear 55~60%
+<strong>本標的採用</strong>（依 D 級 + 惡化 55% 主判定）：<strong>Bull 15% / Base 30% / Bear 55%</strong>
+- Base 略低於參考下限 30~35% 但因惡化機率高、Bear 相對抬升符合 D 級邏輯
+- ⚠️ 標示「Base 機率 30% &lt; D 級典型 35%」：因本案 D 級 + 惡化雙負雙重證據</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">機率</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">11.9</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">1.79</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">7.0</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">2.10</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">55%</td>
+<td style="text-align: center;">2.48</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>期望目標價</strong></td>
+<td style="text-align: center;"><strong>6.36</strong></td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>期望報酬率</strong>：(6.36 - 16.95) / 16.95 = <strong>-62.5%</strong></p>
+<hr />
+<h2>Phase C — Verification</h2>
+<h3>C.1 數據來源檢查</h3>
+<ul>
+<li>所有數據可追溯至 [S0]~[S8] 與 [Q1]~[Q7]</li>
+<li>假設明示：Forward EPS 推導基於 Q4 一次性消退、台幣升值壓縮、車用 LCM 持續性</li>
+<li>⚠️ 三大資料缺口未解（[S8] 第 1/4/9 項）：Q4 一次性明細、Top 5 客戶、董監質押比 → <strong>由 Confidence 下調反映</strong></li>
+</ul>
+<h3>C.2 邏輯矛盾檢查</h3>
+<ul>
+<li>✅ D 級配 Bear 55% / Bull 15% — 與 [B.6] 機率參考表一致</li>
+<li>✅ 倍數選擇（PB 1.05/0.85/0.50）符合 D 級 P25~P50 / P25 以下 / 歷史低點規範</li>
+<li>✅ 質化等級 D vs Forward EPS 保守化方向一致</li>
+</ul>
+<h3>C.3 Sanity 八項</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">檢查結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">時間錯亂</td>
+<td style="text-align: left;">✅ Forward 12M EPS 而非 TTM</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">淨利率天花板</td>
+<td style="text-align: left;">✅ Bull 隱含淨利率 ~6%（同業 P75 內）</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">市值天花板</td>
+<td style="text-align: left;">✅ Bull 對應市值 4.5 億 &lt; 龍頭瑞儀 480 億的 1%</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">歷史極值</td>
+<td style="text-align: left;">✅ Bull 11.9 &lt; 5 年高點</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">成長率合理性</td>
+<td style="text-align: left;">✅ Bull EPS 1.0 vs 2025 全年 1.14 → 持平偏衰退合理</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">主/次模型偏差</td>
+<td style="text-align: left;">⚠️ PE/PB Base 偏差 &gt;50% → 已採保守者</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">質化-估值匹配</td>
+<td style="text-align: left;">✅ D 級配 PB ≤ 1.05x</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">質化-需求匹配</td>
+<td style="text-align: left;">✅ 需求端淨弱化 + Bull 機率 15% &lt; 30% / Bear 55% &gt; 40% 合理</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ 全部通過或已修正</p>
+<hr />
+<h2>Phase D — Kill Thesis</h2>
+<h3>D.1 致命風險 Top 3</h3>
+<ol>
+<li><strong>2025Q4 EPS 1.18 經財報附註確認為一次性所得稅利益 / 業外處分</strong> → TTM EPS 將回落至 -0.04 → 立即重估（[S8] 第 1 項）</li>
+<li><strong>大客戶集中度 &gt;50% 且某中國車廠 Tier-1 轉單</strong> → 車用 LCM 出貨直接腰斬（[S8] 第 4 項）</li>
+<li><strong>新台幣 2026 H2 再升至 28x、Fed 不降息</strong> → 中國雙廠美元收入回台幣 -10%、毛利再壓縮</li>
+</ol>
+<h3>D.2 Break Point</h3>
+<ul>
+<li>單季營收 YoY &lt; -25%（2026/03 已 -34.9%、04 -26.8% <strong>已觸發</strong>）</li>
+<li>毛利率 &lt; 9%（回到 2023 水準）</li>
+<li>車用 LCM 出貨 YoY 由 +20% 翻 &lt;0%</li>
+<li>單季匯損 &gt; NT$30 M</li>
+</ul>
+<h3>D.3 最可能錯的假設</h3>
+<p><strong>「Q4 EPS 1.18 含至少 50% 經常性成份」</strong> — 若 Stage 2 查 MOPS 季報附註發現 Q4 主要來自「所得稅利益（遞延所得稅資產認列）」+「業外處分」，則 Forward EPS 應更悲觀（Bull 0.5、Base 0.0、Bear -0.5）。</p>
+<h3>D.4 信心反轉應對</h3>
+<ul>
+<li>Q2 季報（2026/08）若毛利率 &lt;9% 或營業淨利轉負 → <strong>減碼 100%</strong></li>
+<li>Q4 一次性確認後 → 評等下調至「強力賣出」、停損價提前</li>
+</ul>
+<h3>D.5 質化面 Break Point</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: center;">觸發閾值</th>
+<th style="text-align: left;">影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">護城河破損</td>
+<td style="text-align: left;">任一中國車廠 Tier-1 取消認證</td>
+<td style="text-align: center;">公告或法說揭露</td>
+<td style="text-align: left;">D 級已達下限，直接下修 Bull 機率至 5%</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">許采彤 / 舒逸豪 任一離任</td>
+<td style="text-align: center;">重訊公告</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會跳票</td>
+<td style="text-align: left;">2026/12 法說再次未召開（連 3 年）</td>
+<td style="text-align: center;">12/31 前未公告</td>
+<td style="text-align: left;">重評治理紅旗</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>需求端轉向</strong></td>
+<td style="text-align: left;">TrendForce LCD TV 2026 再下修至 -2% 以下</td>
+<td style="text-align: center;">季報下修</td>
+<td style="text-align: left;">Bear 機率上修至 65%</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>供需缺口翻轉</strong></td>
+<td style="text-align: left;">2H'26 LCD TV 稼動率 &lt; 80%</td>
+<td style="text-align: center;">TrendForce 月報</td>
+<td style="text-align: left;">重評所有情境</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>1 年五力動態破功</strong></td>
+<td style="text-align: left;">OLED MNT 滲透率超預期破 10%</td>
+<td style="text-align: center;">Omdia</td>
+<td style="text-align: left;">Bull 機率下修</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q4 一次性確認</strong></td>
+<td style="text-align: left;">2025 年報附註揭露 Q4 含大額所得稅利益 / 業外</td>
+<td style="text-align: center;">2026/06 年報</td>
+<td style="text-align: left;">立即重跑估值（<strong>最關鍵</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>車用客戶名單變動</strong></td>
+<td style="text-align: left;">失去吉利/奇瑞/長城/上汽任一家</td>
+<td style="text-align: center;">法說會 / 重訊</td>
+<td style="text-align: left;">Forward EPS 下修 30%</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase E — Convergence Check</h2>
+<ul>
+<li>第 1 輪 Phase A→B：目標價變動 -8%、機率變動 +5ppt → 未達 ±5% 收斂</li>
+<li>第 2 輪：目標價變動 -3%、機率穩定、無新增致命風險 → <strong>✔ 收斂</strong></li>
+<li>質化等級 D 全程未變動</li>
+</ul>
+<p>⭐ <strong>收斂輪次：第 2 輪達成</strong></p>
+<hr />
+<h2>Phase F — Final Output</h2>
+<h3>F.1 分析摘要</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Data Source</td>
+<td style="text-align: left;">[S1] MOPS 重訊 / 法說會 PDF / poorstock AI 摘要 / TrendForce / Omdia / IDC（基準日 2026-06-01）</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Category</td>
+<td style="text-align: left;"><strong>循環 + 衰退邊緣的利基製造</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">產業類別</td>
+<td style="text-align: left;">LCD 背光模組 + LED 光源條 + 車用 LCM（光電零組件）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3b</td>
+<td style="text-align: left;">⭐ 產業 Type</td>
+<td style="text-align: left;"><strong>T3 強循環</strong>（驅動權重：生命週期 30% / 產業鏈 25% / 管理層 20%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">⭐ 質化結構等級（加權）</td>
+<td style="text-align: left;"><strong>D（劣，加權 14.7/100 分）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4b</td>
+<td style="text-align: left;">⭐ A.2.7 修正後等級</td>
+<td style="text-align: left;"><strong>D</strong>（已達下限，需求端淨弱化證實，Confidence 下調）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">⭐ 一年後結構情境</td>
+<td style="text-align: left;">改善 15% / 維持 30% / <strong>惡化 55%</strong>（主判定：結構惡化）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5b</td>
+<td style="text-align: left;">⭐ 需求端淨方向（Q7.2）</td>
+<td style="text-align: left;"><strong>淨弱化</strong>（供需缺口：<strong>供過於求</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Theme Exposure</td>
+<td style="text-align: left;">中-低 — 主題：車用顯示（25%）+ Mini LED（未跟進）</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Model Used</td>
+<td style="text-align: left;"><strong>PB 主 + Forward PE 次</strong>（B1 schema 應 EV/EBITDA，但 EBITDA / TSY 不可用，依 [S4.5] 建議改 PB）</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Peer PE Range</td>
+<td style="text-align: left;"><strong>精度受限</strong>：唯一有效 PE 樣本瑞儀 11.15x；PB P25-P75: 0.98~1.50x</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Cycle Position</td>
+<td style="text-align: left;"><strong>衰退邊緣</strong>（LCD 鏈成熟末期，下一復甦點 12~24 月不可見）</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">收斂輪次</td>
+<td style="text-align: left;">第 2 輪收斂</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.2 質化亮點與隱憂</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">🟢 最強質化亮點</td>
+<td style="text-align: left;"><strong>[Q2] 車規 IATF 16949 + 4 大中國自主車廠 Tier-2 客戶基礎</strong>：車用 LCM 出貨 2020→2025E 從 20 萬→170 萬台（CAGR 53%），認證導入週期 6~12 月，客戶轉換成本實質存在</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">🟢 次強質化亮點</td>
+<td style="text-align: left;"><strong>[Q3.5] 利基定位毛利率 12.8%</strong>：高於同業利基區間（達運 5%、同業均值 8-13%），接近中光電 15%；本業改善訊號（2023 9% → 2025 12%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">🟢 需求端正面訊號</td>
+<td style="text-align: left;"><strong>[Q7.1] 韓系 LGD 退出大尺寸 LCD（2025/04）</strong>：留下中小尺寸缺口可供利基小廠分食；車用顯示 2024 YoY +6.3%、車用 OLED YoY +11.8%</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">🔴 最大質化隱憂</td>
+<td style="text-align: left;"><strong>[Q1] 替代品威脅 + [Q3.5] 上游無定價權</strong>：OLED MNT 5%→7.4%、AMOLED 手機 41.2%→43.2%、Mini LED TV 滲透 10% YoY +40%；上游 LED 晶片/光學膜寡占 + 2026 全面漲價，臺龍 12.8% 毛利率上下夾擊</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">🔴 次大質化隱憂</td>
+<td style="text-align: left;"><strong>[Q6] 治理三紅旗</strong>：(1) 法說會 2 年斷檔；(2) 2025/08 董座異動原因未揭露；(3) 家族控股 47% + 外資僅 1.85%</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">🔴 需求端風險訊號</td>
+<td style="text-align: left;"><strong>[Q7.2] 主業 LCD 鏈 2026 三方驗證全面負成長</strong>：TV -0.6% / PC -11.3% / AMOLED -7% / 筆電 -7.9%；與 Anchor Lock 近 6 月 YoY -1% ~ -34.9% 完全一致</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">🟡 1 年最關鍵觀察點</td>
+<td style="text-align: left;"><strong>2026/08 Q2 季報</strong>：(a) Q4 一次性是否消退；(b) 毛利率是否守住 12%；(c) 車用 LCM YoY 是否維持 +20%；三者中任一破功即觸發強力減碼</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">🟡 產業價值鏈分潤地位</td>
+<td style="text-align: left;"><strong>價值鏈中段 / 利基小廠</strong>：上游 LED 晶片 25-35% 毛利、光學膜 20-30%、規模背光廠（瑞儀/中光電）12-18%、<strong>臺龍 12.8%（利基小廠合理上緣）</strong>、下游面板廠個位數~低兩位數；<strong>無上游定價權、對下游議價弱</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.3 目標價三情境表</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">隱含 PB</th>
+<th style="text-align: center;">漲跌幅</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>11.9</strong></td>
+<td style="text-align: center;">1.05x</td>
+<td style="text-align: center;"><strong>-30%</strong></td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>7.0</strong></td>
+<td style="text-align: center;">0.62x（PE/PB 折衷）</td>
+<td style="text-align: center;"><strong>-59%</strong></td>
+<td style="text-align: center;">30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>4.5</strong></td>
+<td style="text-align: center;">0.40x</td>
+<td style="text-align: center;"><strong>-73%</strong></td>
+<td style="text-align: center;">55%</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.4 風險報酬指標</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>Expected Return（機率加權）</strong></td>
+<td style="text-align: left;"><strong>-62.5%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Upside (Base)</td>
+<td style="text-align: left;"><strong>-59%</strong>（樂觀情境 Bull：-30%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Downside (Bear)</td>
+<td style="text-align: left;"><strong>-73%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><strong>RR Ratio（盈虧比）</strong></td>
+<td style="text-align: left;"><strong>0</strong>（Base 與 Bull 皆為負，無 upside 可言）</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Top Risk + Break Point</td>
+<td style="text-align: left;"><strong>2025Q4 EPS 1.18 一次性確認</strong> + <strong>單季營收 YoY &lt; -25%（已觸發）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">⭐ 質化監測 Top 2</td>
+<td style="text-align: left;">(a) 2026/12 法說會是否如期召開（連 3 年缺席=治理破窗）；(b) 任一中國車廠 Tier-1 認證異動</td>
+</tr>
+<tr>
+<td style="text-align: center;">16b</td>
+<td style="text-align: left;">⭐ 需求端監測 Top 2</td>
+<td style="text-align: left;">(a) TrendForce 季度 LCD TV 出貨修訂；(b) Omdia 車用顯示季度報告（車用 LCM 出貨 YoY）</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">Total Return（含息）</td>
+<td style="text-align: left;"><strong>-62.5% + 0%（連 4 年無配）= -62.5%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3>Analyst Verdict</h3>
+<ul>
+<li><strong>Recommendation：賣出（Strong Sell）</strong></li>
+<li><strong>Confidence：中</strong></li>
+<li>D 級不得為「高」（schema 規定）</li>
+<li>[Q7.3] 需求端資料缺口（HS Code 月度數據未取得）— 但其他 5 類訊號方向高度一致，未顯著拉低</li>
+<li>[S8] 三大關鍵缺口（Q4 一次性明細、Top 5 客戶、董監質押）尚未驗證 → 不得為「高」</li>
+<li>但 D 級 + 結構惡化 + 需求端三方驗證 + 倍數明顯偏離 → <strong>方向性高度確定，不為「低」</strong></li>
+<li><strong>One-line Thesis</strong>：臺龍以利基車用 LCM 轉型獲得正向護城河（CAGR 53%、IATF 16949 + 4 大中國車廠），但主業光源條 + LCD 模組（占 60%）正承受全球 LCD 鏈三方驗證的全面衰退（TV -0.6% / PC -11.3% / AMOLED -7%）+ 上游成本三重漲價 + 新台幣升值高曝險 + 2025Q4 EPS 1.18 經常性存疑（前三季實質虧損），現價 16.95 元相對 D 級質化等級與同業 PB 中位 1.03x 明顯偏貴，<strong>1 年期需求端淨弱化 + 結構惡化 55% 機率主導</strong>，期望報酬率 -62.5%。</li>
+<li><strong>Stop Loss Rule</strong>：</li>
+<li><strong>價位</strong>：12.0 元（Bull 目標價之上 1% 即減碼觀望，跌破 12 強力減碼）</li>
+<li><strong>質化觸發</strong>（任一即重評）：D.5 八項任一觸發；最關鍵為 <strong>2026/08 Q2 季報毛利率 &lt; 9% 或 Q4 一次性確認</strong></li>
+<li><strong>條件式買進觸發</strong>：</li>
+<li>觸發 1：股價跌至 5.0 元以下且 Q2/Q3 季報確認車用 LCM 持續性 → 可考慮抄底（PB 0.44x，接近清算）</li>
+<li>觸發 2：明確公告切入 Mini LED 量產 + 切入新車廠 Tier-1 客戶 → 可重評質化等級至 C</li>
+</ul>
+<hr />
+<h2>Phase G — 1 年後監測儀表板</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">頻率</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: left;">資料來源</th>
+<th style="text-align: left;">觸發條件</th>
+<th style="text-align: center;">對應 Break Point</th>
+<th style="text-align: left;">觸發後動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;">月營收 YoY</td>
+<td style="text-align: left;">MOPS 個股月營收</td>
+<td style="text-align: left;">連續 2 月 &lt; -20%</td>
+<td style="text-align: center;">D.2 已觸發</td>
+<td style="text-align: left;">維持賣出 / 不抄底</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;">月營收絕對值</td>
+<td style="text-align: left;">MOPS</td>
+<td style="text-align: left;">連續 2 月 &lt; 80M</td>
+<td style="text-align: center;">D.2 主業崩跌</td>
+<td style="text-align: left;">確認 Bear 情境主導</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>Q2 季報毛利率</strong>（2026/08）⭐</td>
+<td style="text-align: left;">MOPS 季報</td>
+<td style="text-align: left;">毛利率 &lt; 9%</td>
+<td style="text-align: center;">D.2 Break Point</td>
+<td style="text-align: left;"><strong>強力減碼至 0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>Q4 一次性附註</strong>（2026/06 年報）⭐</td>
+<td style="text-align: left;">MOPS 2025 年報附註「所得稅費用」+「業外」</td>
+<td style="text-align: left;">含大額遞延所得稅資產或處分利益</td>
+<td style="text-align: center;">D.5 Q4 一次性確認</td>
+<td style="text-align: left;"><strong>重跑估值，Forward EPS 預設下修 50%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">車用 LCM 出貨 YoY</td>
+<td style="text-align: left;">公司法說會（若召開）/ 法人摘要</td>
+<td style="text-align: left;">YoY &lt; +10%</td>
+<td style="text-align: center;">D.5 護城河破損</td>
+<td style="text-align: left;">下修 Bull 機率至 5%</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">京東方 / TCL / LGD Capex 動向</td>
+<td style="text-align: left;">各家季報 / Korea Herald</td>
+<td style="text-align: left;">LGD 2027 Capex 不再增加</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">Bear 機率上修</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">TrendForce 1H/2H'26 LCD TV 供需</td>
+<td style="text-align: left;">TrendForce / LEDinside 季報</td>
+<td style="text-align: left;">TV 出貨再下修至 -2% 以下</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">Bear 機率上修至 65%</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;">董監質押比、內部人轉讓</td>
+<td style="text-align: left;">MOPS t56sb20_q1</td>
+<td style="text-align: left;">質押比 &gt;30% 或大額轉讓</td>
+<td style="text-align: center;">B.4 治理紅旗</td>
+<td style="text-align: left;">Confidence 下調 / 評等加碼至「強力賣出」</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;">中國 LCD TV 稼動率</td>
+<td style="text-align: left;">TrendForce 月報</td>
+<td style="text-align: left;">連 2 月 &lt; 80%</td>
+<td style="text-align: center;">D.5 供需缺口翻轉</td>
+<td style="text-align: left;">重評所有情境機率</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;"><strong>2026 法說會是否召開</strong>（2026/12）⭐</td>
+<td style="text-align: left;">MOPS 公告</td>
+<td style="text-align: left;">12/31 前未公告</td>
+<td style="text-align: center;">D.5 法說會跳票</td>
+<td style="text-align: left;">治理紅旗升級、Confidence 下調至「低」</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;">股東會配息決議（2026/06）</td>
+<td style="text-align: left;">MOPS</td>
+<td style="text-align: left;">連 4 年無配息（即使 2025 EPS +1.14 仍不配）</td>
+<td style="text-align: center;">A.2.5 管理層重評</td>
+<td style="text-align: left;">加碼資本配置疑慮</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;">公司治理評鑑結果（2027/04 公布 114 年度）</td>
+<td style="text-align: left;">cgc.twse.com.tw</td>
+<td style="text-align: left;">落後段班</td>
+<td style="text-align: center;">A.2.5 管理層</td>
+<td style="text-align: left;">等級維持 D / Confidence 下調</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>異動通報門檻</strong>：上表 ⭐ 標示之 3 項（Q2 季報毛利率 / Q4 一次性附註 / 法說會召開）任 2 項同時觸發 → <strong>立即重跑 /估值分析</strong>（不等下一季）。</p>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-05-11 02:13</div>
+</body>
+</html>
