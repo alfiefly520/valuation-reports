@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2032 新鋼工業 估值報告</title>
+<style>:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #6c757d;
+  --border: #dee2e6;
+  --border-light: #e9ecef;
+  --accent: #0d47a1;
+  --accent-light: #e3f2fd;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --yellow: #f57f17;
+  --yellow-bg: #fff8e1;
+  --link: #1565c0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --bg-card: #1c2128;
+    --text: #e6edf3;
+    --text-secondary: #8b949e;
+    --border: #30363d;
+    --border-light: #21262d;
+    --accent: #58a6ff;
+    --accent-light: #0d1117;
+    --green: #3fb950;
+    --green-bg: #0d2818;
+    --red: #f85149;
+    --red-bg: #3d1214;
+    --yellow: #d29922;
+    --yellow-bg: #2d1f00;
+    --link: #58a6ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+nav a {
+  color: var(--link);
+  text-decoration: none;
+  padding: 4px 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Headings */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--text-secondary);
+}
+
+/* Meta info block */
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Paragraphs & inline */
+p { margin: 0.6rem 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* Lists */
+ul, ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+li { margin: 0.25rem 0; }
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0.75rem 0;
+  background: var(--bg-alt);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+}
+@media (prefers-color-scheme: dark) {
+  thead th { background: #1f3a5f; }
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+tbody tr:hover { background: var(--accent-light); }
+
+/* Inline code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+/* Alert boxes (parsed from special markers) */
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.alert-warn {
+  background: var(--yellow-bg);
+  border-left: 4px solid var(--yellow);
+  color: var(--text);
+}
+.alert-green {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.alert-red {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+
+/* Phase badges */
+.phase-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Verdict section */
+.verdict {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+.verdict h3 { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Index page ─── */
+.report-list { list-style: none; padding: 0; }
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.report-item:hover { background: var(--bg-alt); }
+.report-item .code {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  min-width: 50px;
+}
+.report-item .company {
+  font-weight: 500;
+  flex: 1;
+}
+.report-item .date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.stats {
+  display: flex;
+  gap: 16px;
+  margin: 1rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.stats span {
+  background: var(--bg-alt);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px 10px 30px; font-size: 0.95rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  table { font-size: 0.8rem; }
+  td, th { padding: 5px 8px; }
+  .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
+  .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav><a href="index.html">&larr; 回報告列表</a></nav>
+<h1>2032 新鋼工業 估值報告</h1>
+<div class="meta">報告日期：2026-05-12 &nbsp;|&nbsp; 代碼：2032 &nbsp;|&nbsp; 公司：新鋼工業</div>
+<h1>2032 新鋼工業 估值報告</h1>
+<blockquote>
+<p>產生日期：2026-05-12
+Anchor Lock 基準日：2026-06-01
+Current Price：17.7 元（2026-05-11）
+產業 Type：T3 強循環（權重：生命週期 30% / 產業鏈 25% / 管理層 20%）
+質化結構等級（加權）：D 級（10.1/100 分）
+A.2.7 修正後等級：D（不變，已達下限；改 Bear 機率 +10ppt）
+一年後結構情境：改善 15% / 維持 35% / 惡化 50%
+需求端淨方向：淨持平、略偏弱（供需缺口：成本端緊+量能不振，毛利擴張有限）
+收斂輪次：第 1 輪即收斂
+結論：減碼 / 賣出（期望報酬 -32.5%）</p>
+</blockquote>
+<hr />
+<h1>Phase A：Core Build（建模）</h1>
+<h2>A.1 Data Integrity &amp; Target Type Guard</h2>
+<h3>A.1.1 資料時效驗證 &amp; Anchor Lock 取得</h3>
+<p><strong>Anchor Lock</strong>（[S0]）：
+- 資料基準日：2026-06-01
+- Current Price：<strong>17.7 元</strong>（2026-05-11）
+- TTM EPS：<strong>0.86 元</strong>（近四季 -0.07 / 0.25 / 0.19 / 0.49）
+- 毛利率 11.9% / 營益率 7.8% / 淨利率 8.2%
+- PE 20.6x / PB 1.32x / 殖利率 2.82%
+- 近四季 ROE：-0.5% / 1.9% / 1.4% / 3.6%
+- 市值 23.1 億 / 股本 13.1 億</p>
+<p><strong>[S1] 警示</strong>：2026 年 5 月營收 313 百萬已公佈於 MOPS，但本次仍以 Anchor Lock 為準（依 Hard Rules）。核心數據 1 個月內 → <strong>時效充分</strong>。</p>
+<p>⚠️ <strong>Anchor Lock 內部訊號</strong>：TTM EPS 0.86 為週期反彈高點（最近 1 季 0.49 顯著優於前三季），歷史均值僅 0.45~0.56；Type B1 循環股必須以 mid-cycle EPS 估值。</p>
+<h3>A.1.2 標的類型前置檢查</h3>
+<ul>
+<li>普通股（TWSE 上市，2000/09/11 掛牌） ✅ 進入正常分析</li>
+<li>非 ETF / REITs / TDR / 特別股 / KY / 警示</li>
+<li>統編 34008635 已校正為「新鋼工業」（非「新鋼鐵」）→ 報告主體不變</li>
+</ul>
+<hr />
+<h2>A.2 Qualitative Structure Scoring（質化結構評分 — 核心）</h2>
+<h3>A.2.1 五力結構評分</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">力</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">供應商議價力</td>
+<td style="text-align: center;">強 → 1 年後強化</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">買方議價力</td>
+<td style="text-align: center;">強 → 1 年後強化</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">新進入者威脅</td>
+<td style="text-align: center;">弱 → 不變</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">替代品威脅</td>
+<td style="text-align: center;">中 → 強化</td>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">現有競爭強度</td>
+<td style="text-align: center;">極強 → 不變</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>11 / 25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>A.2.2 護城河強度評分</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">護城河</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">可持續性</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">規模經濟</td>
+<td style="text-align: center;">弱（8.7 萬噸、中小型）</td>
+<td style="text-align: center;">5年+</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">網絡效應</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">轉換成本</td>
+<td style="text-align: center;">弱（CNS 規格化）</td>
+<td style="text-align: center;">5年+</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">無形資產</td>
+<td style="text-align: center;">弱（僅 ISO 9001）</td>
+<td style="text-align: center;">5年+</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">成本優勢</td>
+<td style="text-align: center;">弱（毛利歷史 4-5%、利用率 48%）</td>
+<td style="text-align: center;">5年+</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">監管壁壘</td>
+<td style="text-align: center;">中（反傾銷 + 中國出口許可間接利好）</td>
+<td style="text-align: center;">3年</td>
+<td style="text-align: center;"><strong>2.1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>6.1 / 30</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>A.2.3 產業鏈位置評分</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">判定</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">上游議價 / pass-through</td>
+<td style="text-align: center;">低</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">中游門檻高度</td>
+<td style="text-align: center;">低（產能利用率 48%）</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">客戶集中度</td>
+<td style="text-align: center;">分散</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">地緣曝險</td>
+<td style="text-align: center;">低（100% 內銷）</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>10 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>A.2.4 生命週期與結構性變化加成</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">判定</th>
+<th style="text-align: center;">加成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">產業生命週期</td>
+<td style="text-align: left;">成熟末期</td>
+<td style="text-align: center;"><strong>-2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">結構性變化淨方向</td>
+<td style="text-align: left;">淨負面</td>
+<td style="text-align: center;"><strong>-1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>-3 / ±5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>A.2.5 管理層品質評分</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">track record（2024 接任新董事長）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">資本配置紀律（2023 不分派、無回購、現金 ROCE -3.9%）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會透明度（未召開）</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">內部人動向（董監持股 26%→9.72%）</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"><strong>7 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>A.2.6 綜合質化結構等級（T3 權重）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">原始</th>
+<th style="text-align: center;">正規化</th>
+<th style="text-align: center;">權重</th>
+<th style="text-align: center;">加權</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">五力</td>
+<td style="text-align: center;">11/25</td>
+<td style="text-align: center;">44.0</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">6.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河</td>
+<td style="text-align: center;">6.1/30</td>
+<td style="text-align: center;">20.3</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">產業鏈</td>
+<td style="text-align: center;">10/20</td>
+<td style="text-align: center;">50.0</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">12.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層</td>
+<td style="text-align: center;">7/20</td>
+<td style="text-align: center;">35.0</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">7.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">生命週期</td>
+<td style="text-align: center;">-3/5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">-18.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>綜合分數</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>10.1</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>⭐ <strong>Type：T3 強循環</strong> | <strong>等級：D 級（10.1/100）</strong>
+⭐ <strong>Why T3</strong>：不銹鋼板捲 99.96% 營收佔比，料源成本佔比 85-90%，2021 EPS 2.27 vs 2023 ≈0.2 顯示景氣循環幅度極大。</p>
+<h3>A.2.7 Q7 修正</h3>
+<ul>
+<li>需求端淨方向：淨持平、略偏弱</li>
+<li>等級已 D 級下限 → <strong>不再下調</strong>，改 <strong>Bear 機率 +10ppt</strong></li>
+<li>[Q7.3] 缺口 9 項 &gt;3 項 → <strong>Confidence 下調</strong></li>
+</ul>
+<p>⭐ <strong>修正後等級：D（不變）</strong></p>
+<hr />
+<h2>A.3 Peer Benchmarking</h2>
+<p><strong>直接同業</strong>：彰源 (2030)、運錩 (2069)、允強 (2034)、大成鋼 (2027)、海光 (2038)</p>
+<p>⚠️ <strong>資料缺口</strong>：直接同業詳細 PE 待 Stage 2 補齊，採鋼鐵類股產業參照組 + ±10% 緩衝：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">統計</th>
+<th style="text-align: center;">PE(TTM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">P25</td>
+<td style="text-align: center;"><strong>13.0x</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">P50</td>
+<td style="text-align: center;"><strong>13.5x</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">P75</td>
+<td style="text-align: center;"><strong>14.4x</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>新鋼 PE 20.6x 顯著高於同業中位（EPS 基期失真所致）。</p>
+<hr />
+<h2>A.4 Model Selection</h2>
+<p><strong>Type B1 — 景氣循環</strong>
+- 主模型：<strong>PB × Forward BPS</strong>（禁止單用 TTM EPS）
+- 輔助：Forward PE × Mid-cycle EPS</p>
+<p><strong>Mid-cycle EPS</strong>：近 5 年中位（2020-2024）≈ <strong>0.50 元</strong>
+<strong>Forward BPS</strong>：17.7 / 1.32 ≈ <strong>13.4 元/股</strong></p>
+<hr />
+<h2>A.5 三情境目標價</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward EPS</th>
+<th style="text-align: left;">驅動</th>
+<th style="text-align: left;">假設</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Bull</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: left;">鎳價反彈 + 中國出口許可有效 + 台積電擴建</td>
+<td style="text-align: left;">毛利 10-12%、利用率 55-60%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Base</td>
+<td style="text-align: center;">0.50</td>
+<td style="text-align: left;">毛利回歸 7-8% mid-cycle</td>
+<td style="text-align: left;">量能持平、上游成本傳導減弱</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bear</td>
+<td style="text-align: center;">0.25</td>
+<td style="text-align: left;">鎳暴利稅、CBAM 衝擊、毛利回歸 4-5%</td>
+<td style="text-align: left;">利用率 40-45%</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">EPS</th>
+<th style="text-align: center;">PE</th>
+<th style="text-align: center;">PE 目標</th>
+<th style="text-align: center;">BPS</th>
+<th style="text-align: center;">PB</th>
+<th style="text-align: center;">PB 目標</th>
+<th style="text-align: center;"><strong>採用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">14.4x</td>
+<td style="text-align: center;">14.4</td>
+<td style="text-align: center;">13.9</td>
+<td style="text-align: center;">1.30x</td>
+<td style="text-align: center;">18.1</td>
+<td style="text-align: center;"><strong>16 元</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">0.50</td>
+<td style="text-align: center;">12.0x</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">13.7</td>
+<td style="text-align: center;">0.95x</td>
+<td style="text-align: center;">13.0</td>
+<td style="text-align: center;"><strong>13 元</strong>（PE 失真，取保守 PB）</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">0.25</td>
+<td style="text-align: center;">10.0x</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">13.5</td>
+<td style="text-align: center;">0.75x</td>
+<td style="text-align: center;">10.1</td>
+<td style="text-align: center;"><strong>10 元</strong>（PB 保守）</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ 主/次模型偏差 Base/Bear &gt;20%（PE 因 EPS 低基期失真）→ 依 Hard Rules <strong>以 PB 保守為準</strong>。</p>
+<hr />
+<h1>Phase B：Expansion（發散）</h1>
+<h2>B.1 總經環境</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">變數</th>
+<th style="text-align: left;">現況</th>
+<th style="text-align: left;">1 年方向</th>
+<th style="text-align: left;">影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">央行利率</td>
+<td style="text-align: left;">2.0%</td>
+<td style="text-align: left;">H2 可能降 1 碼</td>
+<td style="text-align: left;">中性偏正</td>
+</tr>
+<tr>
+<td style="text-align: left;">USD/TWD</td>
+<td style="text-align: left;">31.34</td>
+<td style="text-align: left;">升值</td>
+<td style="text-align: left;">原料成本偏負</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fed</td>
+<td style="text-align: left;">3.5-3.75%</td>
+<td style="text-align: left;">再降 1-2 碼</td>
+<td style="text-align: left;">中性偏正</td>
+</tr>
+<tr>
+<td style="text-align: left;">國內營造</td>
+<td style="text-align: left;">預算延宕、社宅流標</td>
+<td style="text-align: left;">持續偏弱</td>
+<td style="text-align: left;"><strong>負面</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">半導體</td>
+<td style="text-align: left;">台積電擴建密集期</td>
+<td style="text-align: left;">強勁</td>
+<td style="text-align: left;"><strong>間接正面</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2>B.2 景氣循環</h2>
+<p><strong>谷底築底 → 復甦初期訊號浮現</strong>（反彈動力為成本推升 + 中國出口收縮預期，非內需復甦），距完整復甦 6-12 個月。</p>
+<h2>B.3 催化劑日曆</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">時間</th>
+<th style="text-align: left;">催化劑</th>
+<th style="text-align: center;">方向</th>
+<th style="text-align: center;">重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026/05-06</td>
+<td style="text-align: left;">台灣碳費首徵</td>
+<td style="text-align: center;">±</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 Q3</td>
+<td style="text-align: left;"><strong>中國鋼鐵出口許可證執行成效檢視</strong></td>
+<td style="text-align: center;"><strong>+</strong></td>
+<td style="text-align: center;"><strong>★★★★★</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">2026 H2</td>
+<td style="text-align: left;">台積電 P2 裝機 + 強韌電網 161kV 193 億標案</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/12</td>
+<td style="text-align: left;">公共工程招標旺季</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/01</td>
+<td style="text-align: left;">中國出口許可證滿一年成效</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/02</td>
+<td style="text-align: left;"><strong>歐盟 CBAM 首次憑證購買啟動</strong></td>
+<td style="text-align: center;"><strong>−</strong></td>
+<td style="text-align: center;"><strong>★★★★</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2>B.4 Governance Risk</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">風險</th>
+<th style="text-align: left;">內容</th>
+<th style="text-align: center;">嚴重度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">內部人籌碼</td>
+<td style="text-align: left;"><strong>董監持股 26.16%→9.72%（2021→2024-25）</strong></td>
+<td style="text-align: center;"><strong>★★★★</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">治理瑕疵</td>
+<td style="text-align: left;">2023 不分派、未開法說</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">財務結構</td>
+<td style="text-align: left;"><strong>現金 ROCE -3.9%、FCF 利潤率 -2.51%</strong></td>
+<td style="text-align: center;"><strong>★★★★</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2>B.5 一年後產業結構三情境</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">五力</th>
+<th style="text-align: left;">護城河</th>
+<th style="text-align: left;">結構</th>
+<th style="text-align: center;">需求</th>
+<th style="text-align: left;">影響</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 改善</td>
+<td style="text-align: left;">中國出口許可 + 美 232 維持</td>
+<td style="text-align: left;">反傾銷略增</td>
+<td style="text-align: left;">台積電/AI 冷卻啟動</td>
+<td style="text-align: center;">淨強化</td>
+<td style="text-align: left;">毛利擴張</td>
+<td style="text-align: center;"><strong>15%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 維持</td>
+<td style="text-align: left;">鎳價反彈量能持平</td>
+<td style="text-align: left;">不變</td>
+<td style="text-align: left;">公共工程 vs 房市對沖</td>
+<td style="text-align: center;">持平</td>
+<td style="text-align: left;">毛利 7-8%</td>
+<td style="text-align: center;"><strong>35%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 惡化</td>
+<td style="text-align: left;">印尼撤鎳配額 + CBAM 衝擊</td>
+<td style="text-align: left;">護城河弱化</td>
+<td style="text-align: left;">住宅 -44%、毛利回 4-5%</td>
+<td style="text-align: center;">淨弱化</td>
+<td style="text-align: left;">毛利壓縮</td>
+<td style="text-align: center;"><strong>50%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>主判定：<strong>淨負面</strong></p>
+<h2>B.6 機率分配</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">機率</th>
+<th style="text-align: center;">加權</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Bull</td>
+<td style="text-align: center;">16.0</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Base</td>
+<td style="text-align: center;">13.0</td>
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">4.55</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bear</td>
+<td style="text-align: center;">10.0</td>
+<td style="text-align: center;">50%</td>
+<td style="text-align: center;">5.0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>期望</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><strong>11.95</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>期望報酬率 = -32.5%</strong></p>
+<hr />
+<h1>Phase C：Verification</h1>
+<p>13 項 sanity check 全通過；唯一警示：主/次模型偏差 Base/Bear &gt;20%（PE 失真），依 Hard Rules 採保守 PB，已記錄。</p>
+<hr />
+<h1>Phase D：Kill Thesis</h1>
+<h2>D.1 致命風險 Top 3</h2>
+<ol>
+<li>印尼鎳暴利稅落地 + 配額回撤 → 毛利率回歸 4-5%</li>
+<li>美國 232 50% + CBAM 雙重衝擊 → 螺絲扣件下游訂單流失傳導</li>
+<li>住宅開工 -44% 持續腰斬 → 不銹鋼建築裝潢需求結構性下行</li>
+</ol>
+<h2>D.2 Break Point</h2>
+<ul>
+<li>單季營收 YoY &lt; -15%</li>
+<li>單季毛利率 &lt; 6%</li>
+<li>LME 鎳價 &lt; 14,000 USD/T</li>
+<li>產能利用率 &lt; 40%</li>
+</ul>
+<h2>D.3 最可能錯</h2>
+<p>「需求端略偏弱」之 Q7.2 結論——若 CoWoS +29% 真實傳導 + 中國出口許可有效，Base/Bull 機率可上修。</p>
+<h2>D.4 反轉應對</h2>
+<ul>
+<li>任 2 項 D.2 觸發 → 減碼 50%</li>
+<li>跌破 PB 0.8x（10.7 元）→ 全數停損</li>
+</ul>
+<h2>D.5 質化面 Break Point</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號</th>
+<th style="text-align: center;">觸發</th>
+<th style="text-align: left;">影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">護城河破損</td>
+<td style="text-align: center;">印尼鎳暴利稅落地、CBAM 衍生件擴大</td>
+<td style="text-align: left;">Bear +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: center;">蔡政廷 / 成主賜離任</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 需求端轉向</td>
+<td style="text-align: center;">TSMC Capex 下修 &gt;10ppt</td>
+<td style="text-align: left;">Bear +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 供需缺口翻轉</td>
+<td style="text-align: center;">鎳價連 2 月 &lt; 14,000 USD/T</td>
+<td style="text-align: left;">重評機率</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 1 年五力動態破功</td>
+<td style="text-align: center;">中國出口許可證 2026 Q3 檢視無效</td>
+<td style="text-align: left;">Bull 機率歸零、Bear +15ppt</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h1>Phase E：Convergence Check</h1>
+<p>第 1 輪即收斂；所有指標達標。</p>
+<hr />
+<h1>Phase F：Final Output</h1>
+<h2>F.1 分析摘要</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Data Source</td>
+<td style="text-align: left;">[S0-S8] + [Q1-Q7]（Anchor Lock 2026-06-01）</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Category</td>
+<td style="text-align: left;">循環（B1）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">產業類別</td>
+<td style="text-align: left;">鋼鐵業 — 不銹鋼後段加工</td>
+</tr>
+<tr>
+<td style="text-align: center;">3b</td>
+<td style="text-align: left;">產業 Type</td>
+<td style="text-align: left;"><strong>T3 強循環</strong>（生命週期 30%/產業鏈 25%/管理層 20%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">質化等級（加權）</td>
+<td style="text-align: left;"><strong>D 級（10.1/100）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">4b</td>
+<td style="text-align: left;">Q7 修正後等級</td>
+<td style="text-align: left;"><strong>D（不變；Bear 機率 +10ppt）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">結構情境</td>
+<td style="text-align: left;">改善 15% / 維持 35% / 惡化 50%（<strong>淨負面</strong>）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5b</td>
+<td style="text-align: left;">需求端方向</td>
+<td style="text-align: left;"><strong>淨持平、略偏弱</strong>（供需缺口：成本緊+量能不振）</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Theme Exposure</td>
+<td style="text-align: left;">低（AI 冷卻間接、未證實）</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Model Used</td>
+<td style="text-align: left;"><strong>PB × Forward BPS（主）+ Forward PE（輔）</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Peer PE Range</td>
+<td style="text-align: left;">13.0x ~ 14.4x（⚠️ 精度受限，採參照組）</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Cycle Position</td>
+<td style="text-align: left;">谷底築底 → 復甦初期訊號</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">收斂輪次</td>
+<td style="text-align: left;">第 1 輪</td>
+</tr>
+</tbody>
+</table></div>
+<h2>F.2 質化亮點與隱憂</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">🟢 最強亮點</td>
+<td style="text-align: left;">[Q4]+[Q5] <strong>中國 2026/1 鋼鐵出口許可證 + 美 232 50%</strong>，亞洲供給結構性減 1,000-5,000 萬噸</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">🟢 次強亮點</td>
+<td style="text-align: left;">[Q3.1] 鎳價 +20% + 上游 2 月累漲 12,000 元/噸推升 Anchor Lock 毛利率至 11.9%</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">🟢 需求端正面</td>
+<td style="text-align: left;">[Q7.1] 台積電 1.5 兆 + 強韌電網 5,645 億 + CoWoS +29%（利基間接受惠）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">🔴 最大隱憂</td>
+<td style="text-align: left;">[Q2]+[Q3.5] <strong>護城河本質薄弱 + 利潤薄環節</strong>；現金 ROCE -3.9%、FCF -2.51% 警訊</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">🔴 次大隱憂</td>
+<td style="text-align: left;">[Q6.4] <strong>董監持股 26%→9.72% 大幅下降</strong>；2023 不分派治理瑕疵</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">🔴 需求端風險</td>
+<td style="text-align: left;">[Q7.1] <strong>住宅開工 -44% 腰斬</strong> + 螺絲扣件 Q1 -4.77%</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">🟡 關鍵觀察</td>
+<td style="text-align: left;"><strong>2026 Q3 中國鋼鐵出口許可證執行成效</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">🟡 分潤地位</td>
+<td style="text-align: left;">價值鏈第 4-5 環「利潤薄環節」；反彈紅利被上游 CR3 + 鎳礦端攔截</td>
+</tr>
+</tbody>
+</table></div>
+<h2>F.3 目標價三情境表</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">隱含倍數</th>
+<th style="text-align: center;">漲跌幅</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>16.0 元</strong></td>
+<td style="text-align: center;">PE 16x / PB 1.20x</td>
+<td style="text-align: center;"><strong>-9.6%</strong></td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>13.0 元</strong></td>
+<td style="text-align: center;">PB 0.95x</td>
+<td style="text-align: center;"><strong>-26.6%</strong></td>
+<td style="text-align: center;">35%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>10.0 元</strong></td>
+<td style="text-align: center;">PB 0.75x</td>
+<td style="text-align: center;"><strong>-43.5%</strong></td>
+<td style="text-align: center;">50%</td>
+</tr>
+</tbody>
+</table></div>
+<h2>F.4 風險報酬指標</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">Expected Return</td>
+<td style="text-align: left;"><strong>-32.5%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Upside (Base)</td>
+<td style="text-align: left;">-26.6%（Bull -9.6%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Downside (Bear)</td>
+<td style="text-align: left;">-43.5%</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">RR Ratio</td>
+<td style="text-align: left;"><strong>N/A — 三情境皆負，盈虧比不適用</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Top Risk</td>
+<td style="text-align: left;">印尼鎳暴利稅 + 毛利率回歸 4-5%；斷裂點單季毛利 &lt;6%</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">質化監測 Top 2</td>
+<td style="text-align: left;">(a) 董監持股是否續降；(b) 2026 Q3 中國出口許可證成效</td>
+</tr>
+<tr>
+<td style="text-align: center;">16b</td>
+<td style="text-align: left;">需求端監測 Top 2</td>
+<td style="text-align: left;">(a) LME 鎳價 + 印尼配額；(b) 台灣住宅開工</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">Total Return（含息）</td>
+<td style="text-align: left;">-32.5% + 2.82% = <strong>-29.7%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Analyst Verdict</h2>
+<ul>
+<li><strong>Recommendation：減碼 / 賣出</strong></li>
+<li><strong>Confidence：低</strong>（D 級 + 資料缺口 9 項 + 同業 PE 空缺 + 模型偏差 + 內部人籌碼警訊 + 現金 ROCE 負）</li>
+<li><strong>One-line Thesis</strong>：估值（PE 20.6x）與利潤薄環節 + D 級質化 + 1 年後結構淨負面 + 需求端略偏弱完全不匹配；TTM EPS 0.86 為週期反彈高點不可持續，Mid-cycle EPS 0.50 對應 PB 0.95x 之 Base 目標價 13 元，較現價有 26.6% 下行空間。</li>
+<li><strong>Stop Loss Rule</strong>：跌破 PB 0.8x（10.7 元）全數停損；D.5 任一觸發（特別是中國出口許可證失效、需求端轉向、鎳價跌破 14,000 USD/T）立即重評。</li>
+<li><strong>條件式買進</strong>：跌至 PB 0.6x（<strong>8.0 元附近</strong>）+ 鎳價守住 14,000 USD/T + 中國出口許可證 2026 Q3 確認有效 → 可考慮以 mid-cycle 估值低點佈局少量。</li>
+</ul>
+<hr />
+<h1>Phase G：1 年後監測儀表板</h1>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">頻率</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: left;">來源</th>
+<th style="text-align: left;">觸發</th>
+<th style="text-align: center;">Break Point</th>
+<th style="text-align: left;">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;">月營收 YoY</td>
+<td style="text-align: left;">MOPS</td>
+<td style="text-align: left;">連 2 月 &lt; -15%</td>
+<td style="text-align: center;">D.2</td>
+<td style="text-align: left;">減碼 50%</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;">LME 鎳價 + 印尼配額</td>
+<td style="text-align: left;">LME + 印尼能源礦業部</td>
+<td style="text-align: left;">連 2 月 &lt; 14,000 USD/T</td>
+<td style="text-align: center;">D.2</td>
+<td style="text-align: left;">Bear +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;">台灣鋼筋盤價</td>
+<td style="text-align: left;">工商時報</td>
+<td style="text-align: left;">連 3 週跌破 17,000 元/噸</td>
+<td style="text-align: center;">鋼價結構下行</td>
+<td style="text-align: left;">Base 機率下修</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">毛利率</td>
+<td style="text-align: left;">季報</td>
+<td style="text-align: left;">&lt; 6%</td>
+<td style="text-align: center;">D.2</td>
+<td style="text-align: left;">減碼 50%</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">TSMC Capex 指引</td>
+<td style="text-align: left;">法說會</td>
+<td style="text-align: left;">下修 &gt;10ppt</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">Bear +10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">同業 PE</td>
+<td style="text-align: left;">MOPS+財報狗</td>
+<td style="text-align: left;">P50 &lt; 11x</td>
+<td style="text-align: center;">C.3</td>
+<td style="text-align: left;">Base 倍數下修 10x</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">螺絲扣件下游</td>
+<td style="text-align: left;">MOPS</td>
+<td style="text-align: left;">任一連 3 月 YoY &lt; -10%</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">重評</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;">住宅開工</td>
+<td style="text-align: left;">內政部</td>
+<td style="text-align: left;">連 2 季 &lt; -30%</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">Bear +5ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>中國出口許可證執行成效</strong>（2026 Q3 首檢視）</td>
+<td style="text-align: left;">海關總署 + IEK</td>
+<td style="text-align: left;">中國鋼鐵出口 YoY 未減</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;"><strong>Bull 歸零、Bear +15ppt</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;">董監持股</td>
+<td style="text-align: left;">MOPS T57</td>
+<td style="text-align: left;">&lt; 8%</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">Confidence 大幅下調</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;">董監質押比</td>
+<td style="text-align: left;">MOPS T57</td>
+<td style="text-align: left;">&gt; 30%</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">重評</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">重大訊息</td>
+<td style="text-align: left;">蔡政廷/成主賜離任</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;">年報 ROE</td>
+<td style="text-align: left;">年報</td>
+<td style="text-align: left;">連 2 年 &lt; 2%</td>
+<td style="text-align: center;">A.2.5</td>
+<td style="text-align: left;">等級降 D-</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;">CBAM 衍生件擴大</td>
+<td style="text-align: left;">歐盟執委會</td>
+<td style="text-align: left;">涵蓋螺絲扣件</td>
+<td style="text-align: center;">D.5</td>
+<td style="text-align: left;">重評等級</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>異動通報門檻</strong>：任 2 項同時觸發 → 立即重跑 /估值分析。</p>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-05-12 01:25</div>
+</body>
+</html>
