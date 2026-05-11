@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1593 祺驊 估值報告</title>
+<style>:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #6c757d;
+  --border: #dee2e6;
+  --border-light: #e9ecef;
+  --accent: #0d47a1;
+  --accent-light: #e3f2fd;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --yellow: #f57f17;
+  --yellow-bg: #fff8e1;
+  --link: #1565c0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --bg-card: #1c2128;
+    --text: #e6edf3;
+    --text-secondary: #8b949e;
+    --border: #30363d;
+    --border-light: #21262d;
+    --accent: #58a6ff;
+    --accent-light: #0d1117;
+    --green: #3fb950;
+    --green-bg: #0d2818;
+    --red: #f85149;
+    --red-bg: #3d1214;
+    --yellow: #d29922;
+    --yellow-bg: #2d1f00;
+    --link: #58a6ff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system,
+               BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+nav a {
+  color: var(--link);
+  text-decoration: none;
+  padding: 4px 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Headings */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text);
+}
+h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--text-secondary);
+}
+
+/* Meta info block */
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Paragraphs & inline */
+p { margin: 0.6rem 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* Lists */
+ul, ol {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+li { margin: 0.25rem 0; }
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0.75rem 0;
+  background: var(--bg-alt);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+thead th {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+}
+@media (prefers-color-scheme: dark) {
+  thead th { background: #1f3a5f; }
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+tbody tr:nth-child(even) { background: var(--bg-alt); }
+tbody tr:hover { background: var(--accent-light); }
+
+/* Inline code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+/* Alert boxes (parsed from special markers) */
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.alert-warn {
+  background: var(--yellow-bg);
+  border-left: 4px solid var(--yellow);
+  color: var(--text);
+}
+.alert-green {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.alert-red {
+  background: var(--red-bg);
+  border-left: 4px solid var(--red);
+}
+
+/* Phase badges */
+.phase-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Verdict section */
+.verdict {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+.verdict h3 { margin-top: 0; }
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Index page ─── */
+.report-list { list-style: none; padding: 0; }
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.report-item:hover { background: var(--bg-alt); }
+.report-item .code {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  min-width: 50px;
+}
+.report-item .company {
+  font-weight: 500;
+  flex: 1;
+}
+.report-item .date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.stats {
+  display: flex;
+  gap: 16px;
+  margin: 1rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.stats span {
+  background: var(--bg-alt);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Sort bar */
+.sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.sort-bar .label {
+  color: var(--text-secondary);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.sort-bar button {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.sort-bar button:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.sort-bar button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.report-item .generated {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body { padding: 12px 10px 30px; font-size: 0.95rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  table { font-size: 0.8rem; }
+  td, th { padding: 5px 8px; }
+  .report-item { flex-wrap: wrap; gap: 4px; padding: 10px 12px; }
+  .report-item .date { width: 100%; }
+  .report-item .generated { width: 100%; margin-left: 0; }
+  .sort-bar { font-size: 0.8rem; padding: 8px 10px; }
+  .sort-bar button { padding: 4px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<nav><a href="index.html">&larr; 回報告列表</a></nav>
+<h1>1593 祺驊 估值報告</h1>
+<div class="meta">報告日期：2026-05-12 &nbsp;|&nbsp; 代碼：1593 &nbsp;|&nbsp; 公司：祺驊</div>
+<h1>1593 祺驊 估值報告</h1>
+<blockquote>
+<p>產生日期：2026-05-12
+Anchor Lock 基準日：2026-06-01（近四季 EPS / 2026-05 月營收）
+Current Price：32.5（截至 2026-05-11）
+產業 Type：T5 製造業（複合）（權重：護城河 25% / 管理層 25% / 產業鏈 25%）
+質化結構等級（加權）：C（加權 55.3/100 分）
+A.2.7 修正後等級：B（上調 1 階：需求端淨強化 + 高階關鍵零組件供不應求）
+一年後結構情境：改善 45% / 維持 35% / 惡化 20%
+需求端淨方向：淨強化（商用），供需缺口：供不應求（高階關鍵零組件）
+收斂輪次：第 2 輪</p>
+</blockquote>
+<hr />
+<h2>Phase A — Core Build</h2>
+<h3>A.1 Data Integrity &amp; Target Type Guard</h3>
+<h4>A.1.1 資料時效驗證</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Anchor Lock 來源</td>
+<td style="text-align: left;">[S0] Verified Data，基準日 2026-06-01</td>
+</tr>
+<tr>
+<td style="text-align: left;">TTM EPS</td>
+<td style="text-align: left;">2.17（近四季 0.42 / 0.44 / 0.41 / 0.90）</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026-05 月營收</td>
+<td style="text-align: left;">122M YoY +18.5%（距基準日 &lt; 1 週，無時效問題）</td>
+</tr>
+<tr>
+<td style="text-align: left;">最近財報</td>
+<td style="text-align: left;">2025 Q3 合併（2025/11 公告）</td>
+</tr>
+<tr>
+<td style="text-align: left;">最近法說會</td>
+<td style="text-align: left;">2025/12/31 自辦法說會</td>
+</tr>
+<tr>
+<td style="text-align: left;">[S1] 更新數據警示</td>
+<td style="text-align: left;">無，2025 全年合併財報應於 2026/03/31 前公告但 [S1] 未檢索到，本次仍以 Anchor Lock 為準</td>
+</tr>
+<tr>
+<td style="text-align: left;">資料過時警告</td>
+<td style="text-align: left;">無</td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.1.2 標的類型前置檢查</h4>
+<ul>
+<li>上櫃普通股，運動休閒類；非 ETF / REITs / TDR / 特別股 / 警示股 / KY 股</li>
+<li>正常進入 A.2</li>
+</ul>
+<hr />
+<h3>A.2 Qualitative Structure Scoring（消費 [Q1]~[Q7]）</h3>
+<h4>A.2.1 五力結構評分（[Q1]，反轉：強=低分）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">力</th>
+<th style="text-align: center;">強度（[Q1]）</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">供應商議價力</td>
+<td style="text-align: center;">中</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">買方議價力</td>
+<td style="text-align: center;"><strong>強→更強</strong>（喬山併 BowFlex、Peloton/Precor 一體化、Life Fitness PE 化）</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">新進入者威脅</td>
+<td style="text-align: center;">弱（EN ISO 20957 認證+12~18 月 audit+專利）</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">替代品威脅</td>
+<td style="text-align: center;">中（喬山自製化趨勢 + Tonal 線性電磁）</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">現有競爭強度</td>
+<td style="text-align: center;">強（中國低價同業 + 全球前 6 大整機 ~30% 集中度）</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>13 / 25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.2 護城河強度評分（[Q2]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">護城河類型</th>
+<th style="text-align: center;">強度</th>
+<th style="text-align: center;">可持續性</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">規模經濟</td>
+<td style="text-align: center;">弱（市值僅喬山 2.2%）</td>
+<td style="text-align: center;">5年+×1.0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">網絡效應</td>
+<td style="text-align: center;">幾乎無</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">轉換成本</td>
+<td style="text-align: center;">中（Precor &gt;25 年合作、Life Fitness/Technogym &gt;10 年）</td>
+<td style="text-align: center;">5年+×1.0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">無形資產</td>
+<td style="text-align: center;">中（混合式發電機美/德專利）</td>
+<td style="text-align: center;">5年+×1.0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">成本優勢</td>
+<td style="text-align: center;">中偏強（三地垂直整合：湖口+上海+越南）</td>
+<td style="text-align: center;">5年+×1.0</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">監管壁壘</td>
+<td style="text-align: center;">中（UL/CE/EN ISO 20957 改版重測）</td>
+<td style="text-align: center;">5年+×1.0</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>14 / 30</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.3 產業鏈位置評分（[Q3]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">判定</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">上游 pass-through 能力</td>
+<td style="text-align: center;">中（毛利率 5年 22%→31% 提升，部分來自越南廠成本）</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">中游門檻</td>
+<td style="text-align: center;">高（磁控+混合式發電機+25 年客戶積累）</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">客戶集中度（分散=高分）</td>
+<td style="text-align: center;">分散（Top1 估 &lt;10%、無 &gt;30%）</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">地緣曝險（低=高分）</td>
+<td style="text-align: center;">中（USD/TWD 升值壓力 vs 台灣 ART 15% 紅利）</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>15 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.4 生命週期與結構性變化加成（[Q4]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">判定</th>
+<th style="text-align: center;">加成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">產業生命週期</td>
+<td style="text-align: left;">成熟期（中段，CAGR 5.4%）</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">[Q4.2] 結構性變化淨方向</td>
+<td style="text-align: left;">淨正面（商用復甦+越南/台灣關稅紅利+喬山越南二廠+self-powered 趨勢+復健醫療新口袋）</td>
+<td style="text-align: center;">+2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計加成</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>+2 / ±5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.5 管理層品質評分（[Q6]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">評分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">經營層 track record（產能 guidance 兌現偏弱、2023 ROE 16%→6%斷崖、2025/02 創辦人辭世接班 4 個月即遇衝擊）</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">資本配置紀律（跨業多角化分散：宇康/合興/利統/Andra；無回購；2023 配息率 125% 超配；2020 現增+CB）</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會透明度（每年僅一次、無 EPS guidance、客戶集中度不揭露，但產品線拆解完整）</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">內部人動向（董監 11% 偏低，但<strong>零質押</strong>為正面）</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"><strong>10 / 20</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h4>A.2.6 綜合質化結構等級（T5 製造業複合，權重自適應）</h4>
+<p><strong>Type 判定：T5 製造業（複合）</strong>
+- Why this Type：祺驊 78% 為 B2B 商用健身器材零組件（精密機械設備類），合併營收 49–50% 為 Curves 健身房通路（消費服務），雙引擎屬製造業+通路複合體；景氣循環幅度溫和（非 T3 強循環）、需求由全球健身會員與 Capex 雙軌驅動。
+- 權重分配（T5）：護城河 25% / 管理層 25% / 產業鏈 25% / 五力 20% / 生命週期 ±5%</p>
+<p><strong>加權計算：</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">原始分</th>
+<th style="text-align: center;">正規化</th>
+<th style="text-align: center;">權重</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">五力</td>
+<td style="text-align: center;">13/25</td>
+<td style="text-align: center;">52.0</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">10.40</td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河</td>
+<td style="text-align: center;">14/30</td>
+<td style="text-align: center;">46.67</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">11.67</td>
+</tr>
+<tr>
+<td style="text-align: left;">產業鏈</td>
+<td style="text-align: center;">15/20</td>
+<td style="text-align: center;">75.0</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">18.75</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層</td>
+<td style="text-align: center;">10/20</td>
+<td style="text-align: center;">50.0</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">12.50</td>
+</tr>
+<tr>
+<td style="text-align: left;">生命週期</td>
+<td style="text-align: center;">+2/5</td>
+<td style="text-align: center;">+40</td>
+<td style="text-align: center;">5%</td>
+<td style="text-align: center;">+2.00</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合計</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>55.32</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>⭐ <strong>A.2.6 加權綜合分數</strong>：55.32（C 級，中性結構，護城河與管理層偏弱、產業鏈位置與生命週期加成偏強）</p>
+<h4>A.2.7 需求端獨立驗證（[Q7]）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">需求訊號類別</th>
+<th style="text-align: center;">方向</th>
+<th style="text-align: left;">本標的具體內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">大客戶 Capex / 採購指引</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: left;">喬山 1736 越南二廠 2026/Q3 量產、商用市占目標 41%、Peloton 商用 CBU YoY +14%</td>
+</tr>
+<tr>
+<td style="text-align: left;">下游產業景氣</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: left;">HFA 全球會員 YoY +6%、美國會員 77M 創高、SFIA 商用跑步機 +12.1%</td>
+</tr>
+<tr>
+<td style="text-align: left;">政府/政策採購</td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">進出口統計</td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">HS9506 具體數據 [Q7.3] 缺，但 Section 232 對中 32% 利多轉單</td>
+</tr>
+<tr>
+<td style="text-align: left;">消費者端訊號</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: left;">Google Trends「Home Gym」2025/8 達 47 創高、「Commercial treadmills」+71</td>
+</tr>
+<tr>
+<td style="text-align: left;">第三方景氣調查</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: left;">FIBO 2025 訪客 154,748 創 40 週年新高、HFA 91% 業者預期 2025 營收續增</td>
+</tr>
+</tbody>
+</table></div>
+<p>[Q7.2] 需求端淨方向：<strong>淨強化</strong>（商用面）
+[Q7.2] 供需缺口：<strong>供不應求</strong>（高階關鍵零組件，越南產能 2026/Q3 才上線）
+[Q7.3] 資料缺口：<strong>&gt;3 項</strong>（Life Fitness 私有財報、iFIT 財報、HS9506 海關出口、NPD/Circana、Mintel/Euromonitor、認證版本詳情、美軍/體育採購、員工持股、各幣別曝險百分比）</p>
+<p><strong>等級修正規則應用：</strong>
+- 淨強化 + 供不應求 → 等級<strong>上調 1 階</strong>（C → B）
+- 資料缺口 &gt;3 項 → Confidence 下調一階（不影響等級）</p>
+<p>⭐ <strong>A.2.6 原始等級：C</strong> → <strong>A.2.7 修正後等級：B</strong>
+⭐ 修正理由：商用健身器材零組件正落需求最熱區段（HFA/SFIA/Planet 三大第三方訊號同步淨強化），祺驊 78% 商用阻力系統 + 已切入喬山越南供應鏈，需求端確認有承接動能；但接班短期、業外匯損波動、ROE 結構性下滑使等級無法達到 A。</p>
+<hr />
+<h3>A.3 Peer Benchmarking</h3>
+<p><strong>同業挑選（[S4.2]）：</strong>
+- 主同業（台灣健身產業正獲利）：祺驊 1593（基準）、喬山 1736、明安 8938
+- 同業排除：力山 1515（虧損）、岱宇 1598（連續虧損）
+- 國際參考（不入 PE 區間統計）：Peloton（虧損）、Technogym（25-28x，高品牌溢價）、Planet Fitness（高 PE 通路類）</p>
+<p><strong>PE 區間統計（[S4.5]）：</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">統計</th>
+<th style="text-align: center;">PE(TTM)</th>
+<th style="text-align: left;">來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">P25</td>
+<td style="text-align: center;">10.3x（明安 8938）</td>
+<td style="text-align: left;">[S4.4]</td>
+</tr>
+<tr>
+<td style="text-align: left;">P50</td>
+<td style="text-align: center;">14.3x（祺驊 14.9 與喬山 13.7 中位）</td>
+<td style="text-align: left;">[S4.5]</td>
+</tr>
+<tr>
+<td style="text-align: left;">P75</td>
+<td style="text-align: center;">15.7x（喬山高檔）</td>
+<td style="text-align: left;">[S4.4]</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Peer 品質檢核：</strong>
+- 主營業務重疊度 &gt;50%：喬山（整機+商用，下游品牌兼祺驊客戶）✔；明安（運動代工，弱可比但同產業 ecosystem）部分符合
+- ⚠️ Peer 數量 = 2 家正獲利（不含明安弱可比），逼近 3 家底線；F.1 標示「Peer PE Range 精度受限」、Bull/Bear 區間加 ±5% 緩衝</p>
+<hr />
+<h3>A.4 Model Selection</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">適用判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Type A 穩定成長</td>
+<td style="text-align: left;">部分符合（成熟期但僅中個位數成長）</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type B1 循環</td>
+<td style="text-align: left;">不符（非強循環）</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type C 轉型/控股/複合體</td>
+<td style="text-align: left;"><strong>符合</strong>（合併營收 50% Curves + 50% 零組件雙引擎）</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type D 虧損成長</td>
+<td style="text-align: left;">不符</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>主模型：Forward PE</strong>（雙引擎合併 EPS 直接套用）
+<strong>次模型：殖利率法（TSY）</strong> 交叉驗證（殖利率 6.15% 屬「股利收益型評價」標的，配息穩定 14 年）
+<strong>SOTP 為何不採量化拆分</strong>：Curves 無獨立公開財報（合併入帳前後僅有營收占比），無法精算拆分倍數，僅在 F.2 質化引述。</p>
+<hr />
+<h3>A.5 三情境目標價（Forward 12M，B 級對應）</h3>
+<h4>Step A — Forward EPS 推導</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward 營收 YoY</th>
+<th style="text-align: center;">營益率</th>
+<th style="text-align: center;">業外貢獻</th>
+<th style="text-align: center;">Forward EPS</th>
+<th style="text-align: left;">驅動 / 隱含假設</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">+15%</td>
+<td style="text-align: center;">12%</td>
+<td style="text-align: center;">正貢獻 0.20</td>
+<td style="text-align: center;"><strong>2.60</strong></td>
+<td style="text-align: left;">喬山越南二廠 2026/Q3 全量產 + 商用 CBU 持續雙位數 + USD/TWD 守住 30 + Curves 加盟店持平</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">+8~10%</td>
+<td style="text-align: center;">11%</td>
+<td style="text-align: center;">中性</td>
+<td style="text-align: center;"><strong>2.30</strong></td>
+<td style="text-align: left;">商用持續、家用觀望、USD/TWD 30~32 中位、業外匯損與利息對沖</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">+3%</td>
+<td style="text-align: center;">9%</td>
+<td style="text-align: center;">負 0.10（匯損擴大）</td>
+<td style="text-align: center;"><strong>1.70</strong></td>
+<td style="text-align: left;">USD/TWD 升破 28 持續 + 喬山自製化分流 + Peloton 商用 CBU 增速放緩</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ Forward EPS 從 Anchor Lock TTM 2.17 出發，<strong>未線性外推</strong>（[S3] 業外結構分析：50~60% 為匯兌+一次性，故 Bear 情境保守扣業外）。</p>
+<h4>Step B — 倍數選擇（B 級對應 + Re-rating/De-rating 檢測）</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">質化等級 B</th>
+<th style="text-align: center;">Bull</th>
+<th style="text-align: center;">Base</th>
+<th style="text-align: center;">Bear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">標準區間</td>
+<td style="text-align: center;">P75</td>
+<td style="text-align: center;">P25~P75 中位</td>
+<td style="text-align: center;">P25</td>
+</tr>
+<tr>
+<td style="text-align: center;">應用倍數</td>
+<td style="text-align: center;"><strong>15.5x</strong>（P70，含 Peer 不足 -5% 緩衝）</td>
+<td style="text-align: center;"><strong>13.5x</strong>（P40，因 ROE 偏低 + 業外波動，從 P50 下調）</td>
+<td style="text-align: center;"><strong>11.2x</strong>（P25 上緣，殖利率支撐減緩跌幅）</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Re-rating 觸發條件</strong>：若 2026 H2 接班團隊兌現越南產能 + Curves 同店成長確認 → Bull 倍數可貼 P75</li>
+<li><strong>De-rating 風險</strong>：若 ROE 持續 &lt;6% 或喬山自製訊號浮現 → Base 倍數壓到 P25 下緣</li>
+</ul>
+<h4>Step C — 三情境目標價</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">Forward EPS</th>
+<th style="text-align: center;">倍數</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">漲跌幅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;">2.60</td>
+<td style="text-align: center;">15.5x</td>
+<td style="text-align: center;"><strong>40.3</strong></td>
+<td style="text-align: center;">+24.0%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;">2.30</td>
+<td style="text-align: center;">13.5x</td>
+<td style="text-align: center;"><strong>31.05</strong></td>
+<td style="text-align: center;">-4.5%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;">1.70</td>
+<td style="text-align: center;">11.2x</td>
+<td style="text-align: center;"><strong>19.0</strong></td>
+<td style="text-align: center;">-41.5%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>TSY 法交叉驗證（Base）：</strong> 預期 2026 配息 2.0 元（配息率 87%）÷ 目標殖利率 6.4% = 31.25 元，與主模型 Base 31.05 偏差 &lt;1%，模型一致性 ✔</p>
+<hr />
+<h2>Phase B — Expansion</h2>
+<h3>B.1 總經環境（[S5.1] 校準）</h3>
+<ul>
+<li><strong>台灣央行重貼現率 2.0%</strong>（2026/03 維持）→ 對台股殖利率型有利</li>
+<li><strong>USD/TWD 2026/05 約 30</strong>（從 2024 高點 33.27 降至 28.93 低點，年貶 -13%）→ <strong>對祺驊 USD 出口型核心逆風</strong>，匯損是 Bear 情境主驅動</li>
+<li><strong>聯準會 2026 上半年偏鴿</strong> → 支持北美健身會員與耐久財需求 → 對祺驊正面</li>
+<li><strong>美中關稅</strong>：對中 32%+ 持續、對台 ART 15% 不疊加 → 轉單紅利持續至 2026/11/10 Section 301 暫停期屆滿</li>
+</ul>
+<h3>B.2 景氣循環定位（[S5.2]）</h3>
+<ul>
+<li><strong>商用：擴張中段</strong>（Planet Fitness 連 5 年加速展店、HFA 預估 2026 美國健身支出 USD 600B、喬山商用市占 41%）</li>
+<li><strong>家用：復甦初期</strong>（2022~2024 谷底，2024 Q4 起回溫，2025 H2 因關稅短暫觀望）</li>
+<li>祺驊「78% 商用」結構正好落在熱點上，但 22% 家用受逆風</li>
+<li>持續期：商用擴張中段預估再 2~3 年；家用復甦完整週期 3~5 年</li>
+</ul>
+<h3>B.3 催化劑日曆（未來 12 個月，[S6]）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">時間</th>
+<th style="text-align: left;">催化劑</th>
+<th style="text-align: center;">影響</th>
+<th style="text-align: center;">重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2026/06 中下旬</td>
+<td style="text-align: left;">2026 股東會 + 除權息日（殖利率題材）</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/Q3 末</td>
+<td style="text-align: left;"><strong>喬山 1736 越南二廠全面完工</strong>（祺驊已切入該供應鏈）</td>
+<td style="text-align: center;">↑↑</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/10–11</td>
+<td style="text-align: left;">Q3/26 財報 + Q4 旺季拉貨確認</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: center;">★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2026/11/10</td>
+<td style="text-align: left;"><strong>美中 Section 301 暫停期屆滿</strong>（延長 vs 重啟貿易戰）</td>
+<td style="text-align: center;">↑ / ↓</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/02–03</td>
+<td style="text-align: left;">2026 自結 EPS + 配息政策</td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/03/10–12</td>
+<td style="text-align: left;"><strong>HFA Show 2027（前 IHRSA）</strong></td>
+<td style="text-align: center;">↑↑</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">2027/04 中</td>
+<td style="text-align: left;"><strong>FIBO 2027 / Cologne</strong></td>
+<td style="text-align: center;">↑</td>
+<td style="text-align: center;">★★★★</td>
+</tr>
+</tbody>
+</table></div>
+<h3>B.4 Governance &amp; Structural Risk（[S7]）</h3>
+<ol>
+<li><strong>股權結構與治理：</strong></li>
+<li>董監持股 11.2%（偏低）+ <strong>質押比 0%</strong>（正面）</li>
+<li>家族控制（父李穎哲→女李佳蓉+女婿連子瑞），2025/02 創辦人辭世，接班 &lt;4 個月即遇衝擊</li>
+<li><strong>公司治理評鑑連 2 屆（112/113 年度）排名 81~100%（最後一級距）</strong> — ⚠️ 治理品質警訊</li>
+<li>
+<p>簽證會計師：<strong>勤業眾信（Big 4 Deloitte）</strong> — 正面</p>
+</li>
+<li>
+<p><strong>財務結構風險：</strong></p>
+</li>
+<li>負債比 31%（中度）、流動比 217%、速動比 172%（健康）</li>
+<li>利息保障 17.82 倍（健康）</li>
+<li>短期借款占總負債 49.88%（偏高，主為營運週轉）</li>
+<li><strong>2023 配息率 125%（侵蝕保留盈餘）、2024 94%、2025 92%</strong> — 殖利率支撐有隱憂</li>
+<li>
+<p><strong>權益累積換算調整由 -33,721 擴大至 -80,955 仟元</strong>（2025 升值影響顯著）</p>
+</li>
+<li>
+<p><strong>轉投資結構分散：</strong> 宇康醫電 25% / 合興 17.2% / 利統 8.9% / Andra Capital USD 30 萬 — <strong>跨業多角化分散，與本業垂直整合度低</strong></p>
+</li>
+</ol>
+<h3>B.5 一年後產業結構三情境（核心，含機率分配）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">五力變化</th>
+<th style="text-align: left;">護城河變化</th>
+<th style="text-align: left;">結構性變化</th>
+<th style="text-align: center;">需求端</th>
+<th style="text-align: left;">對祺驊影響</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 改善</td>
+<td style="text-align: left;">新進入者持續弱、買方議價力部分被越南關稅紅利抵銷</td>
+<td style="text-align: left;">越南產能成本優勢深化、復健醫療新口袋擴張</td>
+<td style="text-align: left;">喬山越南二廠 + Planet 展店 + Section 301 延長</td>
+<td style="text-align: center;">淨強化</td>
+<td style="text-align: left;">營收 +12~15%、商用 CBU 帶動毛利擴</td>
+<td style="text-align: center;"><strong>45%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 維持</td>
+<td style="text-align: left;">五力持平、買方集中度上升被分散客戶緩衝</td>
+<td style="text-align: left;">護城河不變</td>
+<td style="text-align: left;">商用穩、家用觀望、匯率 30~32</td>
+<td style="text-align: center;">持平</td>
+<td style="text-align: left;">營收 +5~10%、毛利 31% 持平</td>
+<td style="text-align: center;"><strong>35%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 惡化</td>
+<td style="text-align: left;">喬山自製化、Peloton 訂戶崩、USD/TWD &lt;28</td>
+<td style="text-align: left;">規模經濟侵蝕、轉換成本被自製化威脅</td>
+<td style="text-align: left;">Section 301 重啟 / 家用衰退傳導商用</td>
+<td style="text-align: center;">淨弱化</td>
+<td style="text-align: left;">營收 +0~3%、匯損侵蝕毛利</td>
+<td style="text-align: center;"><strong>20%</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">合計</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>結構情境主判定：淨正面</strong>（取機率最高的改善 45%）
+<strong>關鍵驅動 + 預期時機：</strong> 喬山越南二廠 2026/Q3 量產為最大確定性催化（已切入供應鏈），Planet Fitness 2026 展店 180~190 家延續商用需求；負面風險集中在 USD/TWD 升破 28 與 Section 301 重啟（皆為 H2 後可能事件），故 Bear 機率壓在 20%。</p>
+<h3>B.6 機率分配（質化 B + 結構改善 → Base 50~55% / Bull 25~30% / Bear 15~20%）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">機率</th>
+<th style="text-align: center;">加權貢獻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">🟢 Bull</td>
+<td style="text-align: center;">40.3</td>
+<td style="text-align: center;">25%</td>
+<td style="text-align: center;">10.075</td>
+</tr>
+<tr>
+<td style="text-align: center;">🟡 Base</td>
+<td style="text-align: center;">31.05</td>
+<td style="text-align: center;">55%</td>
+<td style="text-align: center;">17.078</td>
+</tr>
+<tr>
+<td style="text-align: center;">🔴 Bear</td>
+<td style="text-align: center;">19.0</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">3.800</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>期望目標價</strong></td>
+<td style="text-align: center;"><strong>30.95</strong></td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><strong>30.95</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>期望報酬率（不含股利）</strong> = (30.95 - 32.5) / 32.5 = <strong>-4.77%</strong></li>
+<li><strong>期望總報酬（含預估殖利率 6.15%）</strong> = <strong>+1.38%</strong></li>
+</ul>
+<p>⚠️ Rule check：Base 55% ≥ 40% ✔；機率與 B.2 商用擴張中段 + B.5 結構改善一致 ✔</p>
+<hr />
+<h2>Phase C — Verification</h2>
+<h3>C.1 數據來源檢查</h3>
+<ol>
+<li>✔ 所有 Forward EPS 假設標示來源（[S0]/[S3]/[S5]/[Q4]）</li>
+<li>✔ Curves 拆分為質化處理（[S2.2] 揭露占比 50%，無獨立 EPS 屬合理範圍）</li>
+</ol>
+<h3>C.2 邏輯矛盾檢查</h3>
+<ol>
+<li>✔ 成長率 +8~10%（Base）與營益率 11%（從 10.9 微升）一致；模型 Forward PE 適用複合體</li>
+<li>✔ B 級對應 Base 13.5x（P40，從 P50 下調反映 ROE 偏低）+ Bull 25%/Base 55%/Bear 20% 機率區間在 B.6 規則表內</li>
+<li>✔ 推論未超出資料支持</li>
+</ol>
+<h3>C.3 Sanity 八項</h3>
+<ol>
+<li>✔ Forward 12M EPS（非歷史）</li>
+<li>✔ Bull 隱含淨利率 12.5%（與 Anchor 持平，未超同業 P75；Technogym 淨利率 10%，祺驊 12.5% 已是同業 P75 區間，<strong>Bull 不再上調</strong>）</li>
+<li>✔ Bull 隱含市值 40.3 × 4億股 / 10 = 16.1億，遠低於喬山 ~650億，無天花板問題</li>
+<li>✔ Bull 40.3 對比 5 年最高價（粗估 80+ 元 / 2021 配息 3.6 元 + PE 16x × EPS 4.9 = 78），Bull 仍在 5 年高點 5 折以下，無需特別催化劑佐證</li>
+<li>✔ Bull EPS 2.60 vs TTM 2.17 = +19.8%，歷史曾達成（2020~2022 EPS 4.49~4.93，遠高），可達成</li>
+<li>✔ 主模型 Forward PE vs 次模型 TSY 偏差 &lt;1%（Base 31.05 vs 31.25），一致</li>
+<li>✔ 質化-估值匹配：B 級 Base 13.5x（P40）合理，未超 P75；Bear 11.2x（P25 上緣）含殖利率支撐合理</li>
+<li>✔ 質化-需求匹配：[Q7.2] 淨強化 + Bull 機率 25%（在 25~30% 範圍），未過度樂觀；Bear 20% 含 Section 301 重啟與匯率尾端風險，合理</li>
+</ol>
+<p><strong>Sanity 全通過，無需修正。</strong></p>
+<hr />
+<h2>Phase D — Kill Thesis</h2>
+<h3>D.1 致命風險 Top 3</h3>
+<ol>
+<li><strong>喬山自製化分流</strong>（具體競爭威脅）：喬山 2024/04 併購 BowFlex 後客戶端集中、2025 商用市占目標 41%；若喬山擴大內製磁控/發電機 → 祺驊喪失最大成長客戶之一。<strong>證據點</strong>：[Q1] 替代品威脅 1 年動態 中→中偏強；[Q3.3] 喬山 2024 Q4 新增越南廠在地供應為雙刃劍。</li>
+<li><strong>USD/TWD 持續升值（&gt;13% 累計幅度）</strong>：2025 已年貶 -13%，2026 若再升破 28 持續 2 季 → 毛利率從 31.3% 退至 28% 以下、業外匯損由 -80,955 仟元再擴大、淨利率掉破 10%。</li>
+<li><strong>接班失敗 / 治理風險</strong>：2025/02 創辦人李穎哲辭世，李佳蓉（女兒）+ 連子瑞（女婿）團隊接班 &lt;4 個月，<strong>公司治理評鑑連 2 屆 81~100% 末段班</strong> —— 若 1 年後關鍵管理階層異動或內部爭議浮現，估值將從 P50 降至 P25。</li>
+</ol>
+<h3>D.2 Break Point（具體數字斷裂點）</h3>
+<ul>
+<li><strong>單月營收 YoY &lt; +5% 連續 3 月</strong>（vs Anchor 12 月平均 +10.8%）</li>
+<li><strong>毛利率 &lt; 28%</strong>（從 31.3% 退 3ppt）</li>
+<li><strong>USD/TWD &lt; 28 持續 2 季</strong></li>
+<li><strong>單季 ROE 年化 &lt; 5%</strong>（vs Anchor 近四季 1.7~3.2% 已偏低，需警惕全年口徑滑落）</li>
+<li><strong>配息率 &gt; 100% 連續 2 年</strong>（侵蝕保留盈餘速率）</li>
+</ul>
+<h3>D.3 最可能錯的假設</h3>
+<p><strong>「商用復甦動能延續至 2026 全年」</strong> — 此假設立基於 Planet Fitness 展店、Peloton CBU 雙位數、喬山越南量產<strong>三條同步達標</strong>。若 Planet 展店減速（已降至 +14% 計畫 vs 過去 +20%+）、Peloton 商用增速放緩至個位數、或喬山越南量產延後至 2027 → 整個 Forward EPS 2.30 Base 假設動搖，需重評至 EPS 2.00 區間。</p>
+<h3>D.4 信心反轉應對</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">觸發條件</th>
+<th style="text-align: left;">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">跌破 28 元（PB 0.85x，5年低點區）</td>
+<td style="text-align: left;">減碼 30%</td>
+</tr>
+<tr>
+<td style="text-align: left;">連續 3 月營收 YoY 轉負</td>
+<td style="text-align: left;">減碼 50% + 重啟估值分析</td>
+</tr>
+<tr>
+<td style="text-align: left;">月營收 YoY 連 2 月 &lt; +5% + USD/TWD 破 28</td>
+<td style="text-align: left;">評等下調至「減碼」</td>
+</tr>
+<tr>
+<td style="text-align: left;">重大關鍵管理階層異動（董座/總座/技術長）</td>
+<td style="text-align: left;">Confidence 立即下調至「低」</td>
+</tr>
+</tbody>
+</table></div>
+<h3>D.5 質化面 Break Point（核心，[Q]-鏈追蹤）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">訊號類型</th>
+<th style="text-align: left;">具體監測項</th>
+<th style="text-align: center;">觸發閾值</th>
+<th style="text-align: left;">對質化等級影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">客戶流失</td>
+<td style="text-align: left;">[Q3.3] 喬山訂單異動</td>
+<td style="text-align: center;">喬山月營收 YoY 連 2 月 &lt;+5% 或法說口徑下修商用市占目標</td>
+<td style="text-align: left;">B 級降至 C</td>
+</tr>
+<tr>
+<td style="text-align: left;">護城河破損</td>
+<td style="text-align: left;">[Q2] 喬山自製化具體訊號</td>
+<td style="text-align: center;">喬山 IR 揭露自製比例 &gt;30% 或祺驊喬山單衰退</td>
+<td style="text-align: left;">等級降 1 階</td>
+</tr>
+<tr>
+<td style="text-align: left;">管理層異動</td>
+<td style="text-align: left;">[Q6.1] 接班團隊調整</td>
+<td style="text-align: center;">李佳蓉 / 連子瑞任一離任 或 獨董異動</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">產業位置滑落</td>
+<td style="text-align: left;">[Q4.1] 全球健身會員增速放緩</td>
+<td style="text-align: center;">HFA 全球會員 YoY &lt;+3% 連 2 季</td>
+<td style="text-align: left;">重新評估</td>
+</tr>
+<tr>
+<td style="text-align: left;">法說會跳票</td>
+<td style="text-align: left;">[Q6.3] 越南產能 guidance</td>
+<td style="text-align: center;">2026/12 法說會自陳越南產能延後</td>
+<td style="text-align: left;">Confidence 下調</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 需求端轉向</td>
+<td style="text-align: left;">[Q7.1] Planet Fitness 設備分部</td>
+<td style="text-align: center;">YoY 增速腰斬至個位數</td>
+<td style="text-align: left;">Bear 機率上修 10ppt</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 供需缺口翻轉</td>
+<td style="text-align: left;">[Q7.2] 高階零組件供需</td>
+<td style="text-align: center;">中國同業低價滲透商用且 EN ISO 認證鬆動</td>
+<td style="text-align: left;">重評所有情境機率</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐ 1 年五力動態破功</td>
+<td style="text-align: left;">[Q1] 買方議價力惡化</td>
+<td style="text-align: center;">喬山內製比例曝光 + Peloton 商用 CBU YoY &lt;+5%</td>
+<td style="text-align: left;">Base 機率下修、Confidence 下調</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Phase E — Convergence Check（內部自檢，使用者僅看結果）</h2>
+<h3>E.1 雙軌比較（vs Phase A 初版）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">指標</th>
+<th style="text-align: center;">變動</th>
+<th style="text-align: center;">閾值</th>
+<th style="text-align: center;">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">目標價（Base）</td>
+<td style="text-align: center;">&lt; ±2%</td>
+<td style="text-align: center;">±15%</td>
+<td style="text-align: center;">✔ 收斂</td>
+</tr>
+<tr>
+<td style="text-align: left;">機率分配</td>
+<td style="text-align: center;">&lt; ±5ppt</td>
+<td style="text-align: center;">±20%</td>
+<td style="text-align: center;">✔ 收斂</td>
+</tr>
+<tr>
+<td style="text-align: left;">質化等級</td>
+<td style="text-align: center;">A.2.6 C → A.2.7 B（規則修正，非迭代變動）</td>
+<td style="text-align: center;">無變動</td>
+<td style="text-align: center;">✔</td>
+</tr>
+<tr>
+<td style="text-align: left;">新增致命風險</td>
+<td style="text-align: center;">D.1~D.3 識別完整</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">✔</td>
+</tr>
+<tr>
+<td style="text-align: left;">未解釋矛盾</td>
+<td style="text-align: center;">Sanity 全通過</td>
+<td style="text-align: center;">無</td>
+<td style="text-align: center;">✔</td>
+</tr>
+</tbody>
+</table></div>
+<h3>E.2 收斂判定：<strong>第 2 輪達成收斂</strong>，進入 Phase F。</h3>
+<hr />
+<h2>Phase F — Final Output（決策儀表板）</h2>
+<h3>F.1 分析摘要</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Data Source</td>
+<td style="text-align: left;">[S0]~[Q7] + [S1]~[S8]（Anchor Lock 基準日 2026-06-01）</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Category</td>
+<td style="text-align: left;">成熟+利基（複合體）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">產業類別</td>
+<td style="text-align: left;">機械設備（健身器材關鍵零組件）+ 消費服務（Curves 健身房）</td>
+</tr>
+<tr>
+<td style="text-align: center;">3b</td>
+<td style="text-align: left;">⭐ 產業 Type（A.2.6）</td>
+<td style="text-align: left;"><strong>T5 製造業（複合）</strong>（驅動權重：護城河 25% / 管理層 25% / 產業鏈 25%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">⭐ 質化結構等級（加權）</td>
+<td style="text-align: left;"><strong>C</strong>（加權 55.3/100 分）</td>
+</tr>
+<tr>
+<td style="text-align: center;">4b</td>
+<td style="text-align: left;">⭐ A.2.7 修正後等級</td>
+<td style="text-align: left;"><strong>B</strong>（修正方向：上調 1 階，需求端淨強化 + 供不應求）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">⭐ 一年後結構情境</td>
+<td style="text-align: left;">改善 45% / 維持 35% / 惡化 20%（主判定：淨正面）</td>
+</tr>
+<tr>
+<td style="text-align: center;">5b</td>
+<td style="text-align: left;">⭐ 需求端淨方向（Q7.2）</td>
+<td style="text-align: left;">淨強化（商用主導）/ 供需缺口：供不應求（高階關鍵零組件）</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Theme Exposure</td>
+<td style="text-align: left;">中 — 主題：商用健身復甦 + 越南產能轉移 + self-powered 環保</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Model Used</td>
+<td style="text-align: left;">Forward PE（主）+ TSY 殖利率法（次，交叉驗證偏差 &lt;1%）；SOTP 質化引述</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Peer PE Range (P25~P75)</td>
+<td style="text-align: left;">10.3x ~ 15.7x（⚠️ Peer 樣本 = 2 家正獲利，精度受限）</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Cycle Position</td>
+<td style="text-align: left;">商用：擴張中段；家用：復甦初期</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">收斂輪次</td>
+<td style="text-align: left;">第 2 輪收斂</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.2 質化亮點與隱憂</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">具體內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">🟢 最強質化亮點</td>
+<td style="text-align: left;">[Q2] <strong>轉換成本 + 認證壁壘雙護城河</strong>：Precor 合作 &gt;25 年（2000 起混合式發電機美國專利供貨）、Life Fitness/Technogym &gt;10 年；新進入者商用機種開發→量產需 12-18 月 + EN ISO 20957 重測週期，護城河穩固。</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">🟢 次強質化亮點</td>
+<td style="text-align: left;">[Q3.4] <strong>三地產線地緣紅利</strong>：湖口（台灣 ART 15%）+ 上海（對美 32% 壓力但喬山轉單）+ 越南（對美 20%，2025 Q4 起對外出貨），分散議價力 + 避開關稅疊加。</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">🟢 需求端正面訊號（Q7.1）</td>
+<td style="text-align: left;"><strong>HFA 全球會員 YoY +6%、Planet Fitness FY25 設備分部 USD 310M YoY +21%、Peloton 商用 CBU YoY +14%、SFIA 商用跑步機 +12.1%</strong> —— 1 年後商用需求端淨強化確認。</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">🔴 最大質化隱憂</td>
+<td style="text-align: left;">[Q1] <strong>買方議價力強→更強</strong>：喬山 2024/04 併購 BowFlex 後客戶集中度上升；Peloton/Precor 經 KPS 整併、Life Fitness 私有化，前 10 大客戶整併潮使祺驊面對更集中議價對手；若喬山擴大自製可能侵蝕祺驊訂單。</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">🔴 次大質化隱憂</td>
+<td style="text-align: left;">[Q6.1] <strong>接班團隊未經驗證</strong>：2024/11 李佳蓉任董座兼總經理、創辦人李穎哲 2025/02 辭世，接班 &lt;4 個月即遇衝擊；<strong>公司治理評鑑連 2 屆（112/113）排名 81~100% 末段班</strong>為治理品質警訊。</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">🔴 需求端風險訊號（Q7.1）</td>
+<td style="text-align: left;"><strong>USD/TWD 2025 年貶 -13%、權益累積換算調整由 -33,721 擴大至 -80,955 仟元</strong>；Peloton FY26 訂戶展望續降；家用 SFIA 多數細項仍負成長。</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">🟡 1 年後最關鍵觀察點</td>
+<td style="text-align: left;">[Q4.2] + [S6] <strong>喬山 1736 越南二廠 2026/Q3 全面完工</strong>（產能為一廠 2 倍，祺驊已切入供應鏈），為 Bull 情境最大確定性催化；同步觀察 2026/11/10 Section 301 暫停期屆滿是否延長。</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">🟡 產業價值鏈分潤地位（Q3.5）</td>
+<td style="text-align: left;">祺驊位於價值鏈「中段—利基匯集點」：淨利率 12.5% 高於整機代工（力山、岱宇 2025 皆負）與多數整機 OBM（喬山 5~9%），<strong>但遠低於品牌+服務</strong>（Technogym 10%、Planet Fitness 16%、Peloton 訂閱端 68%）。1 年後利潤重分配方向偏中性，訂閱/AI 教練吃軟體加值利潤，零組件廠難分潤。</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.3 目標價三情境表</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">目標價</th>
+<th style="text-align: center;">隱含倍數</th>
+<th style="text-align: center;">漲跌幅</th>
+<th style="text-align: center;">機率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">🟢 Bull</td>
+<td style="text-align: center;"><strong>40.3</strong></td>
+<td style="text-align: center;">15.5x</td>
+<td style="text-align: center;">+24.0%</td>
+<td style="text-align: center;">25%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🟡 Base</td>
+<td style="text-align: center;"><strong>31.05</strong></td>
+<td style="text-align: center;">13.5x</td>
+<td style="text-align: center;">-4.5%</td>
+<td style="text-align: center;">55%</td>
+</tr>
+<tr>
+<td style="text-align: left;">🔴 Bear</td>
+<td style="text-align: center;"><strong>19.0</strong></td>
+<td style="text-align: center;">11.2x</td>
+<td style="text-align: center;">-41.5%</td>
+<td style="text-align: center;">20%</td>
+</tr>
+</tbody>
+</table></div>
+<h3>F.4 風險報酬指標</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">Expected Return（機率加權，不含股利）</td>
+<td style="text-align: left;"><strong>-4.77%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Upside (Base)</td>
+<td style="text-align: left;">-4.5%（樂觀情境 Bull：+24.0%）</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Downside (Bear)</td>
+<td style="text-align: left;">-41.5%</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><strong>RR Ratio（盈虧比）</strong></td>
+<td style="text-align: left;"><strong>0.58</strong>（不含息）／ 0.85（含息）— <strong>未達 2.0 積極買進門檻</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Top Risk + Break Point</td>
+<td style="text-align: left;"><strong>喬山自製化分流 / USD/TWD &lt;28 / 接班失敗</strong> → Break：毛利率 &lt;28% 或 ROE &lt;5%</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">⭐ 質化面監測訊號 Top 2</td>
+<td style="text-align: left;">[Q3.3] 喬山月營收與商用市占目標兌現（每季）；[Q6.3] 越南產能 guidance 兌現（2026/12 法說會）</td>
+</tr>
+<tr>
+<td style="text-align: center;">16b</td>
+<td style="text-align: left;">⭐ 需求端監測訊號 Top 2（Q7.1）</td>
+<td style="text-align: left;">Planet Fitness 設備分部 YoY 增速（每季 PLNT 8-K）；Peloton 商用 CBU YoY 增速（每季 PTON 10-Q）</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;"><strong>Total Return（含息）</strong></td>
+<td style="text-align: left;"><strong>+1.38%</strong>（期望報酬 -4.77% + 殖利率 6.15%）</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3>Analyst Verdict</h3>
+<ul>
+<li><strong>Recommendation：</strong> 觀望（Hold，殖利率收益型持有）</li>
+<li><strong>Confidence：</strong> <strong>中</strong></li>
+<li>反映 A.2.7 修正後 B 級（非 A）</li>
+<li>[Q7.3] 需求端資料缺口 &gt;3 項（Confidence 下調）</li>
+<li>接班團隊 &lt;4 個月尚短期、公司治理評鑑連 2 屆末段班</li>
+<li>收斂於第 2 輪（非首輪）、無致命風險立即觸發</li>
+<li><strong>One-line Thesis：</strong> 商用健身復甦 + 喬山越南二廠 2026/Q3 量產為確定性催化，但 USD/TWD 升值壓力與接班短期風險使 RR Ratio 僅 0.58~0.85，現價 32.5 已 priced in Base 預期，建議「<strong>殖利率收益型持有</strong>」（含息期望總報酬 +1.38%，主由 6.15% 殖利率支撐），不適合作為新進積極買進標的。</li>
+<li><strong>Stop Loss Rule：</strong></li>
+<li><strong>價位觸發</strong>：跌破 28 元 → 減碼 30%；跌破 25 元 → 減碼 50%</li>
+<li><strong>質化觸發</strong>：D.5 任一訊號觸發須重評（最關鍵：喬山自製比例曝光、USD/TWD &lt;28 持續 2 季、月營收 YoY 連 3 月 &lt; +5%）</li>
+<li><strong>條件式買進觸發</strong>（選填）：</li>
+<li>跌至 27.5 元以下（隱含殖利率 7.3%+，PB 0.83x）且 D.5 質化訊號無觸發 → 可作為高殖利率收益型加碼點</li>
+<li>喬山越南二廠 2026/Q3 量產確認 + 祺驊 Q3 月營收 YoY 連 3 月 &gt;+15% → 評等可上調至「買進」</li>
+</ul>
+<hr />
+<h2>Phase G — 1 年後監測儀表板（持有期每月/每季回檢）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">頻率</th>
+<th style="text-align: left;">監測項</th>
+<th style="text-align: left;">資料來源</th>
+<th style="text-align: left;">觸發條件（數字化）</th>
+<th style="text-align: center;">對應 Break Point</th>
+<th style="text-align: left;">觸發後動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;"><strong>祺驊月營收 YoY</strong></td>
+<td style="text-align: left;">公開資訊觀測站（每月 10 日前）</td>
+<td style="text-align: left;">連續 3 月 &lt; +5%</td>
+<td style="text-align: center;">D.2 單月營收 YoY</td>
+<td style="text-align: left;">減碼 30%</td>
+</tr>
+<tr>
+<td style="text-align: center;">每月</td>
+<td style="text-align: left;"><strong>USD/TWD 匯率月底收盤</strong></td>
+<td style="text-align: left;">央行公告 / 台銀</td>
+<td style="text-align: left;">&lt; 28.0 持續 2 月</td>
+<td style="text-align: center;">D.2 USD/TWD</td>
+<td style="text-align: left;">評等下調，重啟估值分析</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>喬山 1736 法說會（含越南二廠進度）</strong></td>
+<td style="text-align: left;">喬山官網 IR（每季）</td>
+<td style="text-align: left;">Capex 指引下修 &gt;10ppt 或越南量產延後</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">B 級降至 C，Bear 機率上修 10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>Peloton PTON 商用 CBU YoY</strong></td>
+<td style="text-align: left;">SEC 10-Q（每季）</td>
+<td style="text-align: left;">YoY &lt; +5%（vs 當前 +14%）</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">Bear 機率上修 5ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>Planet Fitness 設備分部 YoY</strong></td>
+<td style="text-align: left;">PLNT SEC 8-K（每季）</td>
+<td style="text-align: left;">YoY 增速腰斬至個位數</td>
+<td style="text-align: center;">D.5 需求端轉向</td>
+<td style="text-align: left;">Bear 機率上修 10ppt</td>
+</tr>
+<tr>
+<td style="text-align: center;">每季</td>
+<td style="text-align: left;"><strong>祺驊毛利率</strong></td>
+<td style="text-align: left;">公司季報附註</td>
+<td style="text-align: left;">&lt; 28%（從 31.3% 退 3ppt）</td>
+<td style="text-align: center;">D.2 毛利率</td>
+<td style="text-align: left;">減碼 30%，Forward EPS 重估</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;"><strong>董監持股 / 質押比變動</strong></td>
+<td style="text-align: left;">公開資訊觀測站重訊</td>
+<td style="text-align: left;">質押比 &gt;10% 或大股東異常賣超</td>
+<td style="text-align: center;">D.5 內部人動向</td>
+<td style="text-align: left;">Confidence 立即下調至「低」</td>
+</tr>
+<tr>
+<td style="text-align: center;">半年</td>
+<td style="text-align: left;"><strong>管理層異動（李佳蓉 / 連子瑞 / 獨董）</strong></td>
+<td style="text-align: left;">重大訊息公告</td>
+<td style="text-align: left;">任一關鍵職位離任</td>
+<td style="text-align: center;">D.5 管理層異動</td>
+<td style="text-align: left;">Confidence 下調，重評質化等級</td>
+</tr>
+<tr>
+<td style="text-align: center;">年度</td>
+<td style="text-align: left;"><strong>年報 ROE 趨勢 + Curves 經營成果揭露</strong></td>
+<td style="text-align: left;">年報（每年 4 月前）</td>
+<td style="text-align: left;">全年 ROE &lt; 5% 或 Curves 分部營收 YoY 轉負</td>
+<td style="text-align: center;">A.2.5 + Q4.2.B</td>
+<td style="text-align: left;">等級降 1 階，重啟估值分析</td>
+</tr>
+<tr>
+<td style="text-align: center;">一次性</td>
+<td style="text-align: left;"><strong>2026/11/10 Section 301 暫停期屆滿</strong></td>
+<td style="text-align: left;">USTR Federal Register</td>
+<td style="text-align: left;">重啟 / 延長 / 加碼</td>
+<td style="text-align: center;">B.3 催化劑</td>
+<td style="text-align: left;">重啟估值分析（不等下一季）</td>
+</tr>
+<tr>
+<td style="text-align: center;">一次性</td>
+<td style="text-align: left;"><strong>2027/03 HFA Show 2027 / 2027/04 FIBO 2027 訂單能見度</strong></td>
+<td style="text-align: left;">法說會 IR</td>
+<td style="text-align: left;">訂單能見度 &lt;3 月 或 客戶下單轉保守</td>
+<td style="text-align: center;">D.5 需求端</td>
+<td style="text-align: left;">重啟估值分析</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>異動通報門檻</strong>：<strong>任 2 項同時觸發 → 立即重跑 /估值分析</strong>（不等下一季）。</p>
+<hr />
+<h2>附錄：Hard Rules 自檢</h2>
+<ul>
+<li>✔ Forward 12M EPS（非歷史 EPS）</li>
+<li>✔ 目標價倍數符合 A.5 Step B 質化 B 級對應區間</li>
+<li>✔ 所有結論可追溯（[SN] / [QN] 引用 + 標示假設）</li>
+<li>✔ Confidence「中」與 Phase D 風險 + Phase E 第 2 輪收斂 + A.2.7 B 級一致</li>
+<li>✔ 同業挑選遵循 A.3 規則（標示 Peer 樣本不足）</li>
+<li>✔ 主/次模型偏差 &lt;1%（無需以保守者為準）</li>
+<li>✔ F.2 質化亮點與隱憂 8 項齊備</li>
+<li>✔ Phase G 監測儀表板 11 項齊備（含一次性事件 2 項）</li>
+<li>✔ A.2.6 採 T5 產業權重自適應（非等權加總）</li>
+<li>✔ A.2.7 採 Q7 需求端修正（C → B 上調 1 階）</li>
+<li>✔ Anchor Lock 全程未被覆蓋</li>
+</ul>
+<div class="footer">Deep Research 估值報告 &middot; 產生時間 2026-05-12 01:25</div>
+</body>
+</html>
